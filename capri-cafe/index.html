@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Capri Cafe in Gore: all-day breakfast and lunch, Tutty’s Famous Oyster Soup, take-home meal combos and local catering.">
+  <meta name="theme-color" content="#17294a">
+  <title>Capri Cafe — Real Food on Main Street, Gore</title>
+  <style>
+    :root{--navy:#17294a;--navy-2:#0d1a31;--cream:#f6f0df;--paper:#fffaf0;--red:#aa2638;--mustard:#e4b53d;--mint:#a6c9b7;--ink:#161616;--line:rgba(23,41,74,.22)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}a{color:inherit}img{display:block;max-width:100%}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:99;background:white;padding:.8rem}
+    .hours-ribbon{height:30px;display:flex;justify-content:center;align-items:center;background:var(--red);color:#fff;font-size:.63rem;font-weight:900;letter-spacing:.16em;text-transform:uppercase}
+    header{height:82px;display:flex;align-items:center;gap:2rem;padding:0 clamp(1rem,4.5vw,4.5rem);background:var(--cream);border-bottom:2px solid var(--navy)}
+    .brand{text-decoration:none;color:var(--navy);font:900 2.2rem/.75 Georgia,serif;letter-spacing:-.06em}.brand small{display:block;margin-top:.4rem;font:900 .5rem Arial,sans-serif;letter-spacing:.2em;text-transform:uppercase}
+    nav{display:flex;align-items:center;gap:1.5rem;margin-left:auto}nav a{text-decoration:none;font-size:.67rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    .head-actions{display:flex;gap:.65rem;align-items:center}.social-link{width:44px;height:44px;border:2px solid var(--navy);border-radius:50%;display:grid;place-items:center;text-decoration:none;color:var(--navy);font-weight:900}
+    .button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:.75rem 1.05rem;border:2px solid currentColor;text-decoration:none;font-size:.66rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase;transition:.2s}.button:hover{transform:translateY(-2px)}.button.navy{background:var(--navy);border-color:var(--navy);color:#fff}.button.red{background:var(--red);border-color:var(--red);color:#fff}.button.light{background:var(--cream);color:var(--navy)}
+    .hero{min-height:680px;display:grid;grid-template-columns:.92fr 1.08fr;border-bottom:2px solid var(--navy)}
+    .hero-copy{padding:clamp(3.5rem,8vw,7.5rem) clamp(1.2rem,5vw,5.5rem);display:flex;flex-direction:column;justify-content:center;position:relative;background:var(--cream)}
+    .hero-copy:after{content:"71";position:absolute;right:1.5rem;bottom:0;color:rgba(23,41,74,.05);font:900 15rem/.75 Georgia,serif}
+    .kicker{margin:0 0 1rem;color:var(--red);font-size:.63rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+    h1{position:relative;z-index:1;margin:0;max-width:650px;color:var(--navy);font:900 clamp(4.1rem,8vw,7.7rem)/.82 Georgia,serif;letter-spacing:-.065em}h1 em{color:var(--red);font-weight:400}
+    .hero-copy>p:not(.kicker){position:relative;z-index:1;max-width:530px;margin:1.4rem 0 1.5rem;font-size:1rem;line-height:1.65}.hero-actions{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:.65rem}
+    .hero-photo{position:relative;overflow:hidden;background:var(--navy)}.hero-photo>img{width:100%;height:100%;object-fit:cover;object-position:48% 50%;filter:saturate(.82) contrast(1.03)}.hero-photo:after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(13,26,49,.46),transparent 55%)}
+    .order-ticket{position:absolute;z-index:2;right:5%;bottom:6%;width:260px;padding:1.25rem;background:var(--paper);color:var(--navy);transform:rotate(1.5deg);box-shadow:0 15px 40px rgba(0,0,0,.25);background-image:repeating-linear-gradient(0deg,transparent,transparent 25px,rgba(23,41,74,.07) 26px)}
+    .order-ticket small{font-size:.55rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.order-ticket b{display:block;margin:.5rem 0;font:900 1.5rem/1.05 Georgia,serif}.order-ticket p{margin:0;font-size:.72rem;line-height:1.55}
+    .paths{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid var(--navy)}.paths a{min-height:130px;padding:1.3rem;border-right:2px solid var(--navy);text-decoration:none;display:flex;flex-direction:column;justify-content:space-between}.paths a:nth-child(1){background:var(--mustard)}.paths a:nth-child(2){background:var(--mint)}.paths a:nth-child(3){background:var(--red);color:#fff}.paths a:nth-child(4){background:var(--navy);color:#fff}.paths span{font-size:.55rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase}.paths b{font:900 1.45rem Georgia,serif}
+    section{padding:clamp(4.5rem,8vw,8rem) clamp(1rem,5vw,5rem)}.inner{max-width:1280px;margin:0 auto}
+    .section-head{display:grid;grid-template-columns:1fr .8fr;gap:6vw;align-items:end}.section-head h2{margin:0;color:var(--navy);font:900 clamp(3.2rem,6vw,6rem)/.86 Georgia,serif;letter-spacing:-.055em}.section-head h2 em{color:var(--red);font-weight:400}.section-head p{margin:0 0 .4rem;max-width:520px;font:italic 1.18rem/1.55 Georgia,serif}
+    .menu-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:3rem}.food-card{background:var(--paper);border:2px solid var(--navy);display:grid;grid-template-columns:1.05fr .95fr;overflow:hidden}.food-card figure{margin:0;aspect-ratio:4/3;overflow:hidden}.food-card img{width:100%;height:100%;object-fit:cover}.food-card .copy{padding:1.4rem;display:flex;flex-direction:column}.label{align-self:flex-start;background:var(--mustard);color:var(--navy);padding:.35rem .55rem;font-size:.55rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}.food-card h3{margin:.8rem 0 .5rem;color:var(--navy);font:900 1.65rem/1 Georgia,serif}.food-card p{margin:0;color:#4e4e4e;font-size:.8rem;line-height:1.55}.food-card .line{margin-top:auto;padding-top:1rem;color:var(--red);font-size:.62rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .menu-list{margin-top:1.2rem;display:grid;grid-template-columns:repeat(4,1fr);border:2px solid var(--navy);background:var(--navy);gap:2px}.menu-item{background:var(--cream);padding:1.2rem}.menu-item small{font-size:.53rem;font-weight:900;letter-spacing:.12em;color:var(--red);text-transform:uppercase}.menu-item b{display:block;margin:.45rem 0;font:900 1.1rem Georgia,serif;color:var(--navy)}.menu-item p{margin:0;font-size:.72rem;line-height:1.45}
+    .soup{background:var(--navy);color:#fff;overflow:hidden}.soup-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:6vw;align-items:center}.soup-photo{position:relative}.soup-photo img{width:88%;aspect-ratio:4/3;object-fit:cover;border:12px solid var(--cream);transform:rotate(-2deg)}.stamp{position:absolute;right:2%;bottom:-4%;width:135px;height:135px;border-radius:50%;background:var(--red);border:3px dashed var(--cream);display:grid;place-items:center;text-align:center;font:900 .72rem/1.25 Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;transform:rotate(7deg)}
+    .soup .kicker{color:var(--mustard)}.soup h2{margin:0;font:900 clamp(3.5rem,7vw,7rem)/.82 Georgia,serif;letter-spacing:-.055em}.soup h2 em{color:var(--mustard);font-weight:400}.soup .lead{max-width:580px;margin:1.4rem 0;font-size:1rem;line-height:1.7;color:#d5dbe4}.facts{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.4rem}.fact{border-left:4px solid var(--mustard);padding-left:.8rem}.fact b{display:block;font:900 1.25rem Georgia,serif}.fact small{color:#bfc9d7;font-size:.65rem}
+    .takehome{background:var(--mustard)}.take-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}.service-card{background:var(--paper);border:2px solid var(--navy);overflow:hidden}.service-card figure{margin:0;aspect-ratio:16/9;overflow:hidden;border-bottom:2px solid var(--navy)}.service-card img{width:100%;height:100%;object-fit:cover}.service-card .copy{padding:1.5rem}.service-card small{font-size:.55rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--red)}.service-card h3{margin:.5rem 0;color:var(--navy);font:900 2.2rem Georgia,serif}.service-card p{font-size:.86rem;line-height:1.6;color:#464646}.service-card .button{margin-top:.4rem}
+    .visit{background:var(--cream)}.visit-grid{display:grid;grid-template-columns:1fr .9fr;gap:6vw}.visit h2{margin:0;color:var(--navy);font:900 clamp(3.4rem,7vw,6.5rem)/.84 Georgia,serif;letter-spacing:-.06em}.visit h2 em{color:var(--red);font-weight:400}.ledger{margin-top:2rem;border-top:2px solid var(--navy)}.row{display:grid;grid-template-columns:145px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}.row b{font-size:.59rem;letter-spacing:.14em;text-transform:uppercase;color:var(--red)}.row span{font-size:.86rem;line-height:1.5}
+    .note-box{background:var(--mint);border:2px solid var(--navy);padding:2rem;align-self:start;position:relative}.note-box:before{content:"ORDER NOTE";position:absolute;right:1.2rem;top:1rem;color:rgba(23,41,74,.25);font-size:.55rem;font-weight:900;letter-spacing:.16em}.note-box h3{margin:1rem 0;color:var(--navy);font:900 2.5rem/.95 Georgia,serif}.note-box p{line-height:1.6}.note-box .button{margin:.3rem .3rem 0 0}
+    .proof{padding-top:4rem;padding-bottom:4rem}.proof-grid{display:grid;grid-template-columns:230px 1fr;gap:2rem;align-items:center;border-top:2px solid var(--navy);padding-top:2rem}.proof img{width:230px;aspect-ratio:3/2;object-fit:cover;border:2px solid var(--navy)}.proof h3{margin:0 0 .4rem;color:var(--navy);font:900 1.5rem Georgia,serif}.proof p{margin:0;max-width:700px;color:#555;line-height:1.55;font-size:.82rem}
+    footer{padding:1.5rem clamp(1rem,5vw,5rem);background:var(--navy-2);color:#c6cfde;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.64rem}footer a{margin-left:1rem}
+    .mobile-menu{display:none}
+    @media(max-width:1000px){nav{display:none}.hero{grid-template-columns:1fr 1fr}.menu-grid{grid-template-columns:1fr}.menu-list{grid-template-columns:1fr 1fr}.soup-grid,.visit-grid{grid-template-columns:1fr}.soup-photo{max-width:620px}.take-grid{grid-template-columns:1fr}}
+    @media(max-width:760px){
+      body{padding-bottom:64px}.hours-ribbon{height:25px;font-size:.49rem;letter-spacing:.1em}header{height:68px;padding:0 .8rem;gap:.6rem}.brand{font-size:1.55rem}.brand small{font-size:.42rem}.head-actions{margin-left:auto}header .button{display:none}
+      .social-link{width:44px;height:44px}
+      .hero{grid-template-columns:1fr;min-height:auto}.hero-copy{padding:3.5rem 1rem 3rem}.hero-copy:after{font-size:10rem}h1{font-size:4.3rem}.hero-photo{height:440px}.order-ticket{width:230px;right:1rem}
+      .paths{grid-template-columns:1fr 1fr}.paths a{min-height:110px;border-bottom:2px solid var(--navy)}
+      section{padding:4.5rem 1rem}.section-head{grid-template-columns:1fr;gap:1.2rem}.food-card{grid-template-columns:1fr}.food-card figure{aspect-ratio:4/3}.menu-list{grid-template-columns:1fr 1fr}.menu-item{padding:1rem}.soup-grid{gap:3rem}.soup-photo img{width:94%}.stamp{width:110px;height:110px;font-size:.62rem}.row{grid-template-columns:105px 1fr}.note-box{padding:1.4rem}.proof-grid{grid-template-columns:100px 1fr;gap:1rem}.proof img{width:100px}.proof{padding-top:3rem;padding-bottom:3rem}footer{padding:1.5rem 1rem}
+      .mobile-menu{position:fixed;bottom:0;left:0;right:0;z-index:30;height:64px;display:flex;align-items:center;justify-content:center;background:var(--red);color:#fff;text-decoration:none;font-size:.72rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;border-top:2px solid var(--navy)}
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="hours-ribbon">Main Street, Gore · Mon–Fri 6–2 · Sat–Sun 8–2</div>
+  <header>
+    <a class="brand" href="#top">CAPRI<small>Family cafe · Gore, Southland</small></a>
+    <nav aria-label="Primary navigation"><a href="#cafe">Cafe</a><a href="#soup">Oyster soup</a><a href="#take-home">Take home</a><a href="#visit">Visit</a></nav>
+    <div class="head-actions">
+      <a class="social-link" href="https://www.facebook.com/Capri-Restaurant-507064109380792/" target="_blank" rel="noopener" aria-label="Official Capri Cafe Facebook">f</a>
+      <a class="button navy" href="https://www.capricafe.co.nz/food-menu.html" target="_blank" rel="noopener">View food menu</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="kicker">Home-cooked in Gore for more than twenty years</p>
+        <h1>Real food.<br><em>Main Street.</em></h1>
+        <p>All-day breakfast, a proper Southland lunch and family recipes that travel home with you.</p>
+        <div class="hero-actions"><a class="button red" href="https://www.capricafe.co.nz/food-menu.html" target="_blank" rel="noopener">See breakfast & lunch</a><a class="button light" href="#take-home">Food for later</a></div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/capri-interior-hero.webp" width="1600" height="1000" alt="Capri Cafe dining room and team in Gore">
+        <aside class="order-ticket"><small>Today’s useful order</small><b>Come hungry.<br>Leave sorted.</b><p>Coffee and a meal now. Oyster soup, ready meals or catering for what comes next.</p></aside>
+      </div>
+    </section>
+
+    <div class="paths" aria-label="Choose what you need">
+      <a href="#cafe"><span>01 · Sit down</span><b>Breakfast & lunch</b></a>
+      <a href="#soup"><span>02 · A family recipe</span><b>Tutty’s Oyster Soup</b></a>
+      <a href="#take-home"><span>03 · Make life easier</span><b>Meal Combos</b></a>
+      <a href="#catering"><span>04 · Feed a group</span><b>Catering</b></a>
+    </div>
+
+    <section id="cafe">
+      <div class="inner">
+        <div class="section-head"><div><p class="kicker">The cafe table</p><h2>The usuals<br><em>worth returning for.</em></h2></div><p>Familiar food, cooked from tried-and-true family recipes—whether you start early or make lunch the main event.</p></div>
+        <div class="menu-grid">
+          <article class="food-card"><figure><img src="assets/eggs-benedict.webp" width="800" height="600" loading="lazy" alt="Capri Cafe eggs benedict"></figure><div class="copy"><span class="label">All-day breakfast</span><h3>Eggs Benedict</h3><p>Organic eggs, toasted English muffin, spinach, house hollandaise and streaky bacon.</p><span class="line">Also available with smoked salmon</span></div></article>
+          <article class="food-card"><figure><img src="assets/berry-pancakes.webp" width="800" height="600" loading="lazy" alt="Berry compote pancakes at Capri Cafe"></figure><div class="copy"><span class="label">Breakfast favourite</span><h3>Berry Pancakes</h3><p>A pancake stack with berry compote and a choice of cream or yoghurt.</p><span class="line">See the full official menu</span></div></article>
+        </div>
+        <div class="menu-list">
+          <article class="menu-item"><small>Southland start</small><b>The Stonker</b><p>Eggs, bacon, sausage, mushrooms, tomato, onions and hash browns.</p></article>
+          <article class="menu-item"><small>Local lunch</small><b>Blue Cod</b><p>Southland fish, chips, salad and tartare sauce.</p></article>
+          <article class="menu-item"><small>Home style</small><b>Roast of the Day</b><p>Roast vegetables, peas, corn and a good serving of gravy.</p></article>
+          <article class="menu-item"><small>Make it yours</small><b>Dietary requests</b><p>Ask about available choices; shared equipment is used in the kitchen.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="soup" id="soup">
+      <div class="inner soup-grid">
+        <div class="soup-photo"><img src="assets/oyster-soup.webp" width="800" height="600" loading="lazy" alt="Pack of Tutty’s Famous Oyster Soup"><span class="stamp">A real taste<br>of the South</span></div>
+        <div><p class="kicker">Tutty’s Famous Oyster Soup</p><h2>A family secret,<br><em>ready to travel.</em></h2><p class="lead">A rich, creamy family recipe made with real Bluff oysters. Enjoy it at Capri or order frozen pouches for delivery in New Zealand.</p>
+          <div class="facts"><span class="fact"><b>40-year recipe</b><small>passed through the family</small></span><span class="fact"><b>Frozen fresh</b><small>for storage and courier delivery</small></span><span class="fact"><b>Nationwide</b><small>shipping details confirmed per order</small></span></div>
+          <a class="button red" href="https://www.capricafe.co.nz/order-oyster-soup.html" target="_blank" rel="noopener">Start an oyster soup order</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="takehome" id="take-home">
+      <div class="inner">
+        <div class="section-head"><div><p class="kicker">Cooked here, useful elsewhere</p><h2>Food that keeps<br><em>helping.</em></h2></div><p>Take home one less thing to worry about, or let Capri prepare the food for everyone around your table.</p></div>
+        <div class="take-grid">
+          <article class="service-card"><figure><img src="assets/ready-meals.webp" width="800" height="600" loading="lazy" alt="Capri Cafe take-home meal combos in containers"></figure><div class="copy"><small>Meal Combos</small><h3>Home cooking, already handled.</h3><p>Freshly packed meals for home, holidays or someone who could use an easier dinner. The changing selection includes familiar roasts, stews, macaroni cheese and other cafe favourites.</p><a class="button navy" href="https://www.capricafe.co.nz/order-meal-combos.html" target="_blank" rel="noopener">Choose meal combos</a></div></article>
+          <article class="service-card" id="catering"><figure><img src="assets/catering-table.webp" width="800" height="600" loading="lazy" alt="Capri Cafe catering platters and fruit"></figure><div class="copy"><small>Catering</small><h3>Good food for the whole room.</h3><p>Sandwiches, savouries, rolls, fruit and hot meals for meetings, birthdays, weddings and celebrations. Add dietary needs to the official order form.</p><a class="button navy" href="https://www.capricafe.co.nz/order-catering.html" target="_blank" rel="noopener">Plan a catering order</a></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="inner visit-grid">
+        <div><p class="kicker">Your Main Street local</p><h2>Early coffee.<br><em>Easy lunch.</em></h2>
+          <div class="ledger">
+            <div class="row"><b>Address</b><span>Capri Restaurant<br>71–73 Main Street, Gore<br>Southland 9710, New Zealand</span></div>
+            <div class="row"><b>Mon–Fri</b><span>06:00–14:00</span></div>
+            <div class="row"><b>Sat–Sun</b><span>08:00–14:00</span></div>
+            <div class="row"><b>Write to us</b><span>orders@capricafe.co.nz</span></div>
+          </div>
+        </div>
+        <aside class="note-box"><p class="kicker">Need something specific?</p><h3>Put it in writing.</h3><p>Ask about current prices, a special order, dietary needs or catering details. The Capri team can reply with the information that applies to your order.</p><a class="button navy" href="mailto:orders@capricafe.co.nz?subject=Capri%20Cafe%20enquiry">Email Capri</a><a class="button" href="https://www.capricafe.co.nz/contact-us.html" target="_blank" rel="noopener">Contact page</a></aside>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="inner proof-grid"><img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Small comparison of the current Capri website and this clearer mobile demo"><div><p class="kicker">A small presentation study</p><h3>Same family food. Clearer reasons to choose it.</h3><p>The cafe, oyster soup, ready meals and catering now have distinct paths, while the real food and familiar Gore character stay intact.</p></div></div>
+    </section>
+  </main>
+
+  <footer><span>Demo preview using verified public information from Capri Cafe.</span><span><a href="https://www.capricafe.co.nz/" target="_blank" rel="noopener">Official website</a><a href="https://www.facebook.com/Capri-Restaurant-507064109380792/" target="_blank" rel="noopener">Facebook</a></span></footer>
+  <a class="mobile-menu" href="https://www.capricafe.co.nz/food-menu.html" target="_blank" rel="noopener">View breakfast & lunch</a>
+</body>
+</html>
