@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A clear Catlins base-camp guide for Whistling Frog Resort: accommodation, cafe information, nearby nature and direct online booking.">
+  <meta name="theme-color" content="#17372e">
+  <title>Whistling Frog Resort — Your Central Catlins Base Camp</title>
+  <style>
+    :root{--forest:#17372e;--forest-2:#254c3e;--night:#142235;--paper:#f1f0e8;--mist:#dce4dc;--track:#f0c746;--rust:#d86b45;--ink:#12221d;--white:#fff;--line:rgba(18,34,29,.18);--radius:4px}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;-webkit-font-smoothing:antialiased}
+    a{color:inherit}
+    img{display:block;max-width:100%}
+    .skip{position:absolute;left:-9999px}.skip:focus{left:1rem;top:1rem;z-index:99;background:#fff;padding:.75rem}
+    .topline{height:30px;display:flex;align-items:center;justify-content:center;background:var(--track);color:var(--ink);font-size:.68rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase}
+    .site-header{height:78px;position:absolute;top:30px;left:0;right:0;z-index:10;display:flex;align-items:center;gap:2rem;padding:0 clamp(1.25rem,4vw,4.5rem);color:#fff;border-bottom:1px solid rgba(255,255,255,.28)}
+    .brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;min-width:max-content}
+    .frog-mark{width:38px;height:38px;border:2px solid var(--track);border-radius:50%;display:grid;place-items:center;color:var(--track);font:800 1rem Georgia,serif}
+    .brand b{display:block;font:700 1rem Georgia,serif;letter-spacing:.04em}.brand small{display:block;margin-top:.18rem;font-size:.55rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase}
+    nav{display:flex;align-items:center;gap:1.35rem;margin-left:auto}nav a{text-decoration:none;font-size:.7rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+    .nav-actions{display:flex;align-items:center;gap:.65rem}
+    .social-link{width:44px;height:44px;border:1px solid rgba(255,255,255,.55);display:grid;place-items:center;border-radius:50%;font-weight:900;text-decoration:none}
+    .button{min-height:44px;display:inline-flex;align-items:center;justify-content:center;padding:.78rem 1.05rem;border:1px solid currentColor;text-decoration:none;font-size:.68rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase;transition:.2s}
+    .button:hover{transform:translateY(-2px)}
+    .button.primary{background:var(--track);border-color:var(--track);color:var(--ink)}
+    .button.light{background:#fff;color:var(--ink);border-color:#fff}
+    .hero{min-height:760px;position:relative;display:flex;align-items:flex-end;overflow:hidden;background:var(--night);color:#fff}
+    .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 44%;filter:saturate(.82) contrast(1.06)}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,25,20,.84) 0%,rgba(9,25,20,.48) 48%,rgba(9,25,20,.1) 75%),linear-gradient(0deg,rgba(9,25,20,.78),transparent 45%)}
+    .hero-content{position:relative;z-index:2;width:min(1320px,100%);margin:0 auto;padding:180px clamp(1.25rem,4vw,4.5rem) 72px}
+    .eyebrow{display:flex;align-items:center;gap:.7rem;margin:0 0 1rem;font-size:.68rem;font-weight:900;letter-spacing:.2em;text-transform:uppercase}.eyebrow:before{content:"";width:42px;height:4px;background:var(--track)}
+    h1{max-width:840px;margin:0;font:700 clamp(3.6rem,8.5vw,7.4rem)/.87 Georgia,serif;letter-spacing:-.055em}
+    h1 em{color:var(--track);font-weight:400}
+    .hero-copy{max-width:610px;margin:1.4rem 0 1.6rem;font-size:1.04rem;line-height:1.65}
+    .hero-actions{display:flex;gap:.7rem;flex-wrap:wrap}
+    .trail-card{position:absolute;right:clamp(1.25rem,5vw,5rem);bottom:72px;z-index:3;width:270px;background:rgba(241,240,232,.94);color:var(--ink);padding:1.35rem;transform:rotate(-1.5deg);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+    .trail-card span{font-size:.58rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase}.trail-card strong{display:block;margin:.5rem 0;font:700 1.55rem/1.05 Georgia,serif}.trail-card p{margin:0;font-size:.75rem;line-height:1.5}
+    .route-strip{display:grid;grid-template-columns:repeat(4,1fr);background:var(--track);border-bottom:1px solid var(--ink)}
+    .route-strip a{display:flex;gap:.8rem;align-items:center;padding:1.15rem 1.3rem;border-right:1px solid rgba(18,34,29,.3);text-decoration:none}
+    .route-strip b{font:700 1.65rem Georgia,serif}.route-strip span{font-size:.62rem;font-weight:900;letter-spacing:.13em;text-transform:uppercase}
+    section{padding:clamp(4.5rem,8vw,8rem) clamp(1.25rem,5vw,5rem)}
+    .section-inner{max-width:1280px;margin:0 auto}
+    .intro-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:7vw;align-items:start}
+    .kicker{margin:0 0 .8rem;font-size:.63rem;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--rust)}
+    h2{margin:0;font:700 clamp(2.7rem,5vw,5rem)/.92 Georgia,serif;letter-spacing:-.04em}h2 em{font-weight:400;color:var(--forest-2)}
+    .lead{margin:1.4rem 0 0;font-size:1.02rem;line-height:1.7;max-width:620px}
+    .field-note{border-left:5px solid var(--track);padding:1rem 0 1rem 1.2rem;font:italic 1.25rem/1.45 Georgia,serif}
+    .stay-grid{display:grid;grid-template-columns:1.1fr .9fr .9fr;gap:1rem;margin-top:3rem}
+    .stay-card{position:relative;background:#fff;border:1px solid var(--line);overflow:hidden}
+    .stay-card figure{margin:0;aspect-ratio:4/3;overflow:hidden;background:#cfd6cf}.stay-card img{width:100%;height:100%;object-fit:cover;transition:.4s}.stay-card:hover img{transform:scale(1.025)}
+    .stay-card .copy{padding:1.3rem}.stay-card small{font-size:.58rem;font-weight:900;letter-spacing:.15em;text-transform:uppercase;color:var(--rust)}.stay-card h3{margin:.45rem 0 .6rem;font:700 1.65rem Georgia,serif}.stay-card p{margin:0;font-size:.82rem;line-height:1.55;color:#44534d}
+    .stay-card:first-child{grid-row:span 2}.stay-card:first-child figure{aspect-ratio:4/5}
+    .stay-card.link-card{display:flex;flex-direction:column;justify-content:space-between;padding:1.5rem;background:var(--forest);color:#fff}.link-card h3{font-size:2rem}.link-card p{color:#dce4dc}.link-card .button{margin-top:1.2rem;align-self:flex-start}
+    .day{background:var(--forest);color:#fff;overflow:hidden}
+    .day .kicker{color:var(--track)}.day h2 em{color:#9ec7b4}
+    .day-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.2);margin-top:3rem;border:1px solid rgba(255,255,255,.2)}
+    .day-card{background:var(--forest);padding:1.6rem}.day-card figure{margin:-1.6rem -1.6rem 1.4rem;aspect-ratio:4/3;overflow:hidden}.day-card img{width:100%;height:100%;object-fit:cover}.day-card .time{color:var(--track);font-size:.65rem;font-weight:900;letter-spacing:.16em}.day-card h3{font:700 2rem Georgia,serif;margin:.45rem 0}.day-card p{color:#cbd8d2;line-height:1.6;font-size:.85rem}
+    .cafe-alert{display:grid;grid-template-columns:auto 1fr auto;gap:1rem;align-items:center;margin-top:1px;padding:1.2rem 1.4rem;background:var(--track);color:var(--ink)}.cafe-alert b{font:700 1.25rem Georgia,serif}.cafe-alert p{margin:0;font-size:.8rem;line-height:1.45}.cafe-alert .button{white-space:nowrap}
+    .map-section{background:var(--mist)}
+    .map-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:5vw;align-items:center}
+    .photo-stack{position:relative;min-height:550px}.photo-stack .main{position:absolute;inset:0 12% 8% 0;width:88%;height:92%;object-fit:cover}.photo-stack .night{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:4/3;object-fit:cover;border:10px solid var(--mist)}
+    .pin-list{margin:2rem 0 0;padding:0;list-style:none;border-top:1px solid var(--line)}.pin-list li{display:grid;grid-template-columns:46px 1fr;gap:1rem;padding:1rem 0;border-bottom:1px solid var(--line)}.pin{width:34px;height:34px;border:2px solid var(--rust);border-radius:50% 50% 50% 0;transform:rotate(-45deg);display:grid;place-items:center}.pin span{transform:rotate(45deg);font-size:.65rem;font-weight:900}.pin-list b{display:block;font:700 1.2rem Georgia,serif}.pin-list small{line-height:1.45;color:#52625b}
+    .visit{background:var(--night);color:#fff}.visit-grid{display:grid;grid-template-columns:1fr .85fr;gap:7vw}.visit .kicker{color:var(--track)}.visit h2 em{color:#a9c8bd}.details{margin-top:2rem;display:grid;gap:1px;background:rgba(255,255,255,.15);border:1px solid rgba(255,255,255,.15)}.detail{display:grid;grid-template-columns:120px 1fr;gap:1rem;padding:1rem;background:var(--night)}.detail b{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--track)}.detail span{font-size:.86rem;line-height:1.5}
+    .route-box{background:var(--track);color:var(--ink);padding:2rem;align-self:start;position:relative}.route-box:before{content:"";position:absolute;inset:10px;border:1px dashed rgba(18,34,29,.45)}.route-box>*{position:relative}.route-box .big{font:700 clamp(2.5rem,5vw,4.6rem)/.9 Georgia,serif}.route-box p{line-height:1.6}.route-box .button{margin:.35rem .35rem 0 0}
+    .proof{background:var(--paper);padding-top:4rem;padding-bottom:4rem}.proof-grid{display:grid;grid-template-columns:230px 1fr;gap:2rem;align-items:center;border-top:1px solid var(--line);padding-top:2rem}.proof img{width:230px;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line)}.proof h3{font:700 1.5rem Georgia,serif;margin:0 0 .4rem}.proof p{margin:0;max-width:670px;color:#52625b;line-height:1.55;font-size:.84rem}
+    footer{background:#0c1a16;color:#bdcbc5;padding:1.5rem clamp(1.25rem,5vw,5rem);display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;font-size:.65rem}footer a{margin-left:1rem}
+    .mobile-book{display:none}
+    @media(max-width:980px){nav{display:none}.trail-card{display:none}.intro-grid,.map-grid,.visit-grid{grid-template-columns:1fr}.stay-grid{grid-template-columns:1fr 1fr}.stay-card:first-child{grid-row:auto}.stay-card:first-child figure{aspect-ratio:4/3}.day-grid{grid-template-columns:1fr}.photo-stack{min-height:480px}}
+    @media(max-width:760px){
+      body{padding-bottom:64px}.topline{height:25px;font-size:.53rem}.site-header{top:25px;height:68px;padding:0 1rem;gap:.6rem}.brand b{font-size:.82rem}.brand small{font-size:.47rem}.frog-mark{width:34px;height:34px}.nav-actions{margin-left:auto}.site-header .button{display:none}
+      .social-link{width:44px;height:44px;background:rgba(20,34,53,.28)}
+      .hero{min-height:690px}.hero-content{padding:150px 1rem 46px}h1{font-size:3.8rem;max-width:360px}.hero-copy{font-size:.9rem;max-width:330px}.hero-actions .button{flex:1}
+      .route-strip{grid-template-columns:1fr 1fr}.route-strip a{padding:.9rem;border-bottom:1px solid rgba(18,34,29,.28)}section{padding:4.5rem 1rem}.stay-grid{grid-template-columns:1fr}.cafe-alert{grid-template-columns:1fr}.cafe-alert .button{justify-self:start}.photo-stack{min-height:380px}.visit-grid{gap:2rem}.detail{grid-template-columns:90px 1fr}.proof-grid{grid-template-columns:100px 1fr;gap:1rem}.proof img{width:100px}.proof{padding-top:3rem;padding-bottom:3rem}footer{padding:1.5rem 1rem}
+      .mobile-book{position:fixed;left:0;right:0;bottom:0;z-index:30;height:64px;display:flex;align-items:center;justify-content:center;background:var(--track);color:var(--ink);text-decoration:none;font-size:.75rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;border-top:1px solid var(--ink)}
+    }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="topline">Southern Scenic Route · Central Catlins · New Zealand</div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Whistling Frog Resort home"><span class="frog-mark">WF</span><span><b>Whistling Frog</b><small>Resort & Cafe · The Catlins</small></span></a>
+    <nav aria-label="Primary navigation"><a href="#stay">Stay</a><a href="#eat">Eat</a><a href="#explore">Explore</a><a href="#visit">Find us</a></nav>
+    <div class="nav-actions">
+      <a class="social-link" href="https://www.facebook.com/WhistlingFrogNZ" target="_blank" rel="noopener" aria-label="Official Whistling Frog Facebook">f</a>
+      <a class="button primary" href="https://apac.littlehotelier.com/properties/whistlingfrogresort" target="_blank" rel="noopener">Check availability</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <img src="assets/catlins-hero.webp" width="1600" height="960" alt="Cathedral Caves on the Catlins coast">
+      <div class="hero-content">
+        <p class="eyebrow">Stay close to the wild</p>
+        <h1>Your Catlins <em>base camp.</em></h1>
+        <p class="hero-copy">Cabins, chalets, motel rooms and camping in one central stop—close to rainforest walks, waterfalls and the turn-off for Cathedral Caves.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="https://apac.littlehotelier.com/properties/whistlingfrogresort" target="_blank" rel="noopener">Check availability</a>
+          <a class="button light" href="#stay">Choose your stay</a>
+        </div>
+      </div>
+      <aside class="trail-card"><span>Field note 01</span><strong>Sleep here.<br>Roam from here.</strong><p>Settle in once, then explore the central Catlins at your own pace.</p></aside>
+    </section>
+
+    <div class="route-strip" aria-label="Quick routes">
+      <a href="#stay"><b>01</b><span>Choose<br>your bed</span></a>
+      <a href="#eat"><b>02</b><span>Check<br>today’s food</span></a>
+      <a href="#explore"><b>03</b><span>Plan<br>the wild</span></a>
+      <a href="#visit"><b>04</b><span>Find<br>base camp</span></a>
+    </div>
+
+    <section id="stay">
+      <div class="section-inner">
+        <div class="intro-grid">
+          <div><p class="kicker">Pick the stay that fits the road</p><h2>One base.<br><em>More ways in.</em></h2></div>
+          <div><p class="field-note">From a self-contained chalet to a simple tent site, the useful choice is the one that fits your trip.</p><p class="lead">Travelling as a couple, family, group, campervan or with a well-behaved dog? Start with the format, then use the official booking system for live availability.</p></div>
+        </div>
+        <div class="stay-grid">
+          <article class="stay-card"><figure><img src="assets/kiwiana-cabin.webp" width="800" height="600" loading="lazy" alt="Kiwiana cabin among trees at Whistling Frog"></figure><div class="copy"><small>Cabins & lodge</small><h3>Simple, sheltered, full of character.</h3><p>Kiwiana cabins and a group lodge put practical shared facilities close by.</p></div></article>
+          <article class="stay-card"><figure><img src="assets/chalet-path.webp" width="800" height="600" loading="lazy" alt="Accommodation path at Whistling Frog Resort"></figure><div class="copy"><small>Chalets & motel</small><h3>A little more of your own.</h3><p>Choose self-contained space or an ensuite motel room tucked into native planting.</p></div></article>
+          <article class="stay-card"><figure><img src="assets/campground.webp" width="800" height="600" loading="lazy" alt="Camping area at Whistling Frog Resort"></figure><div class="copy"><small>Vans & tents</small><h3>Park up under a wide sky.</h3><p>Powered, non-powered and tent sites with access to kitchens and hot showers.</p></div></article>
+          <article class="stay-card link-card"><div><small>Live booking</small><h3>See every option together.</h3><p>Room types, dates and current availability belong in one clear place.</p></div><a class="button primary" href="https://apac.littlehotelier.com/properties/whistlingfrogresort" target="_blank" rel="noopener">Open official booking</a></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="day" id="eat">
+      <div class="section-inner">
+        <p class="kicker">Wake · roam · return</p>
+        <h2>A Catlins day,<br><em>without the backtracking.</em></h2>
+        <div class="day-grid">
+          <article class="day-card"><figure><img src="assets/cafe-bar.webp" width="800" height="600" loading="lazy" alt="Whistling Frog Cafe and Bar"></figure><span class="time">MORNING / RETURN</span><h3>Cafe & bar</h3><p>Barista coffee and a place to land after the road. Food service can change, so check the official update before relying on a full meal.</p></article>
+          <article class="day-card"><figure><img src="assets/forest-falls.webp" width="800" height="600" loading="lazy" alt="Waterfall in the Catlins forest"></figure><span class="time">DAYLIGHT</span><h3>Forest tracks</h3><p>Use the resort as a central start for nearby waterfalls, bush walks, beaches and caves.</p></article>
+          <article class="day-card"><figure><img src="assets/catlins-night.webp" width="800" height="600" loading="lazy" alt="Night sky above a Catlins boardwalk"></figure><span class="time">AFTER DARK</span><h3>Quiet skies</h3><p>Return to native birds, fresh air and a slower South Island night.</p></article>
+        </div>
+        <div class="cafe-alert"><b>Eating here today?</b><p>The official site contains different Cafe service messages. Check the latest information before your visit.</p><a class="button" href="https://www.whistlingfrogresort.com/whistling-frog-bar.html" target="_blank" rel="noopener">Check today’s cafe service</a></div>
+      </div>
+    </section>
+
+    <section class="map-section" id="explore">
+      <div class="section-inner map-grid">
+        <div class="photo-stack"><img class="main" src="assets/catlins-hero.webp" width="1600" height="960" loading="lazy" alt="Cathedral Caves landscape"><img class="night" src="assets/catlins-night.webp" width="800" height="600" loading="lazy" alt="Southern night sky"></div>
+        <div><p class="kicker">A base, not another detour</p><h2>Put the wild<br><em>in easy reach.</em></h2><p class="lead">The resort sits off the Southern Scenic Route at the McLean Falls turn-off. The Cathedral Caves entrance is described by the official site as roughly 400 metres away.</p>
+          <ul class="pin-list">
+            <li><span class="pin"><span>01</span></span><div><b>McLean Falls turn-off</b><small>Start the rainforest leg close to where you sleep.</small></div></li>
+            <li><span class="pin"><span>02</span></span><div><b>Cathedral Caves entrance</b><small>Nearby access; always check tides and current opening conditions independently.</small></div></li>
+            <li><span class="pin"><span>03</span></span><div><b>Central Catlins loops</b><small>Build a day around waterfalls, beaches, estuaries and native forest.</small></div></li>
+          </ul>
+          <a class="button" href="https://www.whistlingfrogresort.com/activities.html" target="_blank" rel="noopener">Explore the official guide</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit">
+      <div class="section-inner visit-grid">
+        <div><p class="kicker">Your next useful turn</p><h2>Find the frog.<br><em>Then slow down.</em></h2>
+          <div class="details">
+            <div class="detail"><b>Address</b><span>9 Rewcastle Road<br>Chaslands Highway, The Catlins<br>RD2 Owaka 9586, New Zealand</span></div>
+            <div class="detail"><b>Stay</b><span>Chalets, cottage, motel, lodge, cabins, van and tent sites</span></div>
+            <div class="detail"><b>Questions</b><span>Use the official contact page or Facebook for written, current information.</span></div>
+          </div>
+        </div>
+        <aside class="route-box"><p class="kicker">Direct route</p><div class="big">Arrive.<br>Unpack.<br>Explore.</div><p>Check live accommodation first, then open the park map before the last stretch of your drive.</p><a class="button light" href="https://apac.littlehotelier.com/properties/whistlingfrogresort" target="_blank" rel="noopener">Book online</a><a class="button" href="https://www.whistlingfrogresort.com/aerial-view-park-maps.html" target="_blank" rel="noopener">Park map</a></aside>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="section-inner proof-grid"><img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Small comparison of the current website and this clearer mobile demo"><div><p class="kicker">A small presentation study</p><h3>Same real place. A clearer route through it.</h3><p>Accommodation first, today's Cafe information second, Catlins exploration next—so travellers can decide without wading through competing navigation.</p></div></div>
+    </section>
+  </main>
+
+  <footer><span>Demo preview using verified public information from Whistling Frog Resort.</span><span><a href="https://www.whistlingfrogresort.com/" target="_blank" rel="noopener">Official website</a><a href="https://www.facebook.com/WhistlingFrogNZ" target="_blank" rel="noopener">Facebook</a></span></footer>
+  <a class="mobile-book" href="https://apac.littlehotelier.com/properties/whistlingfrogresort" target="_blank" rel="noopener">Check availability</a>
+</body>
+</html>
