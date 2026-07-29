@@ -1,0 +1,707 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Urban Grind Galway | Coffee & Brunch in the Westend</title>
+  <meta name="description" content="Independent specialty coffee, seasonal brunch and guest roasters in Galway’s Westend. Open seven days at 8 William Street West.">
+  <meta property="og:title" content="Urban Grind Galway">
+  <meta property="og:description" content="Coffee, brunch and a sunny courtyard in Galway’s Westend.">
+  <meta property="og:image" content="assets/urban-social.webp">
+  <link rel="icon" href="assets/urban-icon.webp" type="image/webp">
+  <style>
+    :root {
+      --black: #20241f;
+      --green: #65705c;
+      --green-dark: #394139;
+      --lime: #d8fa54;
+      --paper: #f2f0e7;
+      --white: #fffdf7;
+      --clay: #b48e7b;
+      --line: rgba(32,36,31,.18);
+      --sans: "Arial Narrow", "Aptos Narrow", "Segoe UI", sans-serif;
+      --display: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--black);
+      background: var(--paper);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .announce {
+      display: flex;
+      justify-content: center;
+      gap: 38px;
+      padding: 9px 20px;
+      color: var(--black);
+      background: var(--lime);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: absolute;
+      z-index: 20;
+      top: 32px;
+      left: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px clamp(20px, 5vw, 74px);
+      color: var(--white);
+    }
+    .logo {
+      color: inherit;
+      text-decoration: none;
+      font-family: var(--display);
+      font-size: 25px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .logo span { color: var(--lime); }
+    nav { display: flex; align-items: center; gap: 26px; }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .nav-pill {
+      padding: 12px 18px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 780px;
+      display: flex;
+      align-items: flex-end;
+      color: var(--white);
+      background: var(--green-dark);
+      overflow: hidden;
+    }
+    .hero > img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 46%;
+      filter: saturate(.88) contrast(1.04);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(21,25,21,.82), rgba(21,25,21,.28) 57%, rgba(21,25,21,.08)),
+        linear-gradient(0deg, rgba(21,25,21,.7), transparent 56%);
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 180px 0 82px;
+    }
+    .hero-tag {
+      display: inline-block;
+      margin-bottom: 18px;
+      padding: 8px 11px;
+      color: var(--black);
+      background: var(--lime);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      transform: rotate(-1.4deg);
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      max-width: 820px;
+      margin-bottom: 22px;
+      font-family: var(--display);
+      font-size: clamp(66px, 10vw, 136px);
+      font-weight: 900;
+      line-height: .79;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+    }
+    h1 em {
+      display: block;
+      color: var(--lime);
+      font-family: var(--serif);
+      font-size: .69em;
+      font-weight: 400;
+      letter-spacing: -.055em;
+      text-transform: none;
+    }
+    .hero-lede {
+      max-width: 600px;
+      margin-bottom: 30px;
+      color: rgba(255,253,247,.8);
+      font-size: 17px;
+      line-height: 1.55;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      color: var(--black);
+      background: var(--lime);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+    .button.dark { color: var(--white); background: var(--black); }
+    .button.outline { color: inherit; background: transparent; border-color: currentColor; }
+    .roundel {
+      position: absolute;
+      z-index: 3;
+      right: clamp(26px, 7vw, 110px);
+      bottom: 58px;
+      display: grid;
+      place-items: center;
+      width: 142px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      color: var(--black);
+      background: var(--lime);
+      font-family: var(--serif);
+      font-size: 18px;
+      text-align: center;
+      transform: rotate(7deg);
+      box-shadow: 0 16px 40px rgba(0,0,0,.25);
+    }
+    .roundel::before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 1px dashed var(--black);
+      border-radius: 50%;
+    }
+    .roundel span { width: 90px; }
+
+    .quick-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+    .quick-item {
+      min-height: 116px;
+      padding: 26px clamp(18px,3vw,42px);
+      border-right: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .quick-item:last-child { border-right: 0; }
+    .quick-item small {
+      display: block;
+      margin-bottom: 11px;
+      color: var(--green);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .quick-item strong {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 42% 58%;
+      min-height: 660px;
+      background: var(--green);
+      color: var(--white);
+    }
+    .intro-year {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100%;
+      color: var(--lime);
+      background:
+        repeating-linear-gradient(135deg, transparent 0 18px, rgba(255,255,255,.055) 18px 19px),
+        var(--green-dark);
+      font-family: var(--display);
+      font-size: clamp(120px, 18vw, 260px);
+      line-height: 1;
+      overflow: hidden;
+    }
+    .intro-year small {
+      position: absolute;
+      left: 50%;
+      bottom: 68px;
+      transform: translateX(-50%);
+      color: var(--white);
+      font-family: var(--sans);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+    .intro-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px clamp(30px, 9vw, 150px);
+    }
+    .kicker {
+      margin-bottom: 18px;
+      color: var(--lime);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .intro h2, .menu-head h2, .courtyard-copy h2, .visit h2 {
+      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(43px, 5vw, 68px);
+      font-weight: 400;
+      line-height: 1;
+      letter-spacing: -.045em;
+    }
+    .intro-copy > p:not(.kicker) {
+      max-width: 640px;
+      color: rgba(255,253,247,.76);
+      font-size: 17px;
+      line-height: 1.7;
+    }
+    .roaster-note {
+      max-width: 620px;
+      margin-top: 22px;
+      padding: 20px 0 0 24px;
+      border-left: 4px solid var(--lime);
+      color: var(--white);
+      font-family: var(--serif);
+      font-size: 21px;
+      line-height: 1.45;
+    }
+
+    .menu {
+      padding: 105px clamp(18px, 6vw, 90px) 115px;
+    }
+    .menu-head {
+      max-width: 1240px;
+      margin: 0 auto 50px;
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 36px;
+    }
+    .menu-head h2 { max-width: 760px; margin-bottom: 0; }
+    .menu-head .kicker { color: var(--green); }
+    .menu-note {
+      max-width: 300px;
+      padding: 14px 18px;
+      color: var(--white);
+      background: var(--black);
+      font-size: 12px;
+      line-height: 1.5;
+      transform: rotate(1.5deg);
+    }
+    .menu-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 16px;
+    }
+    .food-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--line);
+    }
+    .food-card figure {
+      aspect-ratio: 8/7;
+      margin: 0;
+      overflow: hidden;
+      background: var(--green-dark);
+    }
+    .food-card img { width: 100%; height: 100%; object-fit: cover; }
+    .food-copy { padding: 25px 25px 30px; }
+    .food-price {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--green);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+    .food-copy h3 {
+      margin: 13px 0 10px;
+      font-family: var(--serif);
+      font-size: 29px;
+      font-weight: 500;
+    }
+    .food-copy p { margin: 0; color: #635f58; font-size: 14px; line-height: 1.55; }
+    .menu-list {
+      max-width: 1240px;
+      margin: 18px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      border-top: 1px solid var(--line);
+    }
+    .menu-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 16px 10px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .menu-line:nth-child(odd) { padding-right: 28px; border-right: 1px solid var(--line); }
+    .menu-line:nth-child(even) { padding-left: 28px; }
+
+    .courtyard {
+      display: grid;
+      grid-template-columns: 58% 42%;
+      min-height: 650px;
+      background: var(--clay);
+    }
+    .courtyard-media { position: relative; overflow: hidden; }
+    .courtyard-media img { width: 100%; height: 100%; object-fit: cover; }
+    .courtyard-media::after {
+      content: "SUN, WHEN GALWAY SAYS YES";
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      padding: 9px 11px;
+      color: var(--black);
+      background: var(--lime);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      transform: rotate(-1deg);
+    }
+    .courtyard-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px clamp(28px, 6vw, 86px);
+    }
+    .courtyard-copy p:not(.kicker) { color: #3f332d; line-height: 1.65; }
+    .courtyard-copy .kicker { color: var(--black); }
+    .no-bookings {
+      margin: 28px 0;
+      padding: 18px;
+      border: 1px solid rgba(32,36,31,.35);
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 36px 20px;
+      background: var(--lime);
+    }
+    .proof img {
+      width: 200px;
+      border: 5px solid var(--white);
+      box-shadow: 0 10px 28px rgba(32,36,31,.2);
+    }
+    .proof div { max-width: 430px; }
+    .proof strong { display: block; margin-bottom: 7px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+    .proof p { margin: 0; font-size: 13px; line-height: 1.5; }
+
+    .visit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(45px,9vw,140px);
+      padding: 105px clamp(24px,8vw,130px);
+      background: var(--white);
+    }
+    .visit .kicker { color: var(--green); }
+    .visit h2 { margin-bottom: 20px; }
+    .address { color: #625f59; font-family: var(--serif); font-size: 18px; line-height: 1.6; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .hours-row span { color: #77716a; }
+    .visit .actions { margin-top: 27px; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 34px clamp(24px,6vw,90px) 100px;
+      color: rgba(255,255,255,.65);
+      background: var(--black);
+      font-size: 12px;
+    }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    footer a { text-decoration: none; }
+    .mobile-actions { display: none; }
+
+    @media (max-width: 960px) {
+      .quick-strip { grid-template-columns: 1fr 1fr; }
+      .quick-item:nth-child(2) { border-right: 0; }
+      .quick-item:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .intro { grid-template-columns: 1fr; }
+      .intro-year { min-height: 430px; }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+      .food-card:last-child { grid-column: 1/-1; }
+      .courtyard { grid-template-columns: 1fr; }
+      .courtyard-media { min-height: 500px; }
+    }
+
+    @media (max-width: 760px) {
+      .announce { justify-content: space-between; gap: 8px; padding-inline: 11px; font-size: 8px; }
+      .announce span:last-child { display: none; }
+      header { top: 27px; padding: 17px 18px; }
+      .logo { font-size: 20px; }
+      nav a:not(.nav-pill) { display: none; }
+      .nav-pill { padding: 10px 12px; font-size: 9px; }
+      .hero { min-height: 720px; }
+      .hero::after { background: linear-gradient(0deg, rgba(21,25,21,.83), rgba(21,25,21,.18) 70%); }
+      .hero-copy { width: calc(100% - 36px); padding: 140px 0 55px; }
+      h1 { font-size: clamp(66px,24vw,92px); }
+      .hero-lede { font-size: 15px; }
+      .roundel { right: 18px; bottom: 250px; width: 108px; font-size: 14px; }
+      .hero .actions { width: 100%; }
+      .hero .button { flex: 1; padding-inline: 11px; }
+      .quick-strip { grid-template-columns: 1fr 1fr; }
+      .quick-item { min-height: 105px; padding: 22px 16px; }
+      .quick-item strong { font-size: 16px; }
+      .intro-year { min-height: 320px; font-size: 145px; }
+      .intro-year small { bottom: 36px; }
+      .intro-copy { padding: 62px 22px 74px; }
+      .intro h2, .menu-head h2, .courtyard-copy h2, .visit h2 { font-size: 44px; }
+      .roaster-note { font-size: 18px; }
+      .menu { padding: 76px 14px 82px; }
+      .menu-head { align-items: start; flex-direction: column; padding: 0 8px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .food-card:last-child { grid-column: auto; }
+      .menu-list { grid-template-columns: 1fr; }
+      .menu-line, .menu-line:nth-child(odd), .menu-line:nth-child(even) { padding: 15px 8px; border-right: 0; }
+      .courtyard-media { min-height: 400px; }
+      .courtyard-copy { padding: 56px 22px 70px; }
+      .proof { align-items: flex-start; }
+      .proof img { width: 160px; }
+      .proof strong { font-size: 20px; }
+      .visit { grid-template-columns: 1fr; gap: 44px; padding: 76px 22px; }
+      .visit .button { flex: 1; padding-inline: 12px; }
+      footer { flex-direction: column; padding: 30px 22px 96px; }
+      .mobile-actions {
+        position: fixed;
+        z-index: 50;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        padding: 8px;
+        background: rgba(32,36,31,.96);
+        box-shadow: 0 -8px 28px rgba(0,0,0,.2);
+      }
+      .mobile-actions a {
+        padding: 13px 7px;
+        color: var(--black);
+        background: var(--lime);
+        text-align: center;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      .mobile-actions a:last-child { color: var(--white); background: var(--green); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="announce"><span>Brunch until 3pm</span><span>Open seven days</span><span>Galway Westend</span></div>
+
+  <header>
+    <a class="logo" href="#top">Urban <span>Grind</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#menu">Brunch</a>
+      <a href="#story">Our coffee</a>
+      <a href="#visit">Visit</a>
+      <a class="nav-pill" href="https://www.instagram.com/urbangrindwest/">This week’s specials ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <img src="assets/urban-hero.webp" width="1600" height="1050" alt="The real Urban Grind storefront on William Street West in Galway">
+      <div class="hero-copy">
+        <span class="hero-tag">Small. Independent. Since 2014.</span>
+        <h1 id="hero-title">Galway coffee.<em>Westend pace.</em></h1>
+        <p class="hero-lede">Specialty coffee, seasonal brunch and rotating guest roasters—served seven days a week at 8 William Street West.</p>
+        <div class="actions">
+          <a class="button" href="#menu">See the brunch menu</a>
+          <a class="button outline" href="https://www.google.com/maps/place/Urban+Grind/@53.2700231,-9.0618806,17z/">Find us</a>
+        </div>
+      </div>
+      <div class="roundel"><span>For the love of coffee</span></div>
+    </section>
+
+    <section class="quick-strip" aria-label="Urban Grind essentials">
+      <a class="quick-item" href="#menu"><small>Eat</small><strong>Brunch menu <span>↓</span></strong></a>
+      <a class="quick-item" href="https://www.instagram.com/urbangrindwest/"><small>Today</small><strong>Weekly specials <span>↗</span></strong></a>
+      <a class="quick-item" href="tel:+353852661156"><small>Call</small><strong>085 266 1156 <span>↗</span></strong></a>
+      <a class="quick-item" href="https://gift.loylap.com/987/13987"><small>Give</small><strong>eGift cards <span>↗</span></strong></a>
+    </section>
+
+    <section class="intro" id="story">
+      <div class="intro-year">2014<small>Open since</small></div>
+      <div class="intro-copy">
+        <p class="kicker">A small independent coffee shop</p>
+        <h2>Built for curious coffee drinkers.</h2>
+        <p>Urban Grind opened in Galway’s Westend to bring new coffees and brew methods to the city. The shelves and grinders keep moving, with blends and single-origin beans ground fresh to take home.</p>
+        <p class="roaster-note">Guest roasters rotate in from across Ireland and Europe—so there is always another cup worth asking about.</p>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="menu-head">
+        <div>
+          <p class="kicker">Spring 2026 · served until 3pm</p>
+          <h2>Brunch that follows the season.</h2>
+        </div>
+        <p class="menu-note">Local and organic ingredients. Specials change weekly—Instagram has the newest plate.</p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="food-card">
+          <figure><img src="assets/westend-brekkie.webp" width="800" height="700" loading="lazy" alt="Poached eggs and avocado brunch at Urban Grind"></figure>
+          <div class="food-copy">
+            <div class="food-price"><span>Brunch classic</span><span>€15.80</span></div>
+            <h3>Westend Brekkie</h3>
+            <p>Golden potato and roast pepper hash, poached eggs or Irish halloumi, avocado, chives and pumpkin seed toast.</p>
+          </div>
+        </article>
+        <article class="food-card">
+          <figure><img src="assets/grain-porridge.webp" width="800" height="700" loading="lazy" alt="A seasonal grain and fruit bowl at Urban Grind"></figure>
+          <div class="food-copy">
+            <div class="food-price"><span>Vegan</span><span>€10.50</span></div>
+            <h3>Three Grain Porridge</h3>
+            <p>Buckwheat, barley and oats with roasted pear, chia seeds, miso-honeyed pecans and fermented blueberry syrup.</p>
+          </div>
+        </article>
+        <article class="food-card">
+          <figure><img src="assets/flat-white.webp" width="800" height="700" loading="lazy" alt="A flat white prepared at Urban Grind"></figure>
+          <div class="food-copy">
+            <div class="food-price"><span>Specialty coffee</span><span>from €3.90</span></div>
+            <h3>Flat White</h3>
+            <p>Espresso pulled with care, alongside rotating filter coffees and beans from guest roasters.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="menu-list" aria-label="More brunch menu highlights">
+        <div class="menu-line"><span>Halloumi & Shakshuka Eggs</span><strong>€15.80</strong></div>
+        <div class="menu-line"><span>Ricotta Pancakes</span><strong>€15.50</strong></div>
+        <div class="menu-line"><span>Poached Egg, Avocado & Chilli Miso Oil</span><strong>€13.00</strong></div>
+        <div class="menu-line"><span>Sticky Sesame Tofu Wrap</span><strong>€12.50</strong></div>
+        <div class="menu-line"><span>Veggie Vegan Salad Bowl</span><strong>€15.80</strong></div>
+        <div class="menu-line"><span>Green Tonic Smoothie</span><strong>€6.90</strong></div>
+      </div>
+    </section>
+
+    <section class="courtyard">
+      <div class="courtyard-media">
+        <img src="assets/courtyard.webp" width="1000" height="760" loading="lazy" alt="Guests in the sunny courtyard at Urban Grind Galway">
+      </div>
+      <div class="courtyard-copy">
+        <p class="kicker">Stay a while</p>
+        <h2>A courtyard made for the good Galway days.</h2>
+        <p>Grab a table, settle into brunch and let the next coffee arrive when it arrives. Urban Grind serves a brunch menu 7 days a week, with weekday doors from 8am and weekend doors from 9am.</p>
+        <div class="no-bookings">No bookings for brunch. Wait times, if any, are usually quite short.</div>
+        <div class="actions">
+          <a class="button dark" href="https://www.google.com/maps/place/Urban+Grind/@53.2700231,-9.0618806,17z/">Get directions</a>
+          <a class="button outline" href="tel:+353852661156">Call the café</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="proof" aria-label="Small mobile presentation comparison">
+      <img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Old mobile presentation compared with the new Urban Grind demo">
+      <div>
+        <strong>The first screen now earns the next step.</strong>
+        <p>Real storefront, brunch, weekly specials and directions are visible before a guest has to go looking.</p>
+      </div>
+    </aside>
+
+    <section class="visit" id="visit">
+      <div>
+        <p class="kicker">Find your way west</p>
+        <h2>8 William Street West.</h2>
+        <p class="address">Galway, H91 YA6X, Ireland<br>hello@urbangrind.ie · 085 266 1156</p>
+        <div class="actions">
+          <a class="button dark" href="https://www.google.com/maps/place/Urban+Grind/@53.2700231,-9.0618806,17z/">Open in Maps</a>
+          <a class="button outline" href="https://www.instagram.com/urbangrindwest/">Instagram</a>
+        </div>
+      </div>
+      <div>
+        <div class="hours-row"><span>Monday – Friday</span><strong>8am – 4pm</strong></div>
+        <div class="hours-row"><span>Saturday – Sunday</span><strong>9am – 4pm</strong></div>
+        <div class="hours-row"><span>Brunch daily</span><strong>Until 3pm</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Urban Grind · Galway Westend · Open since 2014</div>
+    <div class="footer-links">
+      <a href="#menu">Brunch</a>
+      <a href="https://www.instagram.com/urbangrindwest/">Instagram</a>
+      <a href="https://www.facebook.com/UrbanGrindWest">Facebook</a>
+      <a href="mailto:hello@urbangrind.ie">Email</a>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Quick actions">
+    <a href="#menu">Brunch menu</a>
+    <a href="https://www.google.com/maps/place/Urban+Grind/@53.2700231,-9.0618806,17z/">Directions</a>
+  </div>
+</body>
+</html>
