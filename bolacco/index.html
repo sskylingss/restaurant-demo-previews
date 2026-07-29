@@ -1,0 +1,711 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Bolacco Caffé | Coffee, Baking & Mountain Time</title>
+  <meta name="description" content="Family-owned since 1996. Specialty coffee, in-house baking and easy mountain meals at Sun Peaks, British Columbia.">
+  <meta property="og:title" content="Bolacco Caffé at Sun Peaks">
+  <meta property="og:description" content="Coffee first. Mountain stories after.">
+  <meta property="og:image" content="assets/bolacco-social.webp">
+  <link rel="icon" href="assets/bolacco-icon.webp" type="image/webp">
+  <style>
+    :root {
+      --blue: #135a72;
+      --blue-dark: #0d3443;
+      --yellow: #f3c94d;
+      --red: #be4937;
+      --paper: #f6f0df;
+      --white: #fffdf7;
+      --ink: #25211d;
+      --wood: #8c5b3c;
+      --line: rgba(37,33,29,.18);
+      --shadow: 0 24px 70px rgba(36,39,38,.2);
+      --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+      --serif: Georgia, "Times New Roman", serif;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(37,33,29,.025) 1px, transparent 1px),
+        var(--paper);
+      background-size: 100% 24px;
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+
+    .weather-strip {
+      display: flex;
+      justify-content: center;
+      gap: 42px;
+      padding: 9px 20px;
+      color: var(--white);
+      background: var(--red);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px clamp(20px,5vw,72px);
+      color: var(--white);
+      background: var(--blue-dark);
+    }
+    .brand {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 9px;
+      color: inherit;
+      text-decoration: none;
+    }
+    .brand strong {
+      font-family: var(--serif);
+      font-size: 27px;
+      font-style: italic;
+      font-weight: 600;
+      letter-spacing: -.03em;
+    }
+    .brand span {
+      color: var(--yellow);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    nav { display: flex; align-items: center; gap: 25px; }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+    }
+    .nav-ticket {
+      padding: 11px 16px;
+      color: var(--ink);
+      background: var(--yellow);
+      transform: rotate(-1deg);
+    }
+
+    .hero {
+      position: relative;
+      display: grid;
+      grid-template-columns: 43% 57%;
+      min-height: 760px;
+      padding: 66px clamp(24px,6vw,90px) 80px;
+      color: var(--white);
+      background:
+        radial-gradient(circle at 15% 15%, rgba(243,201,77,.17), transparent 24%),
+        var(--blue);
+      overflow: hidden;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      left: -170px;
+      bottom: -180px;
+      border: 80px solid rgba(255,255,255,.06);
+      border-radius: 50%;
+    }
+    .hero-copy {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: clamp(22px,4vw,68px);
+    }
+    .eyebrow {
+      margin-bottom: 22px;
+      color: var(--yellow);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(58px,7.6vw,108px);
+      font-weight: 500;
+      line-height: .87;
+      letter-spacing: -.055em;
+    }
+    h1 em { display: block; color: var(--yellow); font-weight: 400; }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 520px;
+      margin-bottom: 30px;
+      color: rgba(255,255,255,.78);
+      font-size: 17px;
+      line-height: 1.6;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 11px; }
+    .button {
+      display: inline-flex;
+      min-height: 50px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      color: var(--ink);
+      background: var(--yellow);
+      text-decoration: none;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+    }
+    .button.ghost { color: var(--white); background: transparent; border-color: rgba(255,255,255,.5); }
+    .button.blue { color: var(--white); background: var(--blue); }
+    .button.outline { color: var(--ink); background: transparent; border-color: var(--line); }
+
+    .hero-photo {
+      position: relative;
+      align-self: center;
+      padding: 15px 15px 54px;
+      background: var(--white);
+      box-shadow: var(--shadow);
+      transform: rotate(2deg);
+    }
+    .hero-photo img {
+      width: 100%;
+      height: min(560px,66vw);
+      object-fit: cover;
+    }
+    .hero-photo figcaption {
+      position: absolute;
+      left: 22px;
+      bottom: 17px;
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 16px;
+      font-style: italic;
+    }
+    .stamp {
+      position: absolute;
+      z-index: 3;
+      right: -18px;
+      top: -22px;
+      display: grid;
+      place-items: center;
+      width: 132px;
+      aspect-ratio: 1;
+      border: 4px double var(--red);
+      border-radius: 50%;
+      color: var(--red);
+      background: var(--paper);
+      text-align: center;
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      transform: rotate(9deg);
+    }
+    .stamp strong { display: block; font-family: var(--serif); font-size: 30px; letter-spacing: 0; }
+
+    .route {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      width: min(1160px,calc(100% - 40px));
+      margin: -34px auto 0;
+      position: relative;
+      z-index: 4;
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+    .route-card {
+      min-height: 150px;
+      padding: 28px 30px;
+      border-right: 1px dashed var(--line);
+      text-decoration: none;
+    }
+    .route-card:last-child { border-right: 0; }
+    .route-card small {
+      display: block;
+      margin-bottom: 14px;
+      color: var(--red);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .route-card strong {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 500;
+    }
+    .route-card p { margin: 8px 0 0; color: #6b625a; font-size: 13px; line-height: 1.45; }
+
+    .story {
+      display: grid;
+      grid-template-columns: minmax(0, 48fr) minmax(0, 52fr);
+      align-items: center;
+      padding: 130px clamp(24px,7vw,110px) 105px;
+      gap: clamp(44px,8vw,120px);
+    }
+    .story-collage {
+      position: relative;
+      min-height: 590px;
+    }
+    .story-collage .main {
+      position: absolute;
+      inset: 0 10% 10% 0;
+      width: 90%;
+      height: 90%;
+      object-fit: cover;
+      border: 12px solid var(--white);
+      box-shadow: var(--shadow);
+      transform: rotate(-2deg);
+    }
+    .story-collage .mini {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 46%;
+      aspect-ratio: 4/3;
+      object-fit: cover;
+      border: 9px solid var(--yellow);
+      box-shadow: var(--shadow);
+      transform: rotate(4deg);
+    }
+    .kicker {
+      margin-bottom: 18px;
+      color: var(--red);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .story h2, .menu-head h2, .baking-copy h2, .visit h2 {
+      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(44px,5.4vw,72px);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .story-copy > p:not(.kicker) { color: #62594f; font-size: 17px; line-height: 1.7; }
+    .memory-line {
+      margin-top: 28px;
+      padding: 21px 0;
+      border-top: 1px dashed var(--line);
+      border-bottom: 1px dashed var(--line);
+      color: var(--blue);
+      font-family: var(--serif);
+      font-size: 20px;
+      font-style: italic;
+    }
+
+    .menu {
+      padding: 100px clamp(18px,6vw,90px) 110px;
+      color: var(--white);
+      background: var(--blue-dark);
+    }
+    .menu-head {
+      max-width: 1220px;
+      margin: 0 auto 46px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 35px;
+    }
+    .menu-head h2 { max-width: 750px; margin-bottom: 0; }
+    .menu-head .kicker { color: var(--yellow); }
+    .menu-grid {
+      max-width: 1220px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 17px;
+    }
+    .menu-card {
+      overflow: hidden;
+      color: var(--ink);
+      background: var(--paper);
+      transform: rotate(-.45deg);
+    }
+    .menu-card:nth-child(2) { transform: rotate(.5deg); }
+    .menu-card:nth-child(3) { transform: rotate(-.2deg); }
+    .menu-card figure { aspect-ratio: 8/7; margin: 0; overflow: hidden; background: var(--wood); }
+    .menu-card img { width: 100%; height: 100%; object-fit: cover; }
+    .menu-copy { padding: 25px 25px 28px; }
+    .menu-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      color: var(--red);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    .menu-copy h3 { margin: 12px 0 10px; font-family: var(--serif); font-size: 28px; font-weight: 500; }
+    .menu-copy p { margin: 0; color: #655c53; font-size: 13px; line-height: 1.55; }
+    .mini-menu {
+      max-width: 1220px;
+      margin: 24px auto 0;
+      display: grid;
+      grid-template-columns: repeat(2,1fr);
+      border-top: 1px solid rgba(255,255,255,.16);
+    }
+    .mini-line {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 15px 12px;
+      border-bottom: 1px solid rgba(255,255,255,.16);
+      color: rgba(255,255,255,.78);
+      font-size: 13px;
+    }
+    .mini-line:nth-child(odd) { border-right: 1px solid rgba(255,255,255,.16); }
+
+    .baking {
+      display: grid;
+      grid-template-columns: 58% 42%;
+      min-height: 640px;
+      background: var(--yellow);
+    }
+    .baking-media { position: relative; overflow: hidden; }
+    .baking-media img { width: 100%; height: 100%; object-fit: cover; }
+    .baking-media::after {
+      content: "BAKED HERE · ALL DAY";
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      padding: 8px 11px;
+      color: var(--white);
+      background: var(--red);
+      font-size: 9px;
+      font-weight: 900;
+      letter-spacing: .12em;
+      transform: rotate(-2deg);
+    }
+    .baking-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 64px clamp(28px,6vw,86px);
+    }
+    .baking-copy p:not(.kicker) { color: #574b3c; line-height: 1.65; }
+    .baking-note {
+      margin: 22px 0 28px;
+      padding: 19px;
+      border: 2px dashed rgba(37,33,29,.35);
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.45;
+    }
+
+    .proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 36px 20px;
+      background: #d9eef3;
+    }
+    .proof img {
+      width: 200px;
+      border: 5px solid var(--white);
+      box-shadow: 0 10px 28px rgba(20,45,54,.18);
+    }
+    .proof div { max-width: 430px; }
+    .proof strong { display: block; margin-bottom: 7px; font-family: var(--serif); font-size: 23px; font-weight: 500; }
+    .proof p { margin: 0; color: #5f5b55; font-size: 13px; line-height: 1.5; }
+
+    .visit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(45px,9vw,140px);
+      padding: 105px clamp(24px,8vw,130px);
+      background: var(--white);
+    }
+    .visit h2 { margin-bottom: 18px; }
+    .address { color: #665e56; font-family: var(--serif); font-size: 18px; line-height: 1.6; }
+    .hours {
+      align-self: center;
+      padding: 28px;
+      color: var(--white);
+      background: var(--blue);
+      box-shadow: 12px 12px 0 var(--yellow);
+      transform: rotate(1deg);
+    }
+    .hours strong { display: block; margin-bottom: 8px; font-family: var(--serif); font-size: 34px; }
+    .hours p { margin: 0; color: rgba(255,255,255,.78); font-size: 13px; line-height: 1.55; }
+    .visit .actions { margin-top: 27px; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 34px clamp(24px,6vw,90px) 100px;
+      color: rgba(255,255,255,.65);
+      background: var(--blue-dark);
+      font-size: 12px;
+    }
+    footer a { text-decoration: none; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+    .mobile-actions { display: none; }
+
+    @media (max-width: 980px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { padding: 30px 0 55px; }
+      .hero-photo { width: min(720px,94%); justify-self: center; }
+      .route { grid-template-columns: 1fr; }
+      .route-card { border-right: 0; border-bottom: 1px dashed var(--line); }
+      .story { grid-template-columns: 1fr; }
+      .story-collage { min-height: 580px; }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+      .menu-card:last-child { grid-column: 1/-1; }
+      .baking { grid-template-columns: 1fr; }
+      .baking-media { min-height: 520px; }
+    }
+
+    @media (max-width: 760px) {
+      .weather-strip { justify-content: space-between; gap: 10px; padding-inline: 11px; font-size: 8px; }
+      .weather-strip span:last-child { display: none; }
+      header { padding: 15px 17px; }
+      .brand strong { font-size: 22px; }
+      .brand span { display: none; }
+      nav a:not(.nav-ticket) { display: none; }
+      .nav-ticket { padding: 9px 11px; font-size: 9px; }
+      .hero { min-height: auto; padding: 70px 18px 75px; }
+      .hero-copy { padding-top: 0; }
+      h1 { font-size: clamp(60px,18vw,82px); }
+      .hero-copy > p:not(.eyebrow) { font-size: 15px; }
+      .hero .button { flex: 1; padding-inline: 11px; }
+      .hero-photo { width: 94%; padding: 10px 10px 45px; }
+      .hero-photo img { height: 390px; }
+      .stamp { right: -9px; top: -18px; width: 104px; }
+      .stamp strong { font-size: 24px; }
+      .route { width: calc(100% - 24px); }
+      .route-card { min-height: 132px; padding: 24px 21px; }
+      .story { padding: 90px 20px 76px; }
+      .story-collage { min-height: 410px; }
+      .story-collage .mini { right: 6px; }
+      .story h2, .menu-head h2, .baking-copy h2, .visit h2 { font-size: 44px; }
+      .menu { padding: 76px 14px 82px; }
+      .menu-head { align-items: start; flex-direction: column; padding: 0 7px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .menu-card:last-child { grid-column: auto; }
+      .mini-menu { grid-template-columns: 1fr; }
+      .mini-line:nth-child(odd) { border-right: 0; }
+      .baking-media { min-height: 410px; }
+      .baking-copy { padding: 54px 22px 70px; }
+      .proof { align-items: flex-start; }
+      .proof img { width: 160px; }
+      .proof strong { font-size: 20px; }
+      .visit { grid-template-columns: 1fr; gap: 45px; padding: 76px 22px; }
+      .visit .button { flex: 1; padding-inline: 11px; }
+      .hours { margin-right: 10px; }
+      footer { flex-direction: column; padding: 30px 22px 96px; }
+      .mobile-actions {
+        position: fixed;
+        z-index: 50;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        padding: 8px;
+        background: rgba(13,52,67,.96);
+        box-shadow: 0 -8px 28px rgba(0,0,0,.2);
+      }
+      .mobile-actions a {
+        padding: 13px 7px;
+        color: var(--ink);
+        background: var(--yellow);
+        text-align: center;
+        text-decoration: none;
+        font-size: 10px;
+        font-weight: 900;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      .mobile-actions a:last-child { color: var(--white); background: var(--red); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="weather-strip"><span>Sun Peaks, BC</span><span>Coffee · Baking · Easy meals</span><span>Family Owned and Operated Since 1996</span></div>
+
+  <header>
+    <a class="brand" href="#top"><strong>Bolacco Caffé</strong><span>Sun Peaks</span></a>
+    <nav aria-label="Main navigation">
+      <a href="#story">Our story</a>
+      <a href="#menu">Quick menu</a>
+      <a href="#visit">Find us</a>
+      <a class="nav-ticket" href="https://www.bolacco.com/menu">Full menu ↗</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">A warm-up worth remembering</p>
+        <h1 id="hero-title">Mountain time.<em>Coffee first.</em></h1>
+        <p>Specialty coffee, fresh baking and easy meals with a view—served by a family-run Sun Peaks original.</p>
+        <div class="actions">
+          <a class="button" href="#menu">See the quick menu</a>
+          <a class="button ghost" href="https://www.google.com/maps/dir/?api=1&destination=3160+Creekside+Way+Sun+Peaks+BC">Get directions</a>
+        </div>
+      </div>
+      <figure class="hero-photo">
+        <img src="assets/bolacco-hero.webp" width="1600" height="1050" alt="Coffee and fresh baking overlooking the snowy mountain at Bolacco Caffé">
+        <figcaption>Eat. Drink. Reminisce.</figcaption>
+        <div class="stamp">Family run since <strong>1996</strong></div>
+      </figure>
+    </section>
+
+    <section class="route" aria-label="Bolacco essentials">
+      <a class="route-card" href="https://www.bolacco.com/menu">
+        <small>What sounds good?</small><strong>Browse the full menu <span>↗</span></strong>
+        <p>Coffee, pastries, sandwiches and grab-and-go.</p>
+      </a>
+      <a class="route-card" href="tel:+12505787588">
+        <small>Check today</small><strong>Call 250-578-7588 <span>↗</span></strong>
+        <p>Seasonal hours and what is warm from the oven.</p>
+      </a>
+      <a class="route-card" href="https://www.google.com/maps/dir/?api=1&destination=3160+Creekside+Way+Sun+Peaks+BC">
+        <small>In the village</small><strong>Sundance Lodge <span>↗</span></strong>
+        <p>3160 Creekside Way, Suite 109.</p>
+      </a>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-collage">
+        <img class="main" src="assets/bolacco-interior.webp" width="1000" height="720" loading="lazy" alt="The colorful interior of Bolacco Caffé">
+        <img class="mini" src="assets/alpine-window.webp" width="1000" height="720" loading="lazy" alt="The alpine view from Bolacco Caffé">
+      </div>
+      <div class="story-copy">
+        <p class="kicker">A Sun Peaks original</p>
+        <h2>Nearly three decades of mountain stories.</h2>
+        <p>Bolacco Caffé has been family owned and operated since 1996. Inside, the walls read like a travel diary; outside, the mountain does the decorating.</p>
+        <p>It is the kind of euro-style café where a specialty coffee can turn into breakfast, lunch or a light dinner—and where local hospitality matters as much as the view.</p>
+        <div class="memory-line">Come for the warm cup. Leave with the next story.</div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu">
+      <div class="menu-head">
+        <div>
+          <p class="kicker">A faster way through the menu</p>
+          <h2>Three good reasons to come in from the mountain.</h2>
+        </div>
+        <a class="button" href="https://www.bolacco.com/menu">View full menu</a>
+      </div>
+
+      <div class="menu-grid">
+        <article class="menu-card">
+          <figure><img src="assets/mountain-coffee.webp" width="800" height="700" loading="lazy" alt="Specialty coffee served at Bolacco Caffé"></figure>
+          <div class="menu-copy">
+            <div class="menu-label"><span>Warm up</span><span>from $3</span></div>
+            <h3>Coffee your way</h3>
+            <p>Americano, latte, cappuccino, mocha, matcha, London Fog and chai—hot or iced.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <figure><img src="assets/baked-goods.webp" width="800" height="700" loading="lazy" alt="Fresh baked goods prepared at Bolacco Caffé"></figure>
+          <div class="menu-copy">
+            <div class="menu-label"><span>From the oven</span><span>from $1.75</span></div>
+            <h3>Baked throughout the day</h3>
+            <p>Berry Scone, Almond Croissant, Cinnamon Bun, banana bread, carrot cake and more.</p>
+          </div>
+        </article>
+        <article class="menu-card">
+          <figure><img src="assets/bolacco-hero.webp" width="1600" height="1050" loading="lazy" alt="Coffee and a hearty meal beside the mountain at Bolacco Caffé"></figure>
+          <div class="menu-copy">
+            <div class="menu-label"><span>Easy lunch</span><span>from $5.50</span></div>
+            <h3>Sandwiches & savoury</h3>
+            <p>Kolbassa Sandwich, turkey club, tuna melt, Breakfast BLT, quiche and Chili Soup.</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="mini-menu" aria-label="Menu highlights">
+        <div class="mini-line"><span>Berry Scone</span><strong>$5.25</strong></div>
+        <div class="mini-line"><span>Almond Croissant</span><strong>$5.25</strong></div>
+        <div class="mini-line"><span>Kolbassa Sandwich</span><strong>$10.95</strong></div>
+        <div class="mini-line"><span>Breakfast BLT</span><strong>$11.95</strong></div>
+        <div class="mini-line"><span>Chili Soup</span><strong>$9.25</strong></div>
+        <div class="mini-line"><span>Yogurt Parfait</span><strong>$6.00</strong></div>
+      </div>
+    </section>
+
+    <section class="baking">
+      <div class="baking-media">
+        <img src="assets/baked-goods.webp" width="800" height="700" loading="lazy" alt="Bolacco Caffé baked goods">
+      </div>
+      <div class="baking-copy">
+        <p class="kicker">Warm from here</p>
+        <h2>The pastry case changes as the day does.</h2>
+        <p>Bolacco’s pastries are baked in-house throughout the day, so availability varies. That is not a limitation—it is your reason to look in the case before ordering.</p>
+        <div class="baking-note">Ask what just came out. Then add the coffee that belongs beside it.</div>
+        <div class="actions">
+          <a class="button blue" href="tel:+12505787588">Call the café</a>
+          <a class="button outline" href="https://www.bolacco.com/menu">Full menu</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="proof" aria-label="Small mobile presentation comparison">
+      <img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Old mobile presentation compared with the new Bolacco demo">
+      <div>
+        <strong>Less scrolling. More reason to walk in.</strong>
+        <p>The family history, mountain setting, fresh baking and useful choices now arrive before the long menu.</p>
+      </div>
+    </aside>
+
+    <section class="visit" id="visit">
+      <div>
+        <p class="kicker">Find the warm window</p>
+        <h2>Inside Sundance Lodge.</h2>
+        <p class="address">3160 Creekside Way, Suite 109<br>Sun Peaks, BC V0E 5N0, Canada<br>bolacco@gmail.com · 250-578-7588</p>
+        <div class="actions">
+          <a class="button blue" href="https://www.google.com/maps/dir/?api=1&destination=3160+Creekside+Way+Sun+Peaks+BC">Get directions</a>
+          <a class="button outline" href="tel:+12505787588">Call now</a>
+        </div>
+      </div>
+      <div class="hours">
+        <strong>Daily · 8:30am–5pm</strong>
+        <p>The café website lists these hours. Sun Peaks notes that resort operating hours can vary, so check the storefront or call when timing matters.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Bolacco Caffé · Family owned at Sun Peaks since 1996</div>
+    <div class="footer-links">
+      <a href="https://www.bolacco.com/menu">Full menu</a>
+      <a href="mailto:bolacco@gmail.com">Email</a>
+      <a href="tel:+12505787588">250-578-7588</a>
+      <a href="https://www.google.com/maps/dir/?api=1&destination=3160+Creekside+Way+Sun+Peaks+BC">Directions</a>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Quick actions">
+    <a href="https://www.bolacco.com/menu">Full menu</a>
+    <a href="https://www.google.com/maps/dir/?api=1&destination=3160+Creekside+Way+Sun+Peaks+BC">Directions</a>
+  </div>
+</body>
+</html>
