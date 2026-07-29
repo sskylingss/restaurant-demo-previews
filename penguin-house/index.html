@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Penguin House — Asian Fusion in Penguin, Tasmania</title>
+  <meta name="description" content="Big Asian-fusion flavour in the seaside town of Penguin: rice bowls, bao, curry laksa, pizza, dine-in and takeaway.">
+  <meta name="theme-color" content="#141313">
+  <meta property="og:title" content="Penguin House — Big flavour. Small seaside town.">
+  <meta property="og:description" content="Lunch, dinner, takeaway and bookings at 7 Arnold Street, Penguin.">
+  <meta property="og:image" content="assets/penguin-hero.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #151313;
+      --rice: #f5ebd8;
+      --paper: #fffaf0;
+      --chilli: #cf3f2e;
+      --jade: #174f45;
+      --lime: #d4e14d;
+      --orange: #ef8e2f;
+      --line: rgba(21,19,19,.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--rice);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.55;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .wrap { width: min(1200px, calc(100% - 42px)); margin-inline: auto; }
+    .skip {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 90;
+      padding: 10px 14px;
+      color: #fff;
+      background: var(--ink);
+      transform: translateY(-150%);
+    }
+    .skip:focus { transform: translateY(0); }
+    .eyebrow {
+      margin: 0 0 14px;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: "Archivo Black", Impact, sans-serif;
+      line-height: .94;
+      letter-spacing: -.045em;
+      text-transform: uppercase;
+    }
+    h2 { font-size: clamp(3rem, 7vw, 6.4rem); }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 2px solid currentColor;
+      font-size: .79rem;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .button:hover { transform: translate(-3px,-3px); box-shadow: 6px 6px 0 currentColor; }
+    .button.lime { color: var(--ink); border-color: var(--lime); background: var(--lime); }
+    .button.paper { color: var(--ink); border-color: var(--paper); background: var(--paper); }
+    .button.ink { color: #fff; border-color: var(--ink); background: var(--ink); }
+    .button.ghost { color: #fff; border-color: rgba(255,255,255,.72); }
+    .notice {
+      padding: 8px 16px;
+      color: var(--ink);
+      background: var(--lime);
+      text-align: center;
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .09em;
+      text-transform: uppercase;
+    }
+    .nav {
+      position: absolute;
+      inset: 36px 0 auto;
+      z-index: 12;
+      color: #fff;
+    }
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      border-bottom: 1px solid rgba(255,255,255,.28);
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-right: auto;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: 1.15rem;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 2px solid #fff;
+      border-radius: 50%;
+      font-size: .85rem;
+    }
+    .nav-links { display: flex; gap: 22px; align-items: center; }
+    .nav-links a { font-size: .76rem; font-weight: 700; text-decoration: none; text-transform: uppercase; }
+    .socials { display: flex; gap: 7px; }
+    .social-link {
+      width: 46px;
+      height: 46px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.56);
+      border-radius: 50%;
+      text-decoration: none;
+    }
+    .social-link svg { width: 18px; height: 18px; fill: currentColor; }
+    .hero {
+      position: relative;
+      min-height: 820px;
+      display: grid;
+      align-items: end;
+      color: #fff;
+      background: var(--ink);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -3;
+      background: url("assets/penguin-hero.webp") 72% center / cover no-repeat;
+      filter: saturate(.92) contrast(1.04);
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(21,19,19,.98) 0%, rgba(21,19,19,.9) 38%, rgba(21,19,19,.25) 72%),
+        linear-gradient(0deg, rgba(21,19,19,.9), transparent 55%);
+    }
+    .hero-shape {
+      position: absolute;
+      right: 4vw;
+      top: 165px;
+      z-index: -1;
+      width: 24vw;
+      aspect-ratio: 1;
+      border: 2px solid var(--lime);
+      border-radius: 50%;
+      opacity: .8;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 760px) 1fr;
+      gap: 80px;
+      align-items: end;
+      padding: 210px 0 76px;
+    }
+    .hero-copy h1 {
+      margin-bottom: 24px;
+      font-size: clamp(4.7rem, 10vw, 9rem);
+    }
+    .hero-copy h1 span { display: block; color: var(--lime); }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 590px;
+      margin: 0 0 30px;
+      color: rgba(255,255,255,.78);
+      font-size: 1.03rem;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-sticker {
+      justify-self: end;
+      align-self: end;
+      width: 220px;
+      padding: 28px;
+      color: var(--ink);
+      background: var(--orange);
+      transform: rotate(-4deg);
+      box-shadow: 10px 10px 0 rgba(0,0,0,.35);
+    }
+    .hero-sticker strong {
+      display: block;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: 1.55rem;
+      line-height: .98;
+      text-transform: uppercase;
+    }
+    .hero-sticker span { display: block; margin-top: 12px; font-size: .77rem; font-weight: 600; }
+    .ticker {
+      padding: 20px 0;
+      color: #fff;
+      background: var(--chilli);
+      overflow: hidden;
+    }
+    .ticker .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 34px;
+      white-space: nowrap;
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: 1.05rem;
+      text-transform: uppercase;
+    }
+    .ticker span + span::before { content: "✦"; margin-right: 34px; color: var(--lime); }
+    .menu {
+      padding: 120px 0;
+      background: var(--paper);
+    }
+    .menu-head {
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 90px;
+      align-items: end;
+      margin-bottom: 55px;
+    }
+    .menu-head h2 { max-width: 750px; margin-bottom: 0; }
+    .menu-head p { margin: 0 0 12px; color: #655f57; }
+    .food-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr .85fr;
+      gap: 18px;
+    }
+    .dish {
+      position: relative;
+      min-width: 0;
+      background: var(--rice);
+      overflow: hidden;
+    }
+    .dish:first-child { grid-row: span 2; }
+    .dish img { width: 100%; height: 300px; object-fit: cover; }
+    .dish:first-child img { height: 620px; }
+    .dish-copy {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 42px 24px 22px;
+      color: #fff;
+      background: linear-gradient(transparent, rgba(21,19,19,.92));
+    }
+    .dish-copy h3 { margin: 0 0 6px; font-size: 1.65rem; }
+    .dish-copy p { margin: 0; color: rgba(255,255,255,.72); font-size: .8rem; }
+    .dish:nth-child(4) { grid-column: 2 / 4; }
+    .dish:nth-child(4) img { height: 300px; }
+    .menu-actions { display: flex; justify-content: flex-end; gap: 12px; margin-top: 28px; }
+    .ways {
+      color: #fff;
+      background: var(--jade);
+      padding: 110px 0;
+    }
+    .ways-grid {
+      display: grid;
+      grid-template-columns: .78fr 1.22fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .ways h2 { max-width: 590px; color: var(--lime); }
+    .ways-intro > p:not(.eyebrow) { max-width: 500px; color: rgba(255,255,255,.72); }
+    .way-list { border-top: 1px solid rgba(255,255,255,.28); }
+    .way {
+      display: grid;
+      grid-template-columns: 70px 1fr;
+      gap: 24px;
+      padding: 28px 0;
+      border-bottom: 1px solid rgba(255,255,255,.28);
+    }
+    .way span {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--lime);
+      border-radius: 50%;
+      color: var(--lime);
+      font-weight: 800;
+    }
+    .way h3 { margin: 0 0 6px; font-size: 1.55rem; }
+    .way p { margin: 0; color: rgba(255,255,255,.68); }
+    .visit {
+      position: relative;
+      padding: 120px 0 90px;
+      background: var(--rice);
+      overflow: hidden;
+    }
+    .visit::before {
+      content: "PENGUIN";
+      position: absolute;
+      right: -20px;
+      top: 20px;
+      color: rgba(207,63,46,.09);
+      font-family: "Archivo Black", Impact, sans-serif;
+      font-size: 14vw;
+      line-height: 1;
+    }
+    .visit-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 95px;
+      align-items: start;
+    }
+    .visit h2 { margin-bottom: 25px; }
+    .hours {
+      padding: 38px;
+      color: #fff;
+      background: var(--ink);
+      box-shadow: 12px 12px 0 var(--orange);
+    }
+    .hours-row {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 20px;
+      padding: 19px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .hours-row:first-child { padding-top: 0; }
+    .hours-row b { color: var(--lime); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; }
+    .hours-row p, .hours-row address { margin: 0; color: rgba(255,255,255,.78); font-style: normal; }
+    .hours .actions { margin-top: 25px; }
+    .coffee-note {
+      margin-top: 80px;
+      display: grid;
+      grid-template-columns: 1.1fr auto;
+      gap: 28px;
+      align-items: center;
+      padding: 34px 40px;
+      border: 2px solid var(--ink);
+      background: var(--lime);
+    }
+    .coffee-note h3 { margin: 0 0 5px; font-size: 1.8rem; }
+    .coffee-note p { margin: 0; }
+    .compare {
+      margin-top: 70px;
+      padding-top: 30px;
+      border-top: 1px solid var(--line);
+    }
+    .compare-inner {
+      max-width: 800px;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .compare img { width: 200px; height: auto; border: 1px solid var(--line); }
+    .compare h3 { margin: 0 0 7px; font-size: 1.35rem; }
+    .compare p { margin: 0; color: #6b6359; font-size: .86rem; }
+    footer { padding: 34px 0; color: rgba(255,255,255,.66); background: var(--ink); font-size: .76rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
+    footer a { color: #fff; text-decoration: none; }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; gap: 35px; }
+      .hero-sticker { justify-self: start; }
+      .food-grid { grid-template-columns: 1fr 1fr; }
+      .dish:first-child { grid-row: auto; }
+      .dish:first-child img { height: 360px; }
+      .dish:nth-child(4) { grid-column: auto; }
+      .dish img, .dish:nth-child(4) img { height: 360px; }
+      .ways-grid, .visit-grid { grid-template-columns: 1fr; gap: 55px; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: calc(100% - 30px); max-width: 1200px; }
+      .notice { min-height: 36px; padding: 8px 10px; font-size: .62rem; }
+      .nav { inset-block-start: 36px; }
+      .nav-inner { min-height: 68px; gap: 9px; }
+      .brand { gap: 8px; font-size: .92rem; }
+      .brand-mark { width: 34px; height: 34px; font-size: .72rem; }
+      .socials { gap: 5px; }
+      .social-link { width: 44px; height: 44px; }
+      .nav .button { min-height: 44px; padding-inline: 12px; font-size: .67rem; }
+      .hero { min-height: 790px; }
+      .hero::before { background-position: 56% center; }
+      .hero::after {
+        background:
+          linear-gradient(0deg, rgba(21,19,19,.98) 0%, rgba(21,19,19,.79) 58%, rgba(21,19,19,.25) 100%);
+      }
+      .hero-inner { padding: 185px 0 54px; }
+      .hero-copy h1 { font-size: clamp(4rem, 19vw, 5.9rem); }
+      .hero-copy > p:not(.eyebrow) { font-size: .93rem; }
+      .hero-sticker { width: 195px; padding: 21px; margin-left: auto; }
+      .ticker .wrap { justify-content: space-around; overflow: hidden; font-size: .9rem; }
+      .ticker span:nth-child(n+3) { display: none; }
+      .menu, .ways, .visit { padding: 80px 0; }
+      .menu-head { grid-template-columns: 1fr; gap: 18px; margin-bottom: 34px; }
+      .food-grid { grid-template-columns: 1fr; }
+      .dish:first-child img, .dish img, .dish:nth-child(4) img { height: 330px; }
+      .dish:nth-child(4) { grid-column: auto; }
+      .menu-actions { justify-content: stretch; flex-wrap: wrap; }
+      .menu-actions .button { flex: 1 1 145px; }
+      .ways-grid { gap: 38px; }
+      .way { grid-template-columns: 50px 1fr; gap: 14px; }
+      .visit-grid { gap: 38px; }
+      .hours { padding: 28px 22px; box-shadow: 8px 8px 0 var(--orange); }
+      .hours-row { grid-template-columns: 92px 1fr; gap: 10px; }
+      .coffee-note { grid-template-columns: 1fr; margin-top: 58px; padding: 25px; }
+      .compare-inner { align-items: flex-start; }
+      .compare img { width: 165px; }
+      footer .wrap { flex-direction: column; }
+    }
+
+    @media (max-width: 430px) {
+      .brand span:last-child { display: none; }
+      .nav .button { padding-inline: 10px; }
+      .hero-copy h1 { font-size: 3.95rem; }
+      .actions .button { flex: 1 1 140px; }
+      .compare-inner { display: grid; }
+      .compare img { width: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="notice">7 Arnold St, Penguin · BYO available · Tue–Sun</div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Penguin House home">
+        <span class="brand-mark">PH</span><span>Penguin House</span>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#ways">How to eat</a>
+        <a href="#visit">Hours</a>
+      </nav>
+      <div class="socials" aria-label="Official social media">
+        <a class="social-link" href="https://www.instagram.com/hungrypenguintas" target="_blank" rel="noopener" aria-label="Penguin House on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.1A2.9 2.9 0 1 0 12 15a2.9 2.9 0 0 0 0-5.8ZM17.6 5.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+        </a>
+        <a class="social-link" href="https://www.facebook.com/penguinhousetas/" target="_blank" rel="noopener" aria-label="Penguin House on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8h3.4Z"/></svg>
+        </a>
+      </div>
+      <a class="button lime" href="https://squareup.com/appointments/book/poh385vv5xv5iv/L92X5JNZ06YYW/start" target="_blank" rel="noopener">Reserve</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <span class="hero-shape" aria-hidden="true"></span>
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Asian fusion · Penguin, Tasmania</p>
+          <h1 id="hero-title">Big flavour.<span>Small seaside town.</span></h1>
+          <p>Rice bowls, bao, curry, noodles and wood-fire pizza — traditional preparations meet local ingredients in Penguin’s neighbourhood fusion house.</p>
+          <div class="actions">
+            <a class="button lime" href="https://squareup.com/appointments/book/poh385vv5xv5iv/L92X5JNZ06YYW/start" target="_blank" rel="noopener">Book a table</a>
+            <a class="button ghost" href="https://www.penguinhousetas.com.au/menu" target="_blank" rel="noopener">See menus</a>
+          </div>
+        </div>
+        <aside class="hero-sticker">
+          <strong>Dine in.<br>Take away.<br>Bring your own.</strong>
+          <span>Lunch and dinner in the seaside town of Penguin.</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="ticker" aria-hidden="true">
+      <div class="wrap"><span>Bao buns</span><span>Curry laksa</span><span>Rice bowls</span><span>Wood-fire pizza</span></div>
+    </div>
+
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="wrap">
+        <div class="menu-head">
+          <div>
+            <p class="eyebrow">Eat across cultures</p>
+            <h2 id="menu-title">One menu. Plenty of ways to crave it.</h2>
+          </div>
+          <p>From fragrant noodle bowls to crisp finger food, the kitchen brings together familiar dishes, bright local produce and options for varied dietary needs.</p>
+        </div>
+
+        <div class="food-grid">
+          <article class="dish">
+            <img src="assets/rice-bowls.webp" width="800" height="600" loading="lazy" alt="Two colourful rice bowls prepared by Penguin House">
+            <div class="dish-copy"><h3>Rice bowls</h3><p>Colour, crunch and a generous bowl built for lunch.</p></div>
+          </article>
+          <article class="dish">
+            <img src="assets/fried-chicken-bao.webp" width="800" height="600" loading="lazy" alt="Fried chicken bao buns from Penguin House">
+            <div class="dish-copy"><h3>Fried chicken bao</h3><p>Soft bun, crisp chicken and bold sauce.</p></div>
+          </article>
+          <article class="dish">
+            <img src="assets/spring-rolls.webp" width="800" height="600" loading="lazy" alt="Spring rolls served by Penguin House">
+            <div class="dish-copy"><h3>Spring rolls</h3><p>Golden finger food made for sharing.</p></div>
+          </article>
+          <article class="dish">
+            <img src="assets/salmon-bowls.webp" width="800" height="600" loading="lazy" alt="Fresh salmon rice bowls prepared at Penguin House">
+            <div class="dish-copy"><h3>Fresh, fast, full of flavour</h3><p>Traditional ideas, local ingredients and a Penguin House spin.</p></div>
+          </article>
+        </div>
+        <div class="menu-actions">
+          <a class="button ink" href="https://www.penguinhousetas.com.au/menu" target="_blank" rel="noopener">Dine-in &amp; takeaway menus</a>
+          <a class="button" href="https://www.penguinhousetas.com.au/menu" target="_blank" rel="noopener">Wood-fire pizza</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="ways" id="ways" aria-labelledby="ways-title">
+      <div class="wrap ways-grid">
+        <div class="ways-intro">
+          <p class="eyebrow">Your table, your way</p>
+          <h2 id="ways-title">Good food should fit the day.</h2>
+          <p>Make it a table for friends, take dinner home or ask about delivery. Vegetarian, gluten-free and other dietary options are part of the mix.</p>
+        </div>
+        <div class="way-list">
+          <article class="way"><span>01</span><div><h3>Dine in</h3><p>Reserve online for a relaxed lunch or dinner at 7 Arnold Street.</p></div></article>
+          <article class="way"><span>02</span><div><h3>Takeaway</h3><p>Browse the separate official takeaway menu before you order.</p></div></article>
+          <article class="way"><span>03</span><div><h3>BYO</h3><p>Bring a bottle and settle in — BYO is available.</p></div></article>
+          <article class="way"><span>04</span><div><h3>Delivery</h3><p>Delivery is listed as available; check the official channels for today’s service.</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap">
+        <div class="visit-grid">
+          <div>
+            <p class="eyebrow">Find the house</p>
+            <h2 id="visit-title">Dinner in Penguin? Start here.</h2>
+            <p>Penguin House sits at 7 Arnold Street, next to Bottle-O. The kitchen closes 30 minutes before the listed closing time.</p>
+          </div>
+          <div class="hours">
+            <div class="hours-row"><b>Monday</b><p>Closed</p></div>
+            <div class="hours-row"><b>Tuesday</b><p>Dinner · 5:30pm–8pm</p></div>
+            <div class="hours-row"><b>Wed–Sun</b><p>Lunch · 12pm–3pm<br>Dinner · 5:30pm–8pm</p></div>
+            <div class="hours-row"><b>Address</b><address>7 Arnold Street<br>Penguin TAS 7316</address></div>
+            <div class="actions">
+              <a class="button lime" href="https://squareup.com/appointments/book/poh385vv5xv5iv/L92X5JNZ06YYW/start" target="_blank" rel="noopener">Reserve online</a>
+              <a class="button ghost" href="https://goo.gl/maps/u8ceQRMVSHNjuH1f9" target="_blank" rel="noopener">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="coffee-note">
+          <div><h3>A free coffee sounds good.</h3><p>Join Penguin House’s mailing list on the official site to receive news, updates and its listed welcome coffee offer.</p></div>
+          <a class="button ink" href="https://www.penguinhousetas.com.au/" target="_blank" rel="noopener">Visit official site</a>
+        </aside>
+
+        <aside class="compare" aria-labelledby="compare-title">
+          <div class="compare-inner">
+            <img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Small mobile comparison of the current Penguin House site and this Demo">
+            <div>
+              <p class="eyebrow">A small before &amp; after</p>
+              <h3 id="compare-title">From repeated controls to one clear next step.</h3>
+              <p>The Demo keeps the real food and official actions, while bringing reservation, menu and social paths into a cleaner first screen.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Demo preview using verified public information from Penguin House.</span>
+      <span><a href="https://www.penguinhousetas.com.au/" target="_blank" rel="noopener">Official website</a> · <a href="https://www.instagram.com/hungrypenguintas" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/penguinhousetas/" target="_blank" rel="noopener">Facebook</a></span>
+    </div>
+  </footer>
+</body>
+</html>
