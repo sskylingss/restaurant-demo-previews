@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Tasty Kitchen & Coffee — a family-run independent cafe and outside catering business in Oakwood, Leeds."
+    />
+    <meta name="theme-color" content="#f4c945" />
+    <title>Tasty Kitchen & Coffee — Oakwood, Leeds</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&family=Nunito+Sans:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <a class="logo" href="#welcome" aria-label="Tasty Kitchen & Coffee home">
+        <span>Tasty</span>
+        <small>Kitchen & Coffee</small>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#food">Menus</a>
+        <a href="#story">Our story</a>
+        <a href="#visit">Find us</a>
+      </nav>
+      <a class="header-book" href="https://www.tastyleeds.com/contact-us" target="_blank" rel="noreferrer">
+        Book a table <span>↗</span>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="welcome" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="images/hero.webp"
+          width="1600"
+          height="1000"
+          alt="The real counter and coffee bar inside Tasty Kitchen & Coffee"
+          fetchpriority="high"
+        />
+        <div class="hero-wash" aria-hidden="true"></div>
+        <div class="hero-doodles" aria-hidden="true"><i>✦</i><i>◌</i><i>✿</i></div>
+
+        <div class="hero-location reveal">
+          <span>Oakwood · Leeds</span>
+          <span>Family-run since 2011</span>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="hand-note">Breakfast, brunch, lunch & caffeine</p>
+          <h1 id="hero-title">A proper little<br />place to <em>eat well.</em></h1>
+          <p>
+            Locally sourced, made fresh to order and served with the kind of welcome
+            that keeps Oakwood coming back.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-red" href="https://www.tastyleeds.com/cafemenu" target="_blank" rel="noreferrer">
+              See the menus
+            </a>
+            <a class="button button-cream" href="https://www.tastyleeds.com/contact-us" target="_blank" rel="noreferrer">
+              Book a table
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-sticker reveal">
+          <span>Made in</span>
+          <strong>LS8</strong>
+          <span>with love</span>
+        </div>
+
+        <div class="hero-details">
+          <div>
+            <span>Come by</span>
+            <strong>482 Roundhay Road</strong>
+          </div>
+          <div>
+            <span>Mon–Sat</span>
+            <strong>9am–4.30pm</strong>
+          </div>
+          <a href="#routes">Pick your plan ↓</a>
+        </div>
+      </section>
+
+      <section class="routes-section" id="routes" aria-labelledby="routes-title">
+        <div class="routes-heading reveal">
+          <span class="eyebrow">Whatever today needs</span>
+          <h2 id="routes-title">Coffee now.<br /><em>Party later.</em></h2>
+        </div>
+        <div class="route-list">
+          <a class="route-card reveal" href="#food">
+            <span>01</span>
+            <h3>Eat in</h3>
+            <p>Breakfast, lunch, coffee and cake in the heart of Oakwood.</p>
+            <b>See the food ↗</b>
+          </a>
+          <a
+            class="route-card reveal"
+            href="https://www.tastyleeds.com/contact-us"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>02</span>
+            <h3>Book</h3>
+            <p>Send a quick booking enquiry before your next catch-up.</p>
+            <b>Book a table ↗</b>
+          </a>
+          <a
+            class="route-card reveal"
+            href="https://www.tastyleeds.com/catering-menu"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <span>03</span>
+            <h3>Catering</h3>
+            <p>Fresh food for parties, meetings and business lunches.</p>
+            <b>Plan your spread ↗</b>
+          </a>
+        </div>
+      </section>
+
+      <section class="food-section" id="food" aria-labelledby="food-title">
+        <div class="food-heading reveal">
+          <div>
+            <span class="eyebrow">Made here, not somewhere else</span>
+            <h2 id="food-title">Lunch should look<br /><em>this happy.</em></h2>
+          </div>
+          <p>
+            Handmade burgers, proper sandwiches, fresh salads and our own cakes—made
+            to order with ingredients sourced close to home.
+          </p>
+        </div>
+
+        <div class="food-grid">
+          <article class="food-card burger-card reveal">
+            <div>
+              <img
+                src="images/burger.webp"
+                width="800"
+                height="1000"
+                alt="A handmade burger from Tasty Kitchen & Coffee"
+                loading="lazy"
+              />
+              <span class="photo-tag">Official Tasty photo</span>
+            </div>
+            <h3>Handmade burgers</h3>
+            <p>Big, bright and built fresh.</p>
+          </article>
+          <article class="food-card sandwich-card reveal">
+            <div>
+              <img
+                src="images/sandwich.webp"
+                width="800"
+                height="1000"
+                alt="A fresh sandwich being served at Tasty Kitchen & Coffee"
+                loading="lazy"
+              />
+              <span class="photo-tag">Ready for lunch</span>
+            </div>
+            <h3>Sandwiches</h3>
+            <p>Made to order, never an afterthought.</p>
+          </article>
+          <article class="food-card prep-card reveal">
+            <div>
+              <img
+                src="images/prep.webp"
+                width="800"
+                height="1000"
+                alt="Fresh catering food being prepared by the Tasty team"
+                loading="lazy"
+              />
+              <span class="photo-tag">Made by the team</span>
+            </div>
+            <h3>Catering trays</h3>
+            <p>Party and business lunch, sorted.</p>
+          </article>
+        </div>
+
+        <div class="coffee-break reveal">
+          <img
+            src="images/drinks.webp"
+            width="800"
+            height="1000"
+            alt="Cold drinks prepared at Tasty Kitchen & Coffee"
+            loading="lazy"
+          />
+          <div>
+            <span class="eyebrow">And something to drink</span>
+            <h3>Freshly ground coffee.<br /><em>Always a good idea.</em></h3>
+            <a href="tel:+441133456319">Call 0113 3456 319 ↗</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="story-section" id="story" aria-labelledby="story-title">
+        <div class="story-copy reveal">
+          <span class="eyebrow">Oakwood’s neighbourhood kitchen</span>
+          <h2 id="story-title">Family-run.<br /><em>Locally rooted.</em></h2>
+          <p>
+            Tasty opened its doors in 2011 with a simple idea: serve lovingly prepared
+            food, good coffee and make families feel at home.
+          </p>
+          <div class="story-facts">
+            <div><strong>2011</strong><span>first opened in Oakwood</span></div>
+            <div><strong>Local</strong><span>ingredients sourced close to home</span></div>
+            <div><strong>Fresh</strong><span>everything made to order</span></div>
+          </div>
+          <p class="scribble">the good stuff lives round the corner →</p>
+        </div>
+        <div class="story-photo reveal">
+          <img
+            src="images/storefront.webp"
+            width="800"
+            height="1000"
+            alt="The yellow Tasty storefront on Roundhay Road in Leeds"
+            loading="lazy"
+          />
+          <span>482 Roundhay Rd · LS8</span>
+        </div>
+      </section>
+
+      <section class="proof-section" aria-labelledby="proof-title">
+        <div class="proof-copy reveal">
+          <span class="eyebrow">A small mobile proof</span>
+          <h2 id="proof-title">The same warmth.<br /><em>Much easier to use.</em></h2>
+          <p>Menu, booking and catering are visible before the customer has to hunt.</p>
+        </div>
+        <div class="comparison-card reveal">
+          <img
+            src="images/comparison.webp"
+            width="480"
+            height="320"
+            alt="Mobile comparison showing the current homepage and the new action-first concept"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="visit-section" id="visit" aria-labelledby="visit-title">
+        <div class="visit-copy reveal">
+          <span class="eyebrow">Come find your table</span>
+          <h2 id="visit-title">Hello,<br /><em>Oakwood.</em></h2>
+          <address>
+            <strong>482 Roundhay Road</strong>
+            <span>Leeds · LS8 2HU</span>
+          </address>
+          <div class="hours">
+            <span>Monday–Saturday</span><strong>9.00–16.30</strong>
+            <span>Sunday</span><strong>10.00–15.00</strong>
+          </div>
+          <div class="visit-actions">
+            <a class="button button-red" href="tel:+441133456319">0113 3456 319</a>
+            <a
+              class="button button-outline"
+              href="https://www.google.com/maps/dir/?api=1&destination=482+Roundhay+Road+Leeds+LS8+2HU"
+              target="_blank"
+              rel="noreferrer"
+              >Get directions</a
+            >
+          </div>
+          <a class="email" href="mailto:info@tastyleeds.com">info@tastyleeds.com</a>
+        </div>
+        <div class="map-wrap reveal">
+          <iframe
+            title="Map showing Tasty Kitchen & Coffee on Roundhay Road in Leeds"
+            src="https://www.google.com/maps?q=482+Roundhay+Road+Leeds+LS8+2HU&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="map-note">You’re nearly there ↙</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-logo">Tasty</div>
+      <p>Kitchen · Coffee · Catering · Oakwood</p>
+      <a href="#welcome">Back to top ↑</a>
+    </footer>
+  </body>
+</html>
