@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="The Firewood Cafe — family-owned, hand-tossed, wood-fired pizza on Cambie Street in Vancouver since 1989."
+    />
+    <meta name="theme-color" content="#ed5628" />
+    <title>The Firewood Cafe — Wood-fired pizza in Vancouver</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700;800&family=Permanent+Marker&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <a class="brand" href="#welcome" aria-label="The Firewood Cafe home">
+        <span>The</span>
+        <strong>Firewood</strong>
+        <span>Cafe</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#order">How to order</a>
+        <a href="#pizza">The pizza</a>
+        <a href="#story">Since ’89</a>
+        <a href="#visit">Find us</a>
+      </nav>
+      <a class="nav-call" href="tel:+16048730001">
+        <span>Order now</span>
+        <strong>604·873·0001</strong>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="welcome" aria-labelledby="hero-title">
+        <img
+          class="hero-bg"
+          src="images/hero.webp"
+          width="1600"
+          height="1000"
+          alt="A hand-tossed thin crust pizza from The Firewood Cafe"
+          fetchpriority="high"
+        />
+        <div class="hero-overlay" aria-hidden="true"></div>
+        <div class="ember-field" aria-hidden="true">
+          <i></i><i></i><i></i><i></i><i></i><i></i>
+        </div>
+
+        <div class="hero-meta reveal">
+          <span>3004 Cambie Street</span>
+          <span>Vancouver, BC</span>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="scribble">Hand tossed. Brick oven.</p>
+          <h1 id="hero-title">Good pizza<br />needs <em>fire.</em></h1>
+          <p class="hero-intro">
+            Thin crust, house-made tomato sauce and the kind of char only a real
+            firewood oven can give.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-hot" href="tel:+16048730001">Call to order</a>
+            <a class="button button-clear" href="#pizza">See what’s firing</a>
+          </div>
+        </div>
+
+        <div class="since-badge reveal" aria-label="Family owned since 1989">
+          <span>Family owned</span>
+          <strong>’89</strong>
+          <span>Vancouver</span>
+        </div>
+
+        <figure class="oven-card reveal">
+          <img
+            src="images/oven.webp"
+            width="1000"
+            height="700"
+            alt="Flames burning in The Firewood Cafe brick oven"
+          />
+          <figcaption>Yes, it’s a real firewood oven.</figcaption>
+        </figure>
+
+        <div class="hero-bottom">
+          <span>Open 7 days</span>
+          <span>Pickup · Delivery · Dine-in</span>
+          <a href="#order">Choose your route ↓</a>
+        </div>
+      </section>
+
+      <section class="order-section" id="order" aria-labelledby="order-title">
+        <div class="order-intro reveal">
+          <span class="eyebrow">Four ways to get your fix</span>
+          <h2 id="order-title">Dinner, without<br />the <em>runaround.</em></h2>
+        </div>
+        <div class="order-grid">
+          <article class="order-card reveal">
+            <span class="order-no">01</span>
+            <h3>Pickup</h3>
+            <p>Call ahead, then grab it hot from Cambie Street.</p>
+            <a href="tel:+16048730001">Call to order ↗</a>
+          </article>
+          <article class="order-card reveal">
+            <span class="order-no">02</span>
+            <h3>Delivery</h3>
+            <p>In-house delivery in the local Vancouver neighbourhood.</p>
+            <a href="tel:+16048730001">Check your address ↗</a>
+          </article>
+          <article class="order-card reveal">
+            <span class="order-no">03</span>
+            <h3>Dine-in</h3>
+            <p>A few tables, no reservations—pizza straight from the oven.</p>
+            <a href="#visit">Find the cafe ↗</a>
+          </article>
+          <article class="order-card reveal">
+            <span class="order-no">04</span>
+            <h3>Catering</h3>
+            <p>Daytime catering for group orders over $150.</p>
+            <a href="mailto:contactus@thefirewoodcafe.ca">Ask about catering ↗</a>
+          </article>
+        </div>
+      </section>
+
+      <section class="pizza-section" id="pizza" aria-labelledby="pizza-title">
+        <div class="pizza-heading reveal">
+          <span class="eyebrow">Built by hand · kissed by flame</span>
+          <h2 id="pizza-title">The crust tells<br /><em>the whole story.</em></h2>
+          <p>House sauce. House cheese blend. Fresh toppings. No conveyor belt.</p>
+        </div>
+
+        <div class="special-card reveal">
+          <div class="special-copy">
+            <span>This month’s pickup special</span>
+            <h3>Aruguball</h3>
+            <p>Spicy Italian sausage, salty capers, fresh arugula and roasted garlic.</p>
+            <a href="tel:+16048730001">Ask for the current special</a>
+          </div>
+          <img
+            src="images/special.webp"
+            width="800"
+            height="1000"
+            alt="The current monthly pickup special pizza in front of the firewood oven"
+            loading="lazy"
+          />
+          <strong class="special-mark">HOT!</strong>
+        </div>
+
+        <div class="pizza-grid">
+          <article class="pizza-card reveal">
+            <div>
+              <img
+                src="images/classic.webp"
+                width="800"
+                height="1000"
+                alt="Classic wood-fired pizza from The Firewood Cafe"
+                loading="lazy"
+              />
+              <span>01</span>
+            </div>
+            <h3>Classic</h3>
+            <p>Thin, crisp and made for sharing.</p>
+          </article>
+          <article class="pizza-card reveal">
+            <div>
+              <img
+                src="images/olive.webp"
+                width="800"
+                height="1000"
+                alt="Olive-topped wood-fired pizza from The Firewood Cafe"
+                loading="lazy"
+              />
+              <span>02</span>
+            </div>
+            <h3>Veggie</h3>
+            <p>Fresh toppings with real oven char.</p>
+          </article>
+          <article class="pizza-card reveal">
+            <div>
+              <img
+                src="images/meat.webp"
+                width="800"
+                height="1000"
+                alt="Meat-topped wood-fired pizza from The Firewood Cafe"
+                loading="lazy"
+              />
+              <span>03</span>
+            </div>
+            <h3>Meat</h3>
+            <p>Big flavour, right to the edge.</p>
+          </article>
+        </div>
+
+        <a
+          class="full-menu reveal"
+          href="https://www.thefirewoodcafe.ca/menu/"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>Explore the current full menu</span>
+          <b>↗</b>
+        </a>
+      </section>
+
+      <section class="story-section" id="story" aria-labelledby="story-title">
+        <div class="story-fire reveal">
+          <img
+            src="images/oven.webp"
+            width="1000"
+            height="700"
+            alt="The glowing firewood brick oven"
+            loading="lazy"
+          />
+          <span class="flame-label">The heart of the kitchen</span>
+        </div>
+        <div class="story-copy reveal">
+          <span class="eyebrow">Mount Pleasant · since 1989</span>
+          <h2 id="story-title">A family place,<br /><em>fired the old way.</em></h2>
+          <p>
+            For more than three decades, our family has served pizza and pasta to
+            Mount Pleasant and the surrounding Vancouver neighbourhoods.
+          </p>
+          <div class="story-facts">
+            <div><strong>35+</strong><span>years around the neighbourhood</span></div>
+            <div><strong>1</strong><span>firewood brick oven at the centre of it all</span></div>
+            <div><strong>Every</strong><span>pizza hand tossed and made with care</span></div>
+          </div>
+          <p class="chalk">Come hungry. Leave family.</p>
+        </div>
+      </section>
+
+      <section class="proof-section" aria-labelledby="proof-title">
+        <div class="proof-copy reveal">
+          <span class="eyebrow">One quick mobile proof</span>
+          <h2 id="proof-title">Fewer dead ends.<br /><em>More hot pizza.</em></h2>
+          <p>
+            A small comparison focused on getting customers from hungry to the right
+            action faster.
+          </p>
+        </div>
+        <div class="comparison-card reveal">
+          <img
+            src="images/comparison.webp"
+            width="480"
+            height="320"
+            alt="Mobile comparison between the current website and the new order-first homepage concept"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="visit-section" id="visit" aria-labelledby="visit-title">
+        <div class="visit-copy reveal">
+          <span class="eyebrow">14th & Cambie</span>
+          <h2 id="visit-title">Find the<br /><em>orange glow.</em></h2>
+          <address>
+            <strong>3004 Cambie Street</strong>
+            <span>Vancouver, BC</span>
+          </address>
+          <div class="hours">
+            <span>Tue–Sun</span><strong>4pm–10pm</strong>
+            <span>Monday</span><strong>4pm–9pm</strong>
+          </div>
+          <div class="visit-actions">
+            <a class="button button-cream" href="tel:+16048730001">604·873·0001</a>
+            <a
+              class="button button-line"
+              href="https://www.google.com/maps/dir/?api=1&destination=3004+Cambie+Street+Vancouver+BC"
+              target="_blank"
+              rel="noreferrer"
+              >Get directions</a
+            >
+          </div>
+          <a class="email" href="mailto:contactus@thefirewoodcafe.ca"
+            >contactus@thefirewoodcafe.ca</a
+          >
+        </div>
+        <div class="map-wrap reveal">
+          <iframe
+            title="Map showing The Firewood Cafe at 3004 Cambie Street in Vancouver"
+            src="https://www.google.com/maps?q=3004+Cambie+Street+Vancouver+BC&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="map-pin">
+            <span>Pizza is here</span>
+            <b>↓</b>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-brand">The Firewood Cafe</div>
+      <p>Family-owned · Wood-fired · Vancouver since 1989</p>
+      <a href="#welcome">Back to top ↑</a>
+    </footer>
+  </body>
+</html>
