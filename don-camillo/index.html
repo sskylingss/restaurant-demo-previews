@@ -1,0 +1,548 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Don Camillo — Hobart Italian Dining Since 1965</title>
+  <meta name="description" content="Traditional Italian flavours, Tasmanian produce and genuine hospitality at Hobart’s longest-running restaurant in Sandy Bay.">
+  <meta name="theme-color" content="#3b1017">
+  <meta property="og:title" content="Don Camillo — A Hobart table since 1965">
+  <meta property="og:description" content="Reserve, order takeaway or share the tradition at 5 Magnet Court, Sandy Bay.">
+  <meta property="og:image" content="assets/don-camillo-hero.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --wine: #691d2a;
+      --deep: #2b0e14;
+      --ink: #1f1917;
+      --cream: #f5eddf;
+      --paper: #fffaf1;
+      --gold: #c69a50;
+      --olive: #66704b;
+      --red: #ba263d;
+      --line: rgba(31,25,23,.18);
+      --shadow: 0 25px 70px rgba(43,14,20,.18);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--cream);
+      font-family: "Manrope", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 42px)); margin-inline: auto; }
+    .skip {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: #fff;
+      background: var(--deep);
+      transform: translateY(-150%);
+    }
+    .skip:focus { transform: translateY(0); }
+    .eyebrow {
+      margin: 0 0 15px;
+      color: var(--wine);
+      font-size: .71rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      line-height: .98;
+      font-weight: 600;
+    }
+    h2 { font-size: clamp(3rem, 6.4vw, 6.3rem); letter-spacing: -.045em; }
+    .button {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 23px;
+      border: 1px solid transparent;
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.gold { color: var(--deep); background: var(--gold); }
+    .button.cream { color: var(--deep); background: var(--paper); }
+    .button.wine { color: #fff; background: var(--wine); }
+    .button.outline { color: inherit; border-color: currentColor; }
+    .utility {
+      padding: 7px 18px;
+      color: #fff;
+      background: var(--deep);
+      text-align: center;
+      font-size: .68rem;
+      font-weight: 600;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+    }
+    .utility span + span::before { content: "•"; margin: 0 13px; color: var(--gold); }
+    .nav {
+      position: absolute;
+      inset: 34px 0 auto;
+      z-index: 14;
+      color: #fff;
+    }
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      border-bottom: 1px solid rgba(255,255,255,.3);
+    }
+    .brand {
+      margin-right: auto;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.7rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .nav-links { display: flex; gap: 23px; }
+    .nav-links a { font-size: .74rem; font-weight: 600; letter-spacing: .04em; text-decoration: none; }
+    .socials { display: flex; gap: 7px; }
+    .social-link {
+      width: 46px;
+      height: 46px;
+      display: inline-grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 50%;
+      text-decoration: none;
+    }
+    .social-link svg { width: 18px; height: 18px; fill: currentColor; }
+    .hero {
+      position: relative;
+      min-height: 850px;
+      display: grid;
+      align-items: end;
+      color: #fff;
+      background: #050505;
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background: url("assets/don-camillo-hero.webp") center / cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.28), rgba(0,0,0,.18) 48%, rgba(0,0,0,.77) 100%),
+        linear-gradient(0deg, rgba(0,0,0,.85), transparent 58%);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: .84fr 1.16fr;
+      gap: 70px;
+      align-items: end;
+      padding: 215px 0 76px;
+    }
+    .hero-year {
+      align-self: end;
+      color: rgba(255,255,255,.23);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(7rem, 17vw, 15rem);
+      line-height: .7;
+      letter-spacing: -.08em;
+    }
+    .hero-copy { justify-self: end; max-width: 690px; }
+    .hero-copy .eyebrow { color: var(--gold); }
+    .hero-copy h1 {
+      margin-bottom: 23px;
+      font-size: clamp(4.2rem, 8.7vw, 8rem);
+      letter-spacing: -.055em;
+    }
+    .hero-copy h1 em { display: block; color: var(--gold); font-weight: 500; }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 580px;
+      margin: 0 0 30px;
+      color: rgba(255,255,255,.77);
+      font-size: 1rem;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .action-bar {
+      position: relative;
+      z-index: 3;
+      background: var(--paper);
+      border-bottom: 1px solid var(--line);
+    }
+    .action-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+    .quick {
+      min-height: 150px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 25px 27px;
+      border-right: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .quick:last-child { border-right: 0; }
+    .quick small { color: var(--wine); font-size: .67rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+    .quick strong { margin-top: 12px; font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.65rem; line-height: 1.05; }
+    .story {
+      position: relative;
+      padding: 125px 0;
+      background: var(--cream);
+      overflow: hidden;
+    }
+    .story::before {
+      content: "EST. 1965";
+      position: absolute;
+      left: -20px;
+      top: 15px;
+      color: rgba(105,29,42,.06);
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 13vw;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .story-grid {
+      position: relative;
+      display: grid;
+      grid-template-columns: .92fr 1.08fr;
+      gap: 95px;
+      align-items: center;
+    }
+    .story-photo {
+      position: relative;
+      padding: 0 40px 45px 0;
+    }
+    .story-photo img {
+      width: 100%;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+    .story-photo::after {
+      content: "Fresh produce · Italian instinct";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 16px 22px;
+      color: #fff;
+      background: var(--wine);
+      font-size: .69rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .story-copy h2 { margin-bottom: 25px; }
+    .story-copy > p:not(.eyebrow) { max-width: 600px; color: #5f5550; }
+    .timeline { margin-top: 38px; border-top: 1px solid var(--line); }
+    .timeline-row {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 20px;
+      padding: 21px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .timeline-row b { color: var(--wine); font-family: "Cormorant Garamond", Georgia, serif; font-size: 1.4rem; }
+    .timeline-row p { margin: 0; color: #5f5550; }
+    .craft {
+      color: #fff;
+      background: var(--wine);
+      padding: 120px 0;
+    }
+    .craft-head {
+      display: grid;
+      grid-template-columns: 1fr .75fr;
+      gap: 100px;
+      align-items: end;
+      margin-bottom: 55px;
+    }
+    .craft-head .eyebrow { color: var(--gold); }
+    .craft-head h2 { max-width: 760px; margin-bottom: 0; }
+    .craft-head p { margin: 0 0 12px; color: rgba(255,255,255,.7); }
+    .craft-grid { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 18px; }
+    .craft-card {
+      position: relative;
+      min-height: 540px;
+      overflow: hidden;
+      background: var(--deep);
+    }
+    .craft-card img { width: 100%; height: 100%; object-fit: cover; }
+    .craft-card:nth-child(2) img { object-position: 58% center; }
+    .craft-label {
+      position: absolute;
+      inset: auto 0 0;
+      padding: 45px 22px 22px;
+      background: linear-gradient(transparent, rgba(31,10,15,.92));
+    }
+    .craft-label h3 { margin: 0 0 5px; font-size: 1.7rem; }
+    .craft-label p { margin: 0; color: rgba(255,255,255,.68); font-size: .82rem; }
+    .visit {
+      padding: 120px 0 85px;
+      background: var(--paper);
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.05fr;
+      gap: 100px;
+      align-items: start;
+    }
+    .visit h2 { margin-bottom: 25px; }
+    .visit-copy > p:not(.eyebrow) { color: #635953; }
+    .info-card {
+      padding: 40px;
+      color: #fff;
+      background: var(--deep);
+      box-shadow: 13px 13px 0 var(--gold);
+    }
+    .info-row {
+      display: grid;
+      grid-template-columns: 110px 1fr;
+      gap: 18px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .info-row:first-child { padding-top: 0; }
+    .info-row:last-of-type { border-bottom: 0; }
+    .info-row b { color: var(--gold); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; }
+    .info-row p, .info-row address { margin: 0; color: rgba(255,255,255,.78); font-style: normal; }
+    .info-card .actions { margin-top: 24px; }
+    .gift {
+      margin-top: 75px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: 36px 40px;
+      color: #fff;
+      background: var(--olive);
+    }
+    .gift h3 { margin: 0 0 6px; font-size: 2rem; }
+    .gift p { margin: 0; color: rgba(255,255,255,.74); }
+    .compare { margin-top: 70px; padding-top: 30px; border-top: 1px solid var(--line); }
+    .compare-inner { max-width: 800px; display: flex; align-items: center; gap: 28px; }
+    .compare img { width: 200px; height: auto; border: 1px solid var(--line); }
+    .compare h3 { margin: 0 0 7px; font-size: 1.45rem; }
+    .compare p { margin: 0; color: #6a5f59; font-size: .86rem; }
+    footer { padding: 34px 0; color: rgba(255,255,255,.63); background: var(--deep); font-size: .75rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; }
+    footer a { color: #fff; text-decoration: none; }
+
+    @media (max-width: 980px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-year { display: none; }
+      .hero-copy { justify-self: start; }
+      .story-grid, .visit-grid { grid-template-columns: 1fr; gap: 55px; }
+      .craft-grid { grid-template-columns: 1fr 1fr; }
+      .craft-card:first-child { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: calc(100% - 30px); max-width: 1180px; }
+      .utility { min-height: 34px; padding-inline: 10px; font-size: .6rem; }
+      .utility span:last-child { display: none; }
+      .nav { inset-block-start: 34px; }
+      .nav-inner { min-height: 70px; gap: 9px; }
+      .brand { font-size: 1.2rem; }
+      .socials { gap: 5px; }
+      .social-link { width: 44px; height: 44px; }
+      .nav .button { min-height: 44px; padding-inline: 12px; font-size: .66rem; }
+      .hero { min-height: 790px; }
+      .hero::before { background-position: 42% center; }
+      .hero::after {
+        background:
+          linear-gradient(0deg, rgba(0,0,0,.97) 0%, rgba(0,0,0,.66) 58%, rgba(0,0,0,.28) 100%);
+      }
+      .hero-inner { padding: 190px 0 55px; }
+      .hero-copy h1 { font-size: clamp(4.1rem, 18vw, 6rem); }
+      .hero-copy > p:not(.eyebrow) { font-size: .92rem; }
+      .action-grid { grid-template-columns: 1fr 1fr; }
+      .quick { min-height: 125px; padding: 20px; border-bottom: 1px solid var(--line); }
+      .quick:nth-child(2) { border-right: 0; }
+      .story, .craft, .visit { padding: 82px 0; }
+      .story-grid { gap: 43px; }
+      .story-photo { width: 90%; }
+      .craft-head { grid-template-columns: 1fr; gap: 18px; margin-bottom: 36px; }
+      .craft-grid { grid-template-columns: 1fr; }
+      .craft-card:first-child { grid-column: auto; }
+      .craft-card { min-height: 420px; }
+      .visit-grid { gap: 40px; }
+      .info-card { padding: 29px 23px; box-shadow: 8px 8px 0 var(--gold); }
+      .info-row { grid-template-columns: 85px 1fr; gap: 10px; }
+      .gift { grid-template-columns: 1fr; margin-top: 58px; padding: 28px; }
+      .compare-inner { align-items: flex-start; }
+      .compare img { width: 165px; }
+      footer .wrap { flex-direction: column; }
+    }
+
+    @media (max-width: 430px) {
+      .brand { font-size: 1.02rem; }
+      .nav .button { padding-inline: 10px; }
+      .hero-copy h1 { font-size: 4.25rem; }
+      .actions .button { flex: 1 1 140px; }
+      .compare-inner { display: grid; }
+      .compare img { width: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="utility"><span>Sandy Bay, Hobart</span><span>Tasmania’s longest-running restaurant · Established 1965</span></div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="Don Camillo home">Don Camillo</a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#story">Our story</a>
+        <a href="#craft">The table</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <div class="socials" aria-label="Official social media">
+        <a class="social-link" href="https://www.instagram.com/doncamillo_hobart/" target="_blank" rel="noopener" aria-label="Don Camillo on Instagram">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7Zm5 3a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.1A2.9 2.9 0 1 0 12 15a2.9 2.9 0 0 0 0-5.8ZM17.6 5.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg>
+        </a>
+        <a class="social-link" href="https://www.facebook.com/DonCamilloHobart/" target="_blank" rel="noopener" aria-label="Don Camillo on Facebook">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8h3.4Z"/></svg>
+        </a>
+      </div>
+      <a class="button gold" href="https://bookings.nowbookit.com/?accountid=278f5e8f-deef-4986-8add-bf85d9e4fa4f&amp;venueid=7237&amp;theme=light&amp;colors=hex,000000&amp;bg=transparent" target="_blank" rel="noopener">Reserve</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-year" aria-hidden="true">1965</div>
+        <div class="hero-copy">
+          <p class="eyebrow">Hobart’s longest-running restaurant</p>
+          <h1 id="hero-title">A Hobart table<em>since 1965.</em></h1>
+          <p>Traditional Italian flavour, fresh local produce and the kind of genuine hospitality that becomes part of a city’s story.</p>
+          <div class="actions">
+            <a class="button gold" href="https://bookings.nowbookit.com/?accountid=278f5e8f-deef-4986-8add-bf85d9e4fa4f&amp;venueid=7237&amp;theme=light&amp;colors=hex,000000&amp;bg=transparent" target="_blank" rel="noopener">Reserve a table</a>
+            <a class="button outline" href="https://www.doncamillorestaurant.com/s/Don-Camillo-New-Menu-June-2021.pdf" target="_blank" rel="noopener">View dine-in menu</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="action-bar" aria-label="Dining actions">
+      <div class="wrap action-grid">
+        <a class="quick" href="https://bookings.nowbookit.com/?accountid=278f5e8f-deef-4986-8add-bf85d9e4fa4f&amp;venueid=7237&amp;theme=light&amp;colors=hex,000000&amp;bg=transparent" target="_blank" rel="noopener"><small>01 · Plan the evening</small><strong>Reserve online</strong></a>
+        <a class="quick" href="https://www.doncamillorestaurant.com/s/Don-Camillo-New-Menu-June-2021.pdf" target="_blank" rel="noopener"><small>02 · At the table</small><strong>Dine-in menu</strong></a>
+        <a class="quick" href="https://online-orders-105066.square.site/" target="_blank" rel="noopener"><small>03 · At home</small><strong>Order takeaway</strong></a>
+        <a class="quick" href="https://app.squareup.com/gift/MLWKSDJWJ4GPG/order" target="_blank" rel="noopener"><small>04 · Share it</small><strong>Send a gift card</strong></a>
+      </div>
+    </nav>
+
+    <section class="story" id="story" aria-labelledby="story-title">
+      <div class="wrap story-grid">
+        <figure class="story-photo">
+          <img src="assets/chef-basil.webp" width="800" height="960" loading="lazy" alt="Don Camillo chef holding fresh basil">
+        </figure>
+        <div class="story-copy">
+          <p class="eyebrow">Still setting the table</p>
+          <h2 id="story-title">Six decades of Italian hospitality in Sandy Bay.</h2>
+          <p>Don Camillo opened in December 1965, when Hobart had only a handful of restaurants. Locals still remember the queue curling around Magnet Court and limoncello offered while they waited.</p>
+          <p>The Di Martino family took over in 2002, carrying forward a family culture shaped by generations of Tasmanian Italian hospitality.</p>
+          <div class="timeline">
+            <div class="timeline-row"><b>1965</b><p>Umberto Tucceri opens Don Camillo in Sandy Bay.</p></div>
+            <div class="timeline-row"><b>2002</b><p>The Di Martino family becomes steward of Hobart’s long-running dining room.</p></div>
+            <div class="timeline-row"><b>Today</b><p>Traditional Italian ideas meet Tasmanian produce and seasoned service.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="craft" id="craft" aria-labelledby="craft-title">
+      <div class="wrap">
+        <div class="craft-head">
+          <div>
+            <p class="eyebrow">The pleasures that last</p>
+            <h2 id="craft-title">Handmade. Generous. Meant to be shared.</h2>
+          </div>
+          <p>The experience is built from simple things done with care: fresh produce, traditional technique, a considered bottle and a table ready for company.</p>
+        </div>
+        <div class="craft-grid">
+          <article class="craft-card">
+            <img src="assets/handmade-dough.webp" width="800" height="960" loading="lazy" alt="Dough being prepared by hand in the Don Camillo kitchen">
+            <div class="craft-label"><h3>Made by hand</h3><p>Italian craft begins before the plate reaches the table.</p></div>
+          </article>
+          <article class="craft-card">
+            <img src="assets/italian-wine.webp" width="800" height="960" loading="lazy" alt="Italian red wine being poured at Don Camillo">
+            <div class="craft-label"><h3>A proper pour</h3><p>Italian and Australian wines for the evening.</p></div>
+          </article>
+          <article class="craft-card">
+            <img src="assets/gingham.webp" width="800" height="960" loading="lazy" alt="Don Camillo red and white checked tablecloths ready for service">
+            <div class="craft-label"><h3>The familiar table</h3><p>A dining-room signature, ready night after night.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap">
+        <div class="visit-grid">
+          <div class="visit-copy">
+            <p class="eyebrow">The evening starts here</p>
+            <h2 id="visit-title">Meet at Magnet Court.</h2>
+            <p>Find Don Camillo at 5 Magnet Court in Sandy Bay. Dinner begins from 5:30pm and lunch is by appointment.</p>
+            <p>Because official pages list different specific operating days, use the live online reservation calendar before making a special trip.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-row"><b>Address</b><address>5 Magnet Court<br>Sandy Bay TAS 7005</address></div>
+            <div class="info-row"><b>Dinner</b><p>From 5:30pm<br>Confirm live availability online</p></div>
+            <div class="info-row"><b>Lunch</b><p>By appointment</p></div>
+            <div class="info-row"><b>Sunday</b><p>A 10% surcharge applies to cover penalty rates.</p></div>
+            <div class="actions">
+              <a class="button gold" href="https://bookings.nowbookit.com/?accountid=278f5e8f-deef-4986-8add-bf85d9e4fa4f&amp;venueid=7237&amp;theme=light&amp;colors=hex,000000&amp;bg=transparent" target="_blank" rel="noopener">Check a table</a>
+              <a class="button outline" href="https://www.google.com/maps/search/?api=1&amp;query=Don+Camillo+5+Magnet+Court+Sandy+Bay+TAS+7005" target="_blank" rel="noopener">Directions</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="gift">
+          <div><h3>Give someone a seat at the table.</h3><p>Official Don Camillo eGift cards are available online.</p></div>
+          <a class="button cream" href="https://app.squareup.com/gift/MLWKSDJWJ4GPG/order" target="_blank" rel="noopener">Order a gift card</a>
+        </aside>
+
+        <aside class="compare" aria-labelledby="compare-title">
+          <div class="compare-inner">
+            <img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Small comparison of the current Don Camillo website and this mobile Demo">
+            <div>
+              <p class="eyebrow">A small before &amp; after</p>
+              <h3 id="compare-title">The same story, with a clearer first reservation path.</h3>
+              <p>History, menu, takeaway and gifts remain authentic to Don Camillo — now organised around what a guest wants to do next.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Demo preview using verified public information from Don Camillo.</span>
+      <span><a href="https://www.doncamillorestaurant.com/" target="_blank" rel="noopener">Official website</a> · <a href="https://www.instagram.com/doncamillo_hobart/" target="_blank" rel="noopener">Instagram</a> · <a href="https://www.facebook.com/DonCamilloHobart/" target="_blank" rel="noopener">Facebook</a></span>
+    </div>
+  </footer>
+</body>
+</html>
