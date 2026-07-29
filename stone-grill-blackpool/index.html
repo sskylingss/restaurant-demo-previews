@@ -9,6 +9,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=DM+Sans:wght@400;500;600&family=Libre+Baskerville:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .hero-disclosure{position:absolute;right:4vw;bottom:5.5vh;color:#d6cbc0;font-size:8px;letter-spacing:.12em;text-transform:uppercase;opacity:.72}
+    @media(max-width:760px){.hero>img{object-position:64% center}.hero-disclosure{right:auto;left:20px;bottom:28px}}
+  </style>
   <script defer src="script.js"></script>
 </head>
 <body>
@@ -23,8 +27,8 @@
   </header>
 
   <main id="top">
-    <section class="hero chapter" data-chapter="01">
-      <img src="images/hero.webp" width="1440" height="900" alt="Steak sizzling on The Stone Grill's volcanic hot stone">
+    <section class="hero chapter" data-chapter="01" data-hero-source="generated-concept">
+      <img src="images/hero-v2.webp" width="1600" height="1000" alt="Concept image of a cooked ribeye sizzling on a volcanic hot stone">
       <div class="hero-shade"></div><div class="ember e1"></div><div class="ember e2"></div><div class="ember e3"></div>
       <div class="hero-copy reveal">
         <p class="eyebrow">Queen's Promenade · Blackpool · Over 20 years</p>
@@ -36,6 +40,7 @@
         </div>
       </div>
       <aside class="hero-note"><span>ADULT DINING</span><b>Over 14s only</b><small>Irish Sea views</small></aside>
+      <small class="hero-disclosure">Experience concept image</small>
       <div class="scroll">SCROLL TO THE SIZZLE <i></i></div>
     </section>
 
