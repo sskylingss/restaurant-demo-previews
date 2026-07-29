@@ -1,0 +1,680 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Beach House — Brunch by Sandy Bay</title>
+  <meta name="description" content="Brunch, coffee, cocktails and easy-going meals beside the Sandy Bay waterfront in Tasmania.">
+  <meta name="theme-color" content="#173c49">
+  <meta property="og:title" content="The Beach House — Sandy Bay">
+  <meta property="og:description" content="Coffee, brunch and good company by the bay.">
+  <meta property="og:image" content="assets/beach-house-hero.webp">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,500;9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #14313b;
+      --navy: #173c49;
+      --deep: #102c36;
+      --coral: #cf7355;
+      --sun: #edbd64;
+      --shell: #f8f2e7;
+      --paper: #fffaf1;
+      --sage: #b9c9b4;
+      --line: rgba(20, 49, 59, .16);
+      --shadow: 0 22px 60px rgba(16, 44, 54, .16);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--shell);
+      font-family: "DM Sans", Arial, sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--coral);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 {
+      margin-top: 0;
+      font-family: "Fraunces", Georgia, serif;
+      line-height: 1.02;
+      font-weight: 600;
+    }
+    h2 { font-size: clamp(2.3rem, 5vw, 4.6rem); letter-spacing: -.035em; }
+    .skip {
+      position: fixed;
+      top: 8px;
+      left: 8px;
+      z-index: 100;
+      padding: 10px 14px;
+      color: #fff;
+      background: var(--deep);
+      transform: translateY(-150%);
+    }
+    .skip:focus { transform: translateY(0); }
+    .utility {
+      padding: 7px 20px;
+      color: #fff;
+      background: var(--deep);
+      font-size: .73rem;
+      letter-spacing: .08em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+    .utility span + span::before { content: "•"; margin: 0 12px; color: var(--sun); }
+    .nav {
+      position: absolute;
+      inset: 35px 0 auto;
+      z-index: 12;
+      color: #fff;
+    }
+    .nav-inner {
+      min-height: 78px;
+      display: flex;
+      align-items: center;
+      gap: 26px;
+      border-bottom: 1px solid rgba(255,255,255,.35);
+    }
+    .brand {
+      display: grid;
+      text-decoration: none;
+      line-height: 1;
+      margin-right: auto;
+    }
+    .brand strong {
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.45rem;
+      letter-spacing: -.03em;
+    }
+    .brand small {
+      margin-top: 7px;
+      font-size: .58rem;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      font-size: .8rem;
+      font-weight: 600;
+      text-decoration: none;
+      letter-spacing: .03em;
+    }
+    .social-link {
+      min-width: 46px;
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 0 13px;
+      border: 1px solid rgba(255,255,255,.55);
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .78rem;
+      font-weight: 700;
+    }
+    .social-link svg { width: 17px; height: 17px; fill: currentColor; }
+    .button {
+      min-height: 48px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 22px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .02em;
+      text-decoration: none;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); }
+    .button.sun { color: var(--deep); background: var(--sun); }
+    .button.cream { color: var(--deep); background: var(--paper); }
+    .button.outline { border-color: currentColor; }
+    .hero {
+      position: relative;
+      min-height: 820px;
+      display: grid;
+      align-items: end;
+      color: #fff;
+      background: var(--navy);
+      overflow: hidden;
+      isolation: isolate;
+    }
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background:
+        linear-gradient(90deg, rgba(10,36,45,.93) 0%, rgba(10,36,45,.62) 48%, rgba(10,36,45,.12) 76%),
+        linear-gradient(0deg, rgba(10,36,45,.7), transparent 42%),
+        url("assets/beach-house-hero.webp") 60% center / cover no-repeat;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -9vw;
+      bottom: -190px;
+      z-index: -1;
+      width: 42vw;
+      height: 360px;
+      border: 1px solid rgba(255,255,255,.27);
+      border-radius: 50%;
+      transform: rotate(-12deg);
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0, 700px) 1fr;
+      align-items: end;
+      gap: 60px;
+      padding: 210px 0 86px;
+    }
+    .hero-copy h1 {
+      max-width: 690px;
+      margin-bottom: 24px;
+      font-size: clamp(4.5rem, 9.5vw, 8.8rem);
+      letter-spacing: -.06em;
+    }
+    .hero-copy h1 em {
+      display: block;
+      color: var(--sun);
+      font-style: italic;
+      font-weight: 500;
+    }
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 560px;
+      margin: 0 0 30px;
+      color: rgba(255,255,255,.84);
+      font-size: 1.05rem;
+    }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+    .hero-note {
+      justify-self: end;
+      width: 210px;
+      padding: 26px;
+      background: rgba(248,242,231,.94);
+      color: var(--ink);
+      box-shadow: var(--shadow);
+      transform: rotate(3deg);
+    }
+    .hero-note strong {
+      display: block;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.55rem;
+      line-height: 1.05;
+    }
+    .hero-note span { display: block; margin-top: 10px; font-size: .76rem; }
+    .tide-strip {
+      position: relative;
+      z-index: 3;
+      padding: 24px 0;
+      background: var(--coral);
+      color: #fff;
+      overflow: hidden;
+    }
+    .tide-strip .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      font-family: "Fraunces", Georgia, serif;
+      font-size: clamp(1.05rem, 2vw, 1.45rem);
+      white-space: nowrap;
+    }
+    .tide-strip span + span::before {
+      content: "✦";
+      margin-right: 30px;
+      color: var(--sun);
+    }
+    .service {
+      padding: 120px 0;
+      background: var(--paper);
+    }
+    .service-head {
+      display: grid;
+      grid-template-columns: 1fr .72fr;
+      gap: 90px;
+      align-items: end;
+      margin-bottom: 54px;
+    }
+    .service-head h2 { margin-bottom: 0; }
+    .service-head p {
+      max-width: 520px;
+      margin: 0 0 10px;
+      color: #53666b;
+    }
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+    }
+    .service-card {
+      min-height: 250px;
+      padding: 34px 28px 28px 0;
+      border-right: 1px solid var(--line);
+    }
+    .service-card + .service-card { padding-left: 28px; }
+    .service-card:last-child { border-right: 0; }
+    .service-card .num { color: var(--coral); font-size: .78rem; font-weight: 700; }
+    .service-card h3 { margin: 72px 0 12px; font-size: 2rem; }
+    .service-card p { margin: 0; color: #5d6c70; font-size: .9rem; }
+    .menu {
+      position: relative;
+      padding: 120px 0;
+      color: #fff;
+      background: var(--navy);
+      overflow: hidden;
+    }
+    .menu::before {
+      content: "";
+      position: absolute;
+      left: -100px;
+      top: 90px;
+      width: 340px;
+      height: 340px;
+      border: 1px solid rgba(237,189,100,.32);
+      border-radius: 50%;
+    }
+    .menu-layout {
+      position: relative;
+      display: grid;
+      grid-template-columns: minmax(310px, .76fr) 1.24fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .photo-stack { position: relative; padding: 0 42px 48px 0; }
+    .photo-stack::after {
+      content: "COFFEE · BRUNCH · COCKTAILS";
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      padding: 15px 24px;
+      color: var(--deep);
+      background: var(--sun);
+      font-size: .68rem;
+      font-weight: 700;
+      letter-spacing: .13em;
+    }
+    .photo-stack img {
+      width: 100%;
+      aspect-ratio: 5 / 6;
+      object-fit: cover;
+      box-shadow: 22px 22px 0 rgba(255,255,255,.07);
+    }
+    .menu-copy h2 { margin-bottom: 22px; }
+    .menu-copy > p:not(.eyebrow) {
+      max-width: 620px;
+      margin: 0 0 40px;
+      color: rgba(255,255,255,.72);
+    }
+    .menu-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0 28px;
+      border-top: 1px solid rgba(255,255,255,.2);
+      margin-bottom: 38px;
+    }
+    .menu-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 6px 14px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+    .menu-item strong { font-family: "Fraunces", Georgia, serif; font-size: 1.05rem; }
+    .menu-item b { color: var(--sun); font-size: .83rem; }
+    .menu-item small { grid-column: 1 / -1; color: rgba(255,255,255,.61); line-height: 1.45; }
+    .local {
+      padding: 120px 0;
+      background: var(--sage);
+    }
+    .local-grid {
+      display: grid;
+      grid-template-columns: 1.08fr .92fr;
+      align-items: center;
+      gap: 80px;
+    }
+    .local-visual {
+      position: relative;
+      min-height: 650px;
+    }
+    .local-visual img {
+      width: 76%;
+      height: 610px;
+      object-fit: cover;
+      object-position: center 45%;
+    }
+    .local-visual blockquote {
+      position: absolute;
+      right: 0;
+      bottom: 36px;
+      width: 48%;
+      margin: 0;
+      padding: 34px;
+      color: #fff;
+      background: var(--coral);
+      font-family: "Fraunces", Georgia, serif;
+      font-size: 1.6rem;
+      line-height: 1.22;
+      box-shadow: var(--shadow);
+    }
+    .local-copy h2 { max-width: 560px; }
+    .local-copy p:not(.eyebrow) { max-width: 520px; color: #40575d; }
+    .visit {
+      padding: 118px 0 80px;
+      background: var(--shell);
+    }
+    .visit-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.08fr;
+      gap: 110px;
+      align-items: start;
+    }
+    .visit h2 { margin-bottom: 28px; }
+    .visit-card {
+      padding: 40px;
+      color: #fff;
+      background: var(--deep);
+      box-shadow: 14px 14px 0 var(--coral);
+    }
+    .detail {
+      display: grid;
+      grid-template-columns: 100px 1fr;
+      gap: 20px;
+      padding: 20px 0;
+      border-bottom: 1px solid rgba(255,255,255,.18);
+    }
+    .detail:first-child { padding-top: 0; }
+    .detail:last-of-type { border-bottom: 0; }
+    .detail span { color: var(--sun); font-size: .7rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    .detail p, .detail address { margin: 0; color: rgba(255,255,255,.82); font-style: normal; }
+    .visit-card .actions { margin-top: 24px; }
+    .compare {
+      margin-top: 80px;
+      padding-top: 34px;
+      border-top: 1px solid var(--line);
+    }
+    .compare-inner {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      max-width: 780px;
+    }
+    .compare img {
+      width: 200px;
+      height: auto;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+    .compare h3 { margin: 0 0 8px; font-size: 1.35rem; }
+    .compare p { margin: 0; color: #617176; font-size: .88rem; }
+    footer {
+      padding: 34px 0;
+      color: rgba(255,255,255,.64);
+      background: var(--deep);
+      font-size: .76rem;
+    }
+    footer .wrap {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+    }
+    footer a { color: #fff; text-decoration: none; }
+
+    @media (max-width: 960px) {
+      .nav-links { display: none; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-note { justify-self: start; }
+      .service-head, .local-grid, .visit-grid { grid-template-columns: 1fr; gap: 50px; }
+      .service-grid { grid-template-columns: 1fr 1fr; }
+      .service-card:nth-child(2) { border-right: 0; }
+      .menu-layout { grid-template-columns: .8fr 1.2fr; gap: 46px; }
+      .visit-grid { max-width: 760px; }
+    }
+
+    @media (max-width: 720px) {
+      .wrap { width: calc(100% - 30px); max-width: 1180px; }
+      .utility { min-height: 34px; padding-inline: 10px; font-size: .64rem; }
+      .utility span:last-child { display: none; }
+      .nav { inset-block-start: 34px; }
+      .nav-inner { min-height: 72px; gap: 10px; }
+      .brand strong { font-size: 1.12rem; }
+      .brand small { font-size: .48rem; }
+      .social-link {
+        min-width: 46px;
+        min-height: 46px;
+        padding: 0;
+      }
+      .social-link span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+      .nav .button { min-height: 46px; padding-inline: 15px; font-size: .74rem; }
+      .hero { min-height: 760px; }
+      .hero::before {
+        background:
+          linear-gradient(0deg, rgba(10,36,45,.96) 2%, rgba(10,36,45,.68) 55%, rgba(10,36,45,.3) 100%),
+          url("assets/beach-house-hero.webp") 62% center / cover no-repeat;
+      }
+      .hero-inner { padding: 200px 0 54px; gap: 32px; }
+      .hero-copy h1 { font-size: clamp(4rem, 20vw, 6.3rem); margin-bottom: 20px; }
+      .hero-copy > p:not(.eyebrow) { font-size: .94rem; }
+      .hero-note { width: 190px; padding: 20px; margin-left: auto; }
+      .tide-strip .wrap { justify-content: space-around; overflow: hidden; font-size: 1rem; }
+      .tide-strip span:nth-child(n+3) { display: none; }
+      .service, .menu, .local, .visit { padding: 82px 0; }
+      .service-head { gap: 20px; margin-bottom: 35px; }
+      .service-grid { grid-template-columns: 1fr; }
+      .service-card, .service-card + .service-card {
+        min-height: 0;
+        padding: 24px 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .service-card h3 { margin: 20px 0 8px; font-size: 1.7rem; }
+      .menu-layout { grid-template-columns: 1fr; gap: 52px; }
+      .photo-stack { width: 88%; }
+      .menu-list { grid-template-columns: 1fr; }
+      .local-grid { gap: 42px; }
+      .local-visual { min-height: 520px; }
+      .local-visual img { width: 88%; height: 500px; }
+      .local-visual blockquote { width: 58%; right: 0; bottom: -8px; padding: 24px; font-size: 1.25rem; }
+      .visit-grid { gap: 42px; }
+      .visit-card { padding: 28px 24px; box-shadow: 9px 9px 0 var(--coral); }
+      .detail { grid-template-columns: 80px 1fr; gap: 12px; }
+      .compare { margin-top: 62px; }
+      .compare-inner { align-items: flex-start; }
+      .compare img { width: 165px; }
+      footer .wrap { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (max-width: 420px) {
+      .brand small { display: none; }
+      .nav .button { padding-inline: 13px; }
+      .hero-copy h1 { font-size: 4.4rem; }
+      .actions .button { flex: 1 1 140px; }
+      .compare-inner { display: grid; }
+      .compare img { width: 200px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="utility">
+    <span>Sandy Bay waterfront</span><span>Brunch, coffee &amp; bar · 8am–5pm</span>
+  </div>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top" aria-label="The Beach House home">
+        <strong>The Beach House</strong>
+        <small>Restaurant · Cafe · Bar</small>
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#menu">Menu</a>
+        <a href="#story">Our place</a>
+        <a href="#visit">Visit</a>
+      </nav>
+      <a class="social-link" href="https://www.facebook.com/thebeachhousecafebar" target="_blank" rel="noopener" aria-label="The Beach House on Facebook">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.1H7.5V13h2.8v8h3.4Z"/></svg>
+        <span>Facebook</span>
+      </a>
+      <a class="button sun" href="https://www.beachhouse-sandybay.com/" target="_blank" rel="noopener">Book a table</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="wrap hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">Sandy Bay · Tasmania</p>
+          <h1 id="hero-title">Brunch<em>by the bay.</em></h1>
+          <p>Settle in by the waterfront for good coffee, relaxed brunch, a glass of Tasmanian wine and food that feels right at home by the sea.</p>
+          <div class="actions">
+            <a class="button sun" href="https://www.beachhouse-sandybay.com/" target="_blank" rel="noopener">Book on our official site</a>
+            <a class="button outline" href="https://www.beachhouse-sandybay.com/menu" target="_blank" rel="noopener">Explore the menu</a>
+          </div>
+        </div>
+        <aside class="hero-note" aria-label="Opening note">
+          <strong>Open daily from 8</strong>
+          <span>Coffee, brunch and bar service until 5pm.</span>
+        </aside>
+      </div>
+    </section>
+
+    <div class="tide-strip" aria-hidden="true">
+      <div class="wrap"><span>Good coffee</span><span>Easy brunch</span><span>Tasmanian art</span><span>Bay-side hours</span></div>
+    </div>
+
+    <section class="service" aria-labelledby="service-title">
+      <div class="wrap">
+        <div class="service-head">
+          <div>
+            <p class="eyebrow">One table, any hour</p>
+            <h2 id="service-title">From first coffee to an easy evening.</h2>
+          </div>
+          <p>The Beach House moves with the day: a morning cup, something substantial for lunch, or drinks and dinner without leaving the waterfront.</p>
+        </div>
+        <div class="service-grid">
+          <article class="service-card">
+            <span class="num">01 — Morning</span>
+            <h3>Coffee &amp; something sweet</h3>
+            <p>Espresso, tea, cold drinks and cakes for a slow start or a quick catch-up.</p>
+          </article>
+          <article class="service-card">
+            <span class="num">02 — Daytime</span>
+            <h3>Brunch &amp; lunch</h3>
+            <p>Eggs, smashed avocado, burgers, seafood and easy plates served beside the bay.</p>
+          </article>
+          <article class="service-card">
+            <span class="num">03 — Later</span>
+            <h3>Beer, wine &amp; dinner</h3>
+            <p>Tasmanian pours, cocktails and comforting dinner plates in a relaxed room.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu" id="menu" aria-labelledby="menu-title">
+      <div class="wrap menu-layout">
+        <figure class="photo-stack">
+          <img src="assets/barista.webp" width="800" height="960" loading="lazy" alt="Barista preparing coffee at The Beach House counter">
+        </figure>
+        <div class="menu-copy">
+          <p class="eyebrow">A taste of the menu</p>
+          <h2 id="menu-title">Familiar favourites, made for a seaside table.</h2>
+          <p>A small preview of current dishes listed by The Beach House. Follow the official menu for the complete, up-to-date selection.</p>
+          <div class="menu-list">
+            <div class="menu-item"><strong>Smashed Avo</strong><b>$20.50</b><small>Avocado, feta, cherry tomatoes, poached egg and dukkah on sourdough.</small></div>
+            <div class="menu-item"><strong>Corn Fritters</strong><b>$20.50</b><small>Served with guacamole, a poached egg and dukkah.</small></div>
+            <div class="menu-item"><strong>Fish &amp; Chips</strong><b>$23.50</b><small>Flathead with chips, salad, tartare and lemon.</small></div>
+            <div class="menu-item"><strong>Prawn Linguine</strong><b>$24.50</b><small>Napolitana, Parmesan, cherry tomato, chilli, garlic and basil.</small></div>
+            <div class="menu-item"><strong>Halloumi &amp; Scallops</strong><b>$18</b><small>With fire-roasted capsicum, crisp basil and lemon.</small></div>
+            <div class="menu-item"><strong>Sticky Date Pudding</strong><b>$14.50</b><small>Warm butterscotch, strawberries and vanilla ice cream.</small></div>
+          </div>
+          <a class="button cream" href="https://www.beachhouse-sandybay.com/menu" target="_blank" rel="noopener">See all official menus</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="local" id="story" aria-labelledby="story-title">
+      <div class="wrap local-grid">
+        <div class="local-visual">
+          <img src="assets/terrace.webp" width="800" height="960" loading="lazy" alt="The Beach House terrace and waterfront-side entrance">
+          <blockquote>“A neighbourhood table with the bay just outside.”</blockquote>
+        </div>
+        <div class="local-copy">
+          <p class="eyebrow">A local canvas</p>
+          <h2 id="story-title">Food, water and Tasmanian creativity.</h2>
+          <p>The room is made for locals and visitors to unwind, with friendly service and rotating displays that give Tasmanian artists a place to share their work.</p>
+          <p>Come for coffee after a waterfront walk, bring friends for brunch, or let the afternoon drift into a drink and dinner.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="visit" id="visit" aria-labelledby="visit-title">
+      <div class="wrap">
+        <div class="visit-grid">
+          <div>
+            <p class="eyebrow">Come by the bay</p>
+            <h2 id="visit-title">Your table is closer than you think.</h2>
+            <p>Find The Beach House at Sandy Bay’s waterfront edge. Use the official booking page before making a special trip.</p>
+          </div>
+          <div class="visit-card">
+            <div class="detail">
+              <span>Address</span>
+              <address>U16/646 Sandy Bay Rd<br>Sandy Bay TAS 7005</address>
+            </div>
+            <div class="detail">
+              <span>Hours</span>
+              <p>Brunch, coffee &amp; bar<br>8:00 am – 5:00 pm</p>
+            </div>
+            <div class="detail">
+              <span>Contact</span>
+              <p><a href="mailto:beachhouse7005@gmail.com">beachhouse7005@gmail.com</a></p>
+            </div>
+            <div class="actions">
+              <a class="button sun" href="https://www.beachhouse-sandybay.com/" target="_blank" rel="noopener">Book on official site</a>
+              <a class="button outline" href="https://maps.google.com/?cid=3152833521636532738" target="_blank" rel="noopener">Get directions</a>
+            </div>
+          </div>
+        </div>
+
+        <aside class="compare" aria-labelledby="compare-title">
+          <div class="compare-inner">
+            <img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Small comparison of the current website and this clearer mobile preview">
+            <div>
+              <p class="eyebrow">A small before &amp; after</p>
+              <h3 id="compare-title">One focus: a clearer first screen.</h3>
+              <p>The same real business and official actions, with fewer competing menu labels and an easier mobile path to book or browse.</p>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span>Demo preview using verified public information from The Beach House.</span>
+      <span><a href="https://www.beachhouse-sandybay.com/" target="_blank" rel="noopener">Official website</a> · <a href="https://www.facebook.com/thebeachhousecafebar" target="_blank" rel="noopener">Facebook</a></span>
+    </div>
+  </footer>
+</body>
+</html>
