@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="San Lorenzo is a family-run Italian restaurant in Crookes, Sheffield, serving freshly cooked Southern Italian favourites."
+    />
+    <meta name="theme-color" content="#153b32" />
+    <title>San Lorenzo — Italian dining in Crookes, Sheffield</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="topbar">
+      <a class="wordmark" href="#welcome" aria-label="San Lorenzo home">
+        <span>San</span>
+        <span>Lorenzo</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#food">Food</a>
+        <a href="#story">Our table</a>
+        <a href="#visit">Find us</a>
+      </nav>
+      <a class="topbar-call" href="tel:+441142687236">
+        <span>Book by phone</span>
+        <strong>0114 268 7236</strong>
+      </a>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="welcome" aria-labelledby="hero-title">
+        <img
+          class="hero-image"
+          src="images/hero.webp"
+          width="1600"
+          height="1000"
+          alt="San Lorenzo dining room beside a freshly prepared seafood pasta dish"
+          fetchpriority="high"
+        />
+        <div class="hero-shade" aria-hidden="true"></div>
+        <div class="hero-grain" aria-hidden="true"></div>
+
+        <div class="hero-kicker reveal">
+          <span>Crookes · Sheffield</span>
+          <span>Family-run Italian dining</span>
+        </div>
+
+        <div class="hero-copy reveal">
+          <p class="hand-note">Pull up a chair</p>
+          <h1 id="hero-title">A little South<br />of Italy, <em>here.</em></h1>
+          <p class="hero-intro">
+            Freshly cooked classics, a warm welcome and time to enjoy the table.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="tel:+441142687236">Call to book</a>
+            <a class="button button-ghost" href="#food">See the food</a>
+          </div>
+        </div>
+
+        <div class="hero-details reveal">
+          <div>
+            <span>Find our table</span>
+            <strong>190–192 Northfield Road</strong>
+            <span>Sheffield · S10 1QU</span>
+          </div>
+          <a href="#visit" aria-label="Go to location section">
+            <span>Directions</span>
+            <svg viewBox="0 0 32 32" aria-hidden="true">
+              <path d="M7 16h18M18 9l7 7-7 7" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true"><span></span>Scroll for supper</div>
+      </section>
+
+      <section class="signature" id="signature" aria-label="What makes San Lorenzo special">
+        <div class="signature-track">
+          <span><b>01</b> Family-run</span>
+          <i>✦</i>
+          <span><b>02</b> Southern Italian roots</span>
+          <i>✦</i>
+          <span><b>03</b> Freshly cooked</span>
+          <i>✦</i>
+          <span><b>04</b> A relaxed Crookes table</span>
+        </div>
+      </section>
+
+      <section class="food-section" id="food" aria-labelledby="food-title">
+        <div class="section-heading reveal">
+          <div>
+            <span class="eyebrow">From our kitchen</span>
+            <h2 id="food-title">Made to be<br /><em>passed around.</em></h2>
+          </div>
+          <p>
+            Pasta, fish and steak—freshly cooked with the generous spirit of Southern Italy.
+          </p>
+        </div>
+
+        <div class="food-grid">
+          <article class="food-card card-one reveal">
+            <div class="image-frame">
+              <img
+                src="images/pasta.webp"
+                width="800"
+                height="1000"
+                alt="Fresh pasta prepared at San Lorenzo"
+                loading="lazy"
+              />
+              <span class="plate-number">01</span>
+            </div>
+            <div class="food-caption">
+              <h3>Pasta</h3>
+              <p>Twirl-worthy, finished to order.</p>
+            </div>
+          </article>
+
+          <article class="food-card card-two reveal">
+            <div class="image-frame">
+              <img
+                src="images/gnocchi.webp"
+                width="800"
+                height="1000"
+                alt="A bowl of gnocchi prepared at San Lorenzo"
+                loading="lazy"
+              />
+              <span class="plate-number">02</span>
+            </div>
+            <div class="food-caption">
+              <h3>Gnocchi</h3>
+              <p>Soft, comforting, properly sauced.</p>
+            </div>
+          </article>
+
+          <article class="food-card card-three reveal">
+            <div class="image-frame">
+              <img
+                src="images/steak.webp"
+                width="800"
+                height="1000"
+                alt="Steak served with sauce at San Lorenzo"
+                loading="lazy"
+              />
+              <span class="plate-number">03</span>
+            </div>
+            <div class="food-caption">
+              <h3>Steak</h3>
+              <p>A generous plate for a long evening.</p>
+            </div>
+          </article>
+        </div>
+
+        <a
+          class="menu-link reveal"
+          href="https://www.sanlorenzosheffield.co.uk/menu"
+          target="_blank"
+          rel="noreferrer"
+        >
+          <span>Browse the current menu</span>
+          <svg viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M7 16h18M18 9l7 7-7 7" />
+          </svg>
+        </a>
+      </section>
+
+      <section class="story-section" id="story" aria-labelledby="story-title">
+        <div class="story-photo reveal">
+          <img
+            src="images/interior.webp"
+            width="800"
+            height="1000"
+            alt="The intimate dining room at San Lorenzo"
+            loading="lazy"
+          />
+          <div class="story-stamp">
+            <span>Northfield Rd</span>
+            <strong>S10</strong>
+            <span>Our neighbourhood table</span>
+          </div>
+        </div>
+
+        <div class="story-copy reveal">
+          <span class="eyebrow">The people behind the plates</span>
+          <h2 id="story-title">Southern Italy,<br /><em>served in Crookes.</em></h2>
+          <p class="story-lead">
+            Our head chef was born, raised and trained in Southern Italy. That experience
+            comes to the table in honest classics cooked fresh.
+          </p>
+          <div class="story-rule"></div>
+          <div class="story-facts">
+            <div>
+              <strong>15 years</strong>
+              <span>of restaurant experience behind the welcome</span>
+            </div>
+            <div>
+              <strong>BYOB</strong>
+              <span>Ask the restaurant about current wine and corkage details</span>
+            </div>
+          </div>
+          <p class="scribble">Stay for one more course ↗</p>
+        </div>
+      </section>
+
+      <section class="proof-section" aria-labelledby="proof-title">
+        <div class="proof-copy reveal">
+          <span class="eyebrow">A clearer first impression</span>
+          <h2 id="proof-title">The same restaurant.<br /><em>A warmer welcome.</em></h2>
+          <p>
+            A compact mobile comparison focused on readability, appetite and the route to
+            booking—not a second hero.
+          </p>
+        </div>
+        <div class="comparison-card reveal">
+          <img
+            src="images/comparison.webp"
+            width="480"
+            height="320"
+            alt="Side-by-side comparison of the current mobile website and the new responsive homepage concept"
+            loading="lazy"
+          />
+        </div>
+      </section>
+
+      <section class="visit-section" id="visit" aria-labelledby="visit-title">
+        <div class="visit-copy reveal">
+          <span class="eyebrow">Come and see us</span>
+          <h2 id="visit-title">Your table is<br /><em>just up the road.</em></h2>
+          <address>
+            <span>San Lorenzo</span>
+            <strong>190–192 Northfield Road<br />Sheffield · S10 1QU</strong>
+          </address>
+          <div class="visit-actions">
+            <a class="button button-light" href="tel:+441142687236">0114 268 7236</a>
+            <a
+              class="button button-outline-light"
+              href="https://www.google.com/maps/dir/?api=1&destination=190-192+Northfield+Road+Sheffield+S10+1QU"
+              target="_blank"
+              rel="noreferrer"
+              >Get directions</a
+            >
+          </div>
+          <a class="email-link" href="mailto:sanlorenzorestaurant@outlook.com"
+            >sanlorenzorestaurant@outlook.com</a
+          >
+        </div>
+
+        <div class="map-wrap reveal">
+          <iframe
+            title="Map showing San Lorenzo on Northfield Road in Sheffield"
+            src="https://www.google.com/maps?q=190-192+Northfield+Road+Sheffield+S10+1QU&output=embed"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+          <div class="map-label">
+            <span>53.389° N</span>
+            <strong>Northfield Road</strong>
+          </div>
+        </div>
+
+        <img
+          class="storefront-card reveal"
+          src="images/storefront.webp"
+          width="800"
+          height="566"
+          alt="San Lorenzo storefront on Northfield Road"
+          loading="lazy"
+        />
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-mark">San Lorenzo</div>
+      <p>Family-run Italian dining · Crookes, Sheffield</p>
+      <a href="#welcome">Back to the top ↑</a>
+    </footer>
+  </body>
+</html>
