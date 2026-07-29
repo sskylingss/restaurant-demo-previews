@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Delish Ethiopian Cuisine | A Family Table in Seattle</title>
+  <meta name="description" content="Family-owned Ethiopian cooking from Delish and chef Amy, served on Rainier Avenue in Seattle. Explore the menu, reserve a table, or plan a gathering.">
+  <meta property="og:title" content="Delish Ethiopian Cuisine">
+  <meta property="og:description" content="Recipes passed down. A table made for sharing.">
+  <meta property="og:image" content="assets/delish-social.webp">
+  <link rel="icon" href="assets/delish-icon.webp" type="image/webp">
+  <style>
+    :root {
+      --ink: #171310;
+      --ink-soft: #29211c;
+      --paper: #f7f0df;
+      --paper-deep: #eadcc1;
+      --berbere: #9d3523;
+      --berbere-dark: #762619;
+      --gold: #dda92e;
+      --green: #506d3d;
+      --white: #fffaf0;
+      --line: rgba(23, 19, 16, .16);
+      --shadow: 0 24px 70px rgba(41, 24, 15, .18);
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: "Trebuchet MS", "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .topline {
+      background: var(--gold);
+      color: var(--ink);
+      padding: 8px 24px;
+      text-align: center;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+
+    .site-header {
+      position: absolute;
+      z-index: 20;
+      left: 0;
+      right: 0;
+      top: 31px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px clamp(20px, 5vw, 76px);
+      color: var(--white);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      color: inherit;
+      text-decoration: none;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 38px;
+      aspect-ratio: 1;
+      border: 2px solid var(--gold);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at center, var(--berbere) 0 17%, transparent 18%),
+        repeating-conic-gradient(from 22.5deg, var(--gold) 0 9deg, transparent 9deg 23deg);
+    }
+
+    .brand strong { display: block; font-size: 18px; line-height: 1; }
+    .brand small { display: block; margin-top: 5px; font-size: 8px; letter-spacing: .22em; opacity: .82; }
+
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a {
+      color: inherit;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    nav a:not(.nav-cta) { opacity: .84; }
+    nav a:hover { opacity: 1; }
+
+    .nav-cta {
+      padding: 12px 18px;
+      border: 1px solid rgba(255, 250, 240, .55);
+      border-radius: 999px;
+    }
+
+    .hero {
+      min-height: 790px;
+      display: grid;
+      grid-template-columns: 47% 53%;
+      background: var(--ink);
+      color: var(--white);
+    }
+
+    .hero-copy {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 150px clamp(28px, 6vw, 92px) 90px;
+      overflow: hidden;
+    }
+
+    .hero-copy::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      width: 420px;
+      height: 420px;
+      left: -210px;
+      bottom: -145px;
+      border-radius: 50%;
+      border: 58px double rgba(221, 169, 46, .1);
+      background:
+        repeating-conic-gradient(from 12deg, transparent 0 13deg, rgba(157,53,35,.22) 13deg 20deg);
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 0 0 22px;
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: currentColor;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    h1 {
+      max-width: 620px;
+      margin-bottom: 25px;
+      font-family: var(--serif);
+      font-size: clamp(54px, 6.2vw, 92px);
+      font-weight: 500;
+      line-height: .93;
+      letter-spacing: -.052em;
+    }
+
+    h1 em { color: var(--gold); font-weight: 400; }
+
+    .hero-copy > p:not(.eyebrow) {
+      max-width: 520px;
+      margin-bottom: 34px;
+      color: rgba(255, 250, 240, .73);
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.55;
+    }
+
+    .button-row { display: flex; flex-wrap: wrap; gap: 12px; }
+    .button {
+      display: inline-flex;
+      min-height: 52px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 24px;
+      border: 1px solid transparent;
+      border-radius: 2px;
+      color: var(--ink);
+      background: var(--gold);
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      transition: transform .2s ease, background .2s ease;
+    }
+    .button:hover { transform: translateY(-2px); background: #ebbb45; }
+    .button.ghost { color: var(--white); background: transparent; border-color: rgba(255,250,240,.4); }
+    .button.ghost:hover { background: rgba(255,255,255,.08); }
+
+    .hero-media { position: relative; min-height: 790px; overflow: hidden; }
+    .hero-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(23,19,16,.26), transparent 42%),
+                  linear-gradient(0deg, rgba(23,19,16,.38), transparent 42%);
+      pointer-events: none;
+    }
+    .hero-media img { width: 100%; height: 100%; object-fit: cover; }
+
+    .family-seal {
+      position: absolute;
+      z-index: 2;
+      left: 30px;
+      bottom: 35px;
+      display: grid;
+      place-items: center;
+      width: 132px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      color: var(--ink);
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      text-align: center;
+      transform: rotate(-7deg);
+    }
+    .family-seal::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border: 1px dashed var(--berbere);
+      border-radius: inherit;
+    }
+    .family-seal strong {
+      width: 84px;
+      font-family: var(--serif);
+      font-size: 16px;
+      line-height: 1.1;
+    }
+
+    .address-chip {
+      position: absolute;
+      z-index: 2;
+      right: 0;
+      bottom: 0;
+      padding: 18px 30px;
+      color: var(--white);
+      background: var(--berbere);
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .pathways {
+      position: relative;
+      z-index: 3;
+      width: min(1180px, calc(100% - 40px));
+      margin: -54px auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .path-card {
+      position: relative;
+      min-height: 190px;
+      padding: 34px;
+      border-right: 1px solid var(--line);
+      text-decoration: none;
+    }
+    .path-card:last-child { border-right: 0; }
+    .path-card span {
+      display: block;
+      margin-bottom: 22px;
+      color: var(--berbere);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .path-card h2 {
+      margin-bottom: 10px;
+      font-family: var(--serif);
+      font-size: 29px;
+      font-weight: 500;
+      letter-spacing: -.02em;
+    }
+    .path-card p { margin: 0; color: #685b52; font-size: 14px; line-height: 1.5; }
+    .path-card b {
+      position: absolute;
+      right: 28px;
+      top: 32px;
+      color: var(--gold);
+      font-size: 24px;
+    }
+
+    .story {
+      display: grid;
+      grid-template-columns: 52% 48%;
+      align-items: stretch;
+      padding: 130px 0 100px;
+    }
+
+    .story-photo {
+      position: relative;
+      margin-left: clamp(20px, 6vw, 90px);
+      min-height: 640px;
+    }
+    .story-photo::before {
+      content: "";
+      position: absolute;
+      left: -24px;
+      top: 36px;
+      width: 74px;
+      height: calc(100% - 72px);
+      background:
+        linear-gradient(45deg, transparent 43%, var(--gold) 43% 57%, transparent 57%),
+        linear-gradient(-45deg, transparent 43%, var(--berbere) 43% 57%, transparent 57%);
+      background-size: 26px 26px;
+    }
+    .story-photo img {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      box-shadow: var(--shadow);
+    }
+
+    .story-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 60px clamp(28px, 7vw, 110px);
+    }
+    .section-kicker {
+      margin-bottom: 20px;
+      color: var(--berbere);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: .19em;
+      text-transform: uppercase;
+    }
+    .story h2, .menu-heading h2, .visit h2 {
+      margin-bottom: 26px;
+      font-family: var(--serif);
+      font-size: clamp(44px, 5vw, 70px);
+      font-weight: 500;
+      line-height: .98;
+      letter-spacing: -.045em;
+    }
+    .story-copy > p {
+      max-width: 540px;
+      color: #5e5148;
+      font-family: var(--serif);
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .story-signature {
+      margin-top: 20px;
+      color: var(--berbere);
+      font-family: var(--serif);
+      font-size: 24px;
+      font-style: italic;
+    }
+    .story-note {
+      margin-top: 34px;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+      display: flex;
+      gap: 26px;
+      color: #6c5f55;
+      font-size: 13px;
+    }
+    .story-note strong { display: block; color: var(--ink); font-size: 18px; }
+
+    .menu-showcase {
+      padding: 100px clamp(20px, 5vw, 76px) 112px;
+      color: var(--white);
+      background: var(--ink-soft);
+    }
+    .menu-heading {
+      max-width: 1240px;
+      margin: 0 auto 54px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 30px;
+    }
+    .menu-heading h2 { max-width: 720px; margin-bottom: 0; }
+    .menu-heading .section-kicker { color: var(--gold); }
+
+    .menu-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    .dish-card {
+      position: relative;
+      overflow: hidden;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .dish-card figure {
+      position: relative;
+      aspect-ratio: 8 / 7;
+      margin: 0;
+      overflow: hidden;
+      background: #302822;
+    }
+    .dish-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .45s ease;
+    }
+    .dish-card:hover img { transform: scale(1.035); }
+    .dish-card figcaption {
+      position: absolute;
+      right: 14px;
+      bottom: 14px;
+      padding: 8px 10px;
+      color: var(--white);
+      background: rgba(23,19,16,.84);
+      font-size: 9px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .dish-copy { min-height: 190px; padding: 26px 26px 30px; }
+    .dish-copy small {
+      color: var(--berbere);
+      font-size: 10px;
+      font-weight: 900;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .dish-copy h3 {
+      margin: 10px 0 9px;
+      font-family: var(--serif);
+      font-size: 28px;
+      font-weight: 500;
+    }
+    .dish-copy p { margin: 0; color: #685b52; font-size: 14px; line-height: 1.55; }
+
+    .menu-ribbon {
+      max-width: 1240px;
+      margin: 28px auto 0;
+      padding: 22px 26px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      border-bottom: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,250,240,.7);
+      text-align: center;
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.7;
+      word-spacing: .15em;
+    }
+
+    .gather {
+      position: relative;
+      display: grid;
+      grid-template-columns: 58% 42%;
+      min-height: 630px;
+      background: var(--berbere);
+      color: var(--white);
+    }
+    .gather-photo { position: relative; overflow: hidden; }
+    .gather-photo img { width: 100%; height: 100%; object-fit: cover; }
+    .gather-photo::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 60%, rgba(157,53,35,.85));
+    }
+    .gather-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 70px clamp(28px, 6vw, 90px) 70px 28px;
+    }
+    .gather-copy .section-kicker { color: var(--gold); }
+    .gather-copy h2 {
+      margin-bottom: 24px;
+      font-family: var(--serif);
+      font-size: clamp(42px, 4.5vw, 66px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+    .gather-copy p { max-width: 500px; color: rgba(255,250,240,.78); line-height: 1.65; }
+    .capacity {
+      display: flex;
+      gap: 38px;
+      margin: 20px 0 30px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(255,255,255,.2);
+      border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+    .capacity strong { display: block; color: var(--gold); font-family: var(--serif); font-size: 34px; }
+    .capacity span { font-size: 11px; letter-spacing: .1em; text-transform: uppercase; }
+
+    .compare-proof {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 24px;
+      padding: 36px 20px;
+      background: var(--paper-deep);
+    }
+    .compare-proof img {
+      width: 200px;
+      height: auto;
+      border: 5px solid var(--white);
+      box-shadow: 0 12px 32px rgba(40,25,17,.16);
+    }
+    .compare-proof div { max-width: 400px; }
+    .compare-proof strong {
+      display: block;
+      margin-bottom: 7px;
+      font-family: var(--serif);
+      font-size: 23px;
+      font-weight: 500;
+    }
+    .compare-proof p { margin: 0; color: #6c5d52; font-size: 13px; line-height: 1.5; }
+
+    .visit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 8vw, 120px);
+      padding: 110px clamp(24px, 8vw, 130px);
+      background: var(--white);
+    }
+    .visit h2 { margin-bottom: 18px; }
+    .visit-address {
+      color: #594c43;
+      font-family: var(--serif);
+      font-size: 19px;
+      line-height: 1.6;
+    }
+    .visit-links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .visit .button.ghost { color: var(--ink); border-color: var(--line); }
+    .hours { align-self: center; }
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+      font-size: 14px;
+    }
+    .hours-row span { color: #6f6258; }
+    .hours-row strong { text-align: right; }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 32px clamp(24px, 6vw, 90px) 96px;
+      color: rgba(255,250,240,.65);
+      background: var(--ink);
+      font-size: 12px;
+    }
+    footer a { text-decoration: none; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+
+    .mobile-actions { display: none; }
+
+    @media (max-width: 980px) {
+      nav a:not(.nav-cta) { display: none; }
+      .hero { grid-template-columns: 1fr; }
+      .hero-copy { min-height: 650px; padding-bottom: 72px; }
+      .hero-media { min-height: 540px; }
+      .pathways { grid-template-columns: 1fr; margin-top: -30px; }
+      .path-card { min-height: 160px; border-right: 0; border-bottom: 1px solid var(--line); }
+      .story { grid-template-columns: 1fr; }
+      .story-photo { min-height: 560px; margin-right: 6vw; }
+      .menu-grid { grid-template-columns: 1fr 1fr; }
+      .dish-card:last-child { grid-column: 1 / -1; }
+      .gather { grid-template-columns: 1fr; }
+      .gather-photo { min-height: 520px; }
+      .gather-photo::after { background: linear-gradient(0deg, rgba(157,53,35,.8), transparent 44%); }
+      .gather-copy { padding: 50px 7vw 80px; }
+    }
+
+    @media (max-width: 760px) {
+      .topline { padding: 7px 12px; font-size: 9px; letter-spacing: .11em; }
+      .site-header { top: 25px; padding: 15px 18px; }
+      .brand strong { font-size: 15px; }
+      .brand small { display: none; }
+      .brand-mark { width: 32px; }
+      nav .nav-cta { padding: 10px 13px; font-size: 11px; }
+      .hero-copy { min-height: 610px; padding: 130px 22px 62px; }
+      h1 { margin-bottom: 20px; font-size: clamp(50px, 16vw, 70px); }
+      .hero-copy > p:not(.eyebrow) { font-size: 17px; }
+      .button-row { width: 100%; }
+      .button-row .button { flex: 1; padding-inline: 12px; }
+      .hero-media { min-height: 430px; }
+      .family-seal { left: 18px; bottom: 22px; width: 112px; }
+      .address-chip { right: 0; padding: 14px 16px; font-size: 9px; }
+      .pathways { width: calc(100% - 24px); }
+      .path-card { padding: 27px 24px; }
+      .story { padding: 88px 0 72px; }
+      .story-photo { min-height: 430px; margin-left: 34px; margin-right: 14px; }
+      .story-photo::before { left: -18px; width: 52px; }
+      .story-copy { padding: 54px 22px 10px; }
+      .story h2, .menu-heading h2, .visit h2 { font-size: 44px; }
+      .story-note { gap: 18px; }
+      .story-note strong { font-size: 16px; }
+      .menu-showcase { padding: 76px 14px 82px; }
+      .menu-heading { align-items: start; flex-direction: column; padding: 0 8px; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .dish-card:last-child { grid-column: auto; }
+      .dish-copy { min-height: auto; }
+      .menu-ribbon { font-size: 15px; }
+      .gather-photo { min-height: 390px; }
+      .gather-copy { padding: 38px 22px 72px; }
+      .capacity { gap: 26px; }
+      .compare-proof { align-items: flex-start; }
+      .compare-proof img { width: 160px; }
+      .compare-proof strong { font-size: 20px; }
+      .visit { grid-template-columns: 1fr; gap: 44px; padding: 78px 22px; }
+      .visit-links .button { flex: 1; padding-inline: 12px; }
+      footer { flex-direction: column; padding: 30px 22px 96px; }
+      .mobile-actions {
+        position: fixed;
+        z-index: 50;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1px;
+        padding: 8px;
+        background: rgba(23,19,16,.96);
+        box-shadow: 0 -8px 28px rgba(0,0,0,.22);
+      }
+      .mobile-actions a {
+        padding: 13px 8px;
+        color: var(--white);
+        background: var(--berbere);
+        text-align: center;
+        text-decoration: none;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+      }
+      .mobile-actions a:first-child { color: var(--ink); background: var(--gold); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body id="top">
+  <div class="topline">Family-owned · Rainier Avenue South · Seattle</div>
+
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Delish Ethiopian Cuisine home">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span><strong>Delish</strong><small>Ethiopian Cuisine</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#story">Our story</a>
+      <a href="#menu">Menu</a>
+      <a href="#gather">Gatherings</a>
+      <a class="nav-cta" href="https://resy.com/cities/sea/delish-ethiopian-cuisine">Reserve a table</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">Delish & Amy’s family table</p>
+        <h1 id="hero-title">Ethiopia, <em>shared</em> at the table.</h1>
+        <p>Recipes handed down through generations, prepared by chef Amy and served with the kind of welcome that turns a meal into an evening.</p>
+        <div class="button-row">
+          <a class="button" href="https://resy.com/cities/sea/delish-ethiopian-cuisine">Reserve on Resy</a>
+          <a class="button ghost" href="https://delishethiopianfood.com/menu/">Explore the menu</a>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="assets/delish-hero.webp" width="1600" height="1050" alt="A colorful Ethiopian platter from Delish Ethiopian Cuisine">
+        <div class="family-seal"><strong>Recipes passed down</strong></div>
+        <div class="address-chip">5701 Rainier Ave S</div>
+      </div>
+    </section>
+
+    <section class="pathways" aria-label="Ways to enjoy Delish">
+      <a class="path-card" href="https://resy.com/cities/sea/delish-ethiopian-cuisine">
+        <span>01 · Sit down</span><b aria-hidden="true">↗</b>
+        <h2>Reserve a table</h2>
+        <p>Choose your evening on Resy and come hungry.</p>
+      </a>
+      <a class="path-card" href="tel:+12067233821">
+        <span>02 · Take it home</span><b aria-hidden="true">↗</b>
+        <h2>Call to order</h2>
+        <p>Reach the restaurant directly at 206-723-3821.</p>
+      </a>
+      <a class="path-card" href="#gather">
+        <span>03 · Bring everyone</span><b aria-hidden="true">↓</b>
+        <h2>Plan a gathering</h2>
+        <p>Private parties and special occasions, up to 30 guests.</p>
+      </a>
+    </section>
+
+    <section class="story" id="story">
+      <div class="story-photo">
+        <img src="assets/delish-interior.webp" width="1000" height="720" loading="lazy" alt="The dining room at Delish Ethiopian Cuisine">
+      </div>
+      <div class="story-copy">
+        <p class="section-kicker">A Seattle family story</p>
+        <h2>One table. Generations of flavor.</h2>
+        <p>Delish Ethiopian Cuisine is owned by Delish and his wife Amy, the restaurant’s head chef. Together they serve strictly authentic Ethiopian dishes made with fresh ingredients and recipes carried from one generation to the next.</p>
+        <p class="story-signature">“At Delish, visitors are treated like family.”</p>
+        <div class="story-note">
+          <div><strong>Vegetarian</strong>lentils, greens, peas & more</div>
+          <div><strong>Meat & fish</strong>beef, chicken and tilapia</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="menu-showcase" id="menu">
+      <div class="menu-heading">
+        <div>
+          <p class="section-kicker">Built to share</p>
+          <h2>A little of everything is the whole idea.</h2>
+        </div>
+        <a class="button" href="https://delishethiopianfood.com/menu/">See the full menu</a>
+      </div>
+
+      <div class="menu-grid">
+        <article class="dish-card">
+          <figure>
+            <img src="assets/delish-combo.webp" width="800" height="700" loading="lazy" alt="Official Delish Ethiopian Cuisine combination platter">
+            <figcaption>Official Delish photo</figcaption>
+          </figure>
+          <div class="dish-copy">
+            <small>For two</small>
+            <h3>Delish Combo</h3>
+            <p>The veggie combo and meat combo together: the table-spanning introduction to Delish.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure>
+            <img src="assets/veggie-combo.webp" width="800" height="700" loading="lazy" alt="A colorful vegetarian platter from Delish Ethiopian Cuisine">
+            <figcaption>Official Delish photo</figcaption>
+          </figure>
+          <div class="dish-copy">
+            <small>Plant-forward</small>
+            <h3>Veggie table</h3>
+            <p>Miser, shiro, split peas, collard greens, cabbage, beet, azifa and bright tomato salad.</p>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure>
+            <img src="assets/doro-wot.webp" width="800" height="700" loading="lazy" alt="A communal platter prepared by Delish Ethiopian Cuisine">
+            <figcaption>Official Delish photo</figcaption>
+          </figure>
+          <div class="dish-copy">
+            <small>Slow-cooked</small>
+            <h3>Doro Wot</h3>
+            <p>A holiday dish of chicken, berbere and seasoned butter, cooked slowly for seven hours.</p>
+          </div>
+        </article>
+      </div>
+
+      <p class="menu-ribbon">Kitfo · Tibs · Shiro Wot · Doro Wot · Injera · Ethiopian Coffee Ceremony · Tej honey wine</p>
+    </section>
+
+    <section class="gather" id="gather">
+      <div class="gather-photo">
+        <img src="assets/delish-interior.webp" width="1000" height="720" loading="lazy" alt="Dining area at Delish Ethiopian Cuisine">
+      </div>
+      <div class="gather-copy">
+        <p class="section-kicker">Gather at Delish</p>
+        <h2>Special occasions should feel shared.</h2>
+        <p>The restaurant welcomes reservations for parties of up to 30 and hosts private gatherings. Start with a table, then let the platters do the talking.</p>
+        <div class="capacity">
+          <div><strong>28</strong><span>Dining area</span></div>
+          <div><strong>12</strong><span>Bar area</span></div>
+          <div><strong>30</strong><span>Reservations</span></div>
+        </div>
+        <div class="button-row">
+          <a class="button" href="https://resy.com/cities/sea/delish-ethiopian-cuisine">Reserve on Resy</a>
+          <a class="button ghost" href="tel:+12067233821">Call the restaurant</a>
+        </div>
+      </div>
+    </section>
+
+    <aside class="compare-proof" aria-label="Small mobile presentation comparison">
+      <img src="assets/site-compare.webp" width="480" height="320" loading="lazy" alt="Old mobile presentation compared with the new Delish demo">
+      <div>
+        <strong>A clearer first bite.</strong>
+        <p>The same family story and real food, reorganized so a guest can see what matters and act without hunting.</p>
+      </div>
+    </aside>
+
+    <section class="visit" id="visit">
+      <div>
+        <p class="section-kicker">Come to the table</p>
+        <h2>Find Delish in South Seattle.</h2>
+        <p class="visit-address">5701 Rainier Ave S<br>Seattle, Washington</p>
+        <div class="visit-links">
+          <a class="button" href="https://goo.gl/maps/LZ6wsszRWxNtvPAd7">Get directions</a>
+          <a class="button ghost" href="tel:+12067233821">206-723-3821</a>
+        </div>
+      </div>
+      <div class="hours" aria-label="Working hours">
+        <div class="hours-row"><span>Sunday & Monday</span><strong>4pm – 9pm</strong></div>
+        <div class="hours-row"><span>Tuesday</span><strong>Closed</strong></div>
+        <div class="hours-row"><span>Wednesday – Friday</span><strong>4pm – 9pm</strong></div>
+        <div class="hours-row"><span>Saturday</span><strong>1pm – 9pm</strong></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>© Delish Ethiopian Cuisine · Family-owned in Seattle</div>
+    <div class="footer-links">
+      <a href="https://delishethiopianfood.com/menu/">Menu</a>
+      <a href="https://www.instagram.com/delishethiopian/">Instagram</a>
+      <a href="https://www.facebook.com/Delish-Ethiopian-Cuisine-281568686072224/">Facebook</a>
+      <a href="https://resy.com/cities/sea/delish-ethiopian-cuisine">Reservations</a>
+    </div>
+  </footer>
+
+  <div class="mobile-actions" aria-label="Quick actions">
+    <a href="https://resy.com/cities/sea/delish-ethiopian-cuisine">Reserve</a>
+    <a href="https://delishethiopianfood.com/menu/">View menu</a>
+  </div>
+</body>
+</html>
