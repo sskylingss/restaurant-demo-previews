@@ -1,0 +1,344 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="The Richmond Arms is an independently owned, food-centred pub, restaurant and country stay in West Ashling, West Sussex.">
+  <meta name="theme-color" content="#1f3b33">
+  <title>The Richmond Arms — Eat, Stay & Gather in West Ashling</title>
+  <style>
+    :root{
+      --ink:#172c27;
+      --green:#29443b;
+      --green-deep:#1d352e;
+      --duck:#b9cfca;
+      --paper:#f3ecdd;
+      --cream:#fffaf1;
+      --berry:#8a4548;
+      --gold:#c7a66b;
+      --line:rgba(23,44,39,.2);
+      --max:1240px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif;line-height:1.55}
+    img{display:block;max-width:100%}
+    a{color:inherit;text-decoration:none}
+    a:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+    .top-note{background:var(--ink);color:#fff;text-align:center;padding:7px 18px 6px;font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+    .site-head{position:absolute;z-index:20;left:0;right:0;border-bottom:1px solid rgba(255,255,255,.3)}
+    .nav{width:min(var(--max),calc(100% - 48px));height:86px;margin:auto;display:flex;align-items:center;gap:22px;color:#fff}
+    .brand{font:normal 24px/1 Georgia,serif;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap}
+    .brand span{display:block;font:8px Arial,sans-serif;letter-spacing:.3em;margin-top:7px;text-align:center}
+    .nav-links{display:flex;gap:25px;margin-left:auto;font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    .nav-actions{display:flex;align-items:center;gap:8px}
+    .social-link{width:46px;height:46px;display:grid;place-items:center;border:1px solid rgba(255,255,255,.65);border-radius:50%;transition:.2s}
+    .social-link:hover{background:#fff;color:var(--ink)}
+    .social-link svg{width:18px;height:18px}
+    .button{min-height:46px;display:inline-flex;align-items:center;justify-content:center;padding:12px 18px;border:1px solid var(--berry);background:var(--berry);color:#fff;font-size:10px;font-weight:900;letter-spacing:.15em;text-transform:uppercase;transition:.2s}
+    .button:hover{background:#6f3438;border-color:#6f3438}
+    .button.outline{background:transparent;border-color:currentColor;color:inherit}
+    .button.outline:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+    .button.light{background:var(--cream);border-color:var(--cream);color:var(--ink)}
+    .button.light:hover{background:var(--duck);border-color:var(--duck)}
+    .hero{position:relative;min-height:790px;background:#23342f;display:flex;align-items:end;color:#fff;overflow:hidden}
+    .hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 52%}
+    .hero:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,31,27,.88) 0%,rgba(14,31,27,.56) 43%,rgba(14,31,27,.08) 78%),linear-gradient(0deg,rgba(14,31,27,.72),transparent 53%)}
+    .hero-content{position:relative;z-index:2;width:min(var(--max),calc(100% - 96px));margin:0 auto;padding:180px 0 86px;display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:7vw}
+    .eyebrow{display:flex;align-items:center;gap:12px;font-size:9px;font-weight:800;letter-spacing:.2em;text-transform:uppercase}
+    .eyebrow:before{content:"";width:37px;height:1px;background:var(--gold)}
+    h1{font:normal clamp(60px,7vw,108px)/.87 Georgia,serif;letter-spacing:-.055em;margin:27px 0 28px;max-width:800px}
+    h1 em{color:var(--duck);font-weight:400}
+    .hero-copy p{font-size:16px;max-width:570px;color:rgba(255,255,255,.82);margin:0 0 31px}
+    .hero-buttons{display:flex;gap:10px;flex-wrap:wrap}
+    .field-card{justify-self:end;width:min(370px,100%);background:rgba(243,236,221,.94);color:var(--ink);padding:30px;border-top:6px solid var(--berry);transform:rotate(-1deg);box-shadow:0 25px 60px rgba(0,0,0,.25)}
+    .field-card small{display:block;font-size:8px;font-weight:900;letter-spacing:.18em;text-transform:uppercase;color:var(--berry)}
+    .field-card h2{font:italic 34px/1.02 Georgia,serif;margin:13px 0 15px}
+    .field-card p{font-size:12px;margin:0;color:#4d5d57}
+    .field-card .line{border-top:1px solid var(--line);margin:20px 0 17px}
+    .field-card b{font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+    .quick-paths{background:var(--cream);display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--line)}
+    .quick{padding:29px 35px;border-right:1px solid var(--line);display:flex;align-items:center;gap:18px}
+    .quick:last-child{border-right:0}
+    .quick-num{font:italic 28px Georgia,serif;color:var(--berry)}
+    .quick small{display:block;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:#61706a;font-weight:800}
+    .quick strong{font:normal 19px Georgia,serif}
+    .section{padding:110px 48px}
+    .wrap{width:min(var(--max),100%);margin:auto}
+    .intro{display:grid;grid-template-columns:.85fr 1.15fr;gap:8vw;align-items:center}
+    .kicker{font-size:9px;font-weight:900;letter-spacing:.2em;text-transform:uppercase;color:var(--berry);margin:0 0 20px}
+    h2{font:normal clamp(44px,5vw,74px)/.94 Georgia,serif;letter-spacing:-.045em;margin:0}
+    h2 em{font-weight:400;color:var(--green)}
+    .intro-copy>p{font-size:17px;color:#4d615a;max-width:520px;margin:27px 0 31px}
+    .photo-stack{position:relative;padding:0 52px 58px 0}
+    .photo-main{aspect-ratio:4/3;overflow:hidden}
+    .photo-main img{width:100%;height:100%;object-fit:cover}
+    .photo-small{position:absolute;right:0;bottom:0;width:42%;aspect-ratio:4/3;overflow:hidden;border:10px solid var(--paper)}
+    .photo-small img{width:100%;height:100%;object-fit:cover}
+    .stamp{position:absolute;left:-30px;bottom:17px;width:112px;height:112px;border-radius:50%;background:var(--berry);color:#fff;display:grid;place-items:center;text-align:center;transform:rotate(-8deg);font:italic 16px/1.1 Georgia,serif;padding:17px}
+    .paths{background:var(--green-deep);color:#fff}
+    .paths-head{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:45px}
+    .paths-head h2{max-width:760px}
+    .paths-head h2 em{color:var(--duck)}
+    .paths-head p{max-width:350px;color:rgba(255,255,255,.68);margin:0}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .card{background:var(--cream);color:var(--ink);display:flex;flex-direction:column}
+    .card-image{aspect-ratio:4/3;overflow:hidden}
+    .card-image img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+    .card:hover img{transform:scale(1.025)}
+    .card-copy{padding:28px;display:flex;flex-direction:column;flex:1}
+    .card small{font-size:8px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;color:var(--berry)}
+    .card h3{font:italic 30px/1.05 Georgia,serif;margin:12px 0}
+    .card p{font-size:13px;color:#53625d;margin:0 0 24px}
+    .text-link{margin-top:auto;font-size:9px;font-weight:900;letter-spacing:.14em;text-transform:uppercase;text-decoration:underline;text-underline-offset:5px}
+    .pond{position:relative;min-height:620px;color:#fff;display:flex;align-items:center;overflow:hidden}
+    .pond>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+    .pond:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(18,44,37,.84),rgba(18,44,37,.15) 70%)}
+    .pond-copy{position:relative;z-index:2;width:min(var(--max),calc(100% - 96px));margin:auto}
+    .pond-copy h2{max-width:640px}
+    .pond-copy h2 em{color:var(--duck)}
+    .pond-copy p{max-width:520px;color:rgba(255,255,255,.8);font-size:16px;margin:25px 0 30px}
+    .visit{display:grid;grid-template-columns:1.05fr .95fr;gap:8vw;align-items:start}
+    .hours{margin-top:34px;border-top:1px solid var(--line)}
+    .hour{display:grid;grid-template-columns:145px 1fr;gap:20px;border-bottom:1px solid var(--line);padding:15px 0}
+    .hour b{font-size:9px;letter-spacing:.14em;text-transform:uppercase}
+    .hour span{font-size:13px;color:#4d615a}
+    .address-card{background:var(--duck);padding:44px;position:relative}
+    .address-card:before{content:"PO18";position:absolute;top:-31px;right:9px;font-size:125px;font-weight:900;color:rgba(23,44,39,.08);line-height:1}
+    .address-card h3{position:relative;font:italic 38px/1.05 Georgia,serif;margin:0 0 24px}
+    .address-card address{position:relative;font-style:normal;margin:0 0 27px}
+    .address-actions{display:flex;gap:9px;flex-wrap:wrap;position:relative}
+    .proof{padding-top:0}
+    .proof-inner{border-top:1px solid var(--line);padding-top:33px;display:grid;grid-template-columns:200px 1fr;gap:24px;align-items:center}
+    .proof img{width:200px;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line)}
+    .proof small{font-size:8px;color:var(--berry);font-weight:900;letter-spacing:.15em;text-transform:uppercase}
+    .proof h3{font:italic 25px Georgia,serif;margin:4px 0}
+    .proof p{font-size:12px;color:#596b64;margin:0}
+    footer{background:var(--ink);color:rgba(255,255,255,.7);padding:31px 48px}
+    .footer-inner{width:min(var(--max),100%);margin:auto;display:flex;justify-content:space-between;gap:25px;font-size:10px}
+    .footer-links{display:flex;gap:20px;flex-wrap:wrap}
+    .mobile-book{display:none}
+    @media(max-width:970px){
+      .nav-links{display:none}
+      .cards{grid-template-columns:1fr 1fr}
+      .card:last-child{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr}
+      .card:last-child .card-image{aspect-ratio:auto}
+    }
+    @media(max-width:720px){
+      body{padding-bottom:64px}
+      .top-note{font-size:8px}
+      .site-head{top:27px}
+      .nav{width:calc(100% - 28px);height:70px;gap:8px}
+      .brand{font-size:18px}
+      .brand span{font-size:6px}
+      .nav-actions{margin-left:auto}
+      .nav-actions>.button{display:none}
+      .social-link{width:44px;height:44px}
+      .hero{min-height:830px}
+      .hero>img{object-position:59% center}
+      .hero:after{background:linear-gradient(0deg,rgba(14,31,27,.9),rgba(14,31,27,.14) 74%)}
+      .hero-content{width:calc(100% - 40px);padding:150px 0 42px;display:flex;flex-direction:column;gap:30px;align-items:stretch}
+      h1{font-size:58px}
+      .hero-copy p{font-size:14px}
+      .hero-buttons .button{flex:1;min-width:140px}
+      .field-card{justify-self:auto;width:100%;padding:23px;transform:rotate(-.5deg)}
+      .field-card h2{font-size:28px}
+      .quick-paths{grid-template-columns:1fr}
+      .quick{border-right:0;border-bottom:1px solid var(--line);padding:21px}
+      .quick:last-child{border-bottom:0}
+      .section{padding:76px 20px}
+      .intro,.visit{grid-template-columns:1fr;gap:54px}
+      h2{font-size:46px}
+      .intro-copy>p{font-size:15px}
+      .photo-stack{padding-right:28px}
+      .stamp{left:-5px;width:92px;height:92px;font-size:13px}
+      .paths-head{display:block;margin-bottom:31px}
+      .paths-head p{margin-top:19px}
+      .cards{grid-template-columns:1fr}
+      .card:last-child{grid-column:auto;display:flex}
+      .card:last-child .card-image{aspect-ratio:4/3}
+      .pond{min-height:620px}
+      .pond>img{object-position:58% center}
+      .pond-copy{width:calc(100% - 40px)}
+      .hour{grid-template-columns:105px 1fr}
+      .address-card{padding:34px 25px}
+      .proof-inner{grid-template-columns:120px 1fr;gap:14px}
+      .proof img{width:120px}
+      .proof h3{font-size:19px}
+      footer{padding:28px 20px}
+      .footer-inner{display:block}
+      .footer-links{margin-top:12px}
+      .mobile-book{position:fixed;z-index:40;left:0;right:0;bottom:0;height:64px;display:flex;align-items:center;justify-content:center;background:var(--berry);color:#fff;font-size:10px;font-weight:900;letter-spacing:.16em;text-transform:uppercase;box-shadow:0 -8px 25px rgba(0,0,0,.17)}
+    }
+  </style>
+<base href="/restaurant-demo-previews/the-richmond-arms//">
+</head>
+<body>
+  <div class="top-note">West Ashling · West Sussex · On the edge of the South Downs</div>
+  <header class="site-head">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top">The Richmond Arms<span>West Ashling</span></a>
+      <div class="nav-links">
+        <a href="#eat">Eat</a>
+        <a href="#sleep">Sleep</a>
+        <a href="#celebrate">Celebrate</a>
+        <a href="#visit">Visit</a>
+      </div>
+      <div class="nav-actions">
+        <a class="social-link" href="https://www.instagram.com/therichmondarms.westashling/" target="_blank" rel="noopener noreferrer" aria-label="The Richmond Arms on Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.4" cy="6.6" r="1" fill="currentColor" stroke="none"/></svg>
+        </a>
+        <a class="social-link" href="https://www.facebook.com/therichmondarms.westashling/" target="_blank" rel="noopener noreferrer" aria-label="The Richmond Arms on Facebook">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14.2 8.1h2.6V4.3c-.45-.06-2-.2-3.5-.2-3.1 0-5.2 1.9-5.2 5.4v3H4.6v4.2h3.5V24h4.3v-7.3H16l.6-4.2h-4.2V9.9c0-1.2.3-1.8 1.8-1.8z"/></svg>
+        </a>
+        <a class="button" href="https://tableagent.com/west-sussex/the-richmond-arms/" target="_blank" rel="noopener noreferrer">Book a table</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <img src="assets/richmond-hero.webp" width="1600" height="900" alt="The Richmond Arms pub and outdoor tables in West Ashling" fetchpriority="high">
+      <div class="hero-content">
+        <div class="hero-copy">
+          <div class="eyebrow">Independent · Food-centred · Village-owned</div>
+          <h1>A Sussex table by the <em>duck pond.</em></h1>
+          <p>Come for locally sourced food and a proper village welcome. Stay for a night in the country, or gather everyone for a celebration made around you.</p>
+          <div class="hero-buttons">
+            <a class="button" href="https://tableagent.com/west-sussex/the-richmond-arms/" target="_blank" rel="noopener noreferrer">Book a table</a>
+            <a class="button outline" href="https://www.therichmondarms.co.uk/main-menu" target="_blank" rel="noopener noreferrer">View food</a>
+          </div>
+        </div>
+        <aside class="field-card">
+          <small>Three reasons to linger</small>
+          <h2>Eat well. Sleep deeply. Celebrate fully.</h2>
+          <p>A country pub, two en-suite rooms and bespoke events from intimate dinners to whole-venue gatherings.</p>
+          <div class="line"></div>
+          <b>Mill Road · PO18 8EA</b>
+        </aside>
+      </div>
+    </section>
+
+    <section class="quick-paths" aria-label="Customer paths">
+      <a class="quick" href="#eat"><span class="quick-num">01</span><span><small>Book your table</small><strong>Eat in West Ashling</strong></span></a>
+      <a class="quick" href="#sleep"><span class="quick-num">02</span><span><small>Two country rooms</small><strong>Stay above the pub</strong></span></a>
+      <a class="quick" href="#celebrate"><span class="quick-num">03</span><span><small>From two to a hundred</small><strong>Gather your people</strong></span></a>
+    </section>
+
+    <section class="section" id="eat">
+      <div class="wrap intro">
+        <div class="intro-copy">
+          <p class="kicker">Field to fork, close to home</p>
+          <h2>Good food without the <em>fuss.</em></h2>
+          <p>The kitchen works with West Sussex producers and lets the season lead. Expect an unpretentious menu, local ingredients, fresh fish specials and Sunday roasts.</p>
+          <div class="hero-buttons">
+            <a class="button" href="https://tableagent.com/west-sussex/the-richmond-arms/" target="_blank" rel="noopener noreferrer">Reserve online</a>
+            <a class="button outline" href="https://www.therichmondarms.co.uk/sunday-menu" target="_blank" rel="noopener noreferrer">Sunday menu</a>
+          </div>
+        </div>
+        <div class="photo-stack">
+          <figure class="photo-main"><img src="assets/dining-room.webp" width="800" height="600" alt="The welcoming dining room at The Richmond Arms" loading="lazy"></figure>
+          <figure class="photo-small"><img src="assets/local-table.webp" width="800" height="600" alt="A local sharing board served at The Richmond Arms" loading="lazy"></figure>
+          <div class="stamp">Local where possible</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section paths">
+      <div class="wrap">
+        <div class="paths-head">
+          <div><p class="kicker">Choose your visit</p><h2>One village address. <em>Three ways to stay awhile.</em></h2></div>
+          <p>Keep each plan simple: reserve a table, ask about a room, or start an event conversation in writing.</p>
+        </div>
+        <div class="cards">
+          <article class="card">
+            <div class="card-image"><img src="assets/local-table.webp" width="800" height="600" alt="Local food prepared for sharing at The Richmond Arms" loading="lazy"></div>
+            <div class="card-copy">
+              <small>Eat · lunch, dinner & Sunday</small>
+              <h3>A table for the day.</h3>
+              <p>Seasonal pub cooking, blackboard specials, village drinks and proper time together.</p>
+              <a class="text-link" href="https://tableagent.com/west-sussex/the-richmond-arms/" target="_blank" rel="noopener noreferrer">Book your table</a>
+            </div>
+          </article>
+          <article class="card" id="sleep">
+            <div class="card-image"><img src="assets/country-room.webp" width="800" height="600" alt="One of the country bedrooms at The Richmond Arms" loading="lazy"></div>
+            <div class="card-copy">
+              <small>Sleep · two en-suite rooms</small>
+              <h3>Stay above the pub.</h3>
+              <p>King-size beds, classic country interiors and breakfast served with your West Sussex escape.</p>
+              <a class="text-link" href="mailto:staying@therichmondarms.co.uk?subject=Room%20enquiry%20at%20The%20Richmond%20Arms">Email a room enquiry</a>
+            </div>
+          </article>
+          <article class="card" id="celebrate">
+            <div class="card-image"><img src="assets/private-event.webp" width="800" height="600" alt="A private celebration inside The Richmond Arms" loading="lazy"></div>
+            <div class="card-copy">
+              <small>Celebrate · bespoke gatherings</small>
+              <h3>Make the room yours.</h3>
+              <p>From intimate dinners to wedding breakfasts, birthdays, team meals and whole-venue hire.</p>
+              <a class="text-link" href="mailto:info@therichmondarms.co.uk?subject=Event%20enquiry%20at%20The%20Richmond%20Arms">Start an event enquiry</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pond">
+      <img src="assets/village-pond.webp" width="800" height="600" alt="The duck pond and West Ashling village beside The Richmond Arms" loading="lazy">
+      <div class="pond-copy">
+        <p class="kicker">Between Chichester and the South Downs</p>
+        <h2>A village pause, <em>close to everything.</em></h2>
+        <p>Walk the footpaths, visit Goodwood, Bosham or West Wittering, then come back to the duck pond for dinner and a quiet night.</p>
+        <a class="button light" href="https://www.therichmondarms.co.uk/contact" target="_blank" rel="noopener noreferrer">Plan your route</a>
+      </div>
+    </section>
+
+    <section class="section" id="visit">
+      <div class="wrap visit">
+        <div>
+          <p class="kicker">Opening & food service</p>
+          <h2>Meet us on <em>Mill Road.</em></h2>
+          <div class="hours">
+            <div class="hour"><b>Monday</b><span>Open from 3pm · Pizza 5:30–9pm</span></div>
+            <div class="hour"><b>Tuesday</b><span>Open from 3pm · Kitchen currently closed</span></div>
+            <div class="hour"><b>Wed–Thu</b><span>Food 12–3pm & 5–8:30pm</span></div>
+            <div class="hour"><b>Fri–Sat</b><span>Food 12–8:30pm</span></div>
+            <div class="hour"><b>Sunday</b><span>Sunday lunch 12–3:30pm</span></div>
+          </div>
+        </div>
+        <aside class="address-card">
+          <h3>Come to the heart of West Ashling.</h3>
+          <address>The Richmond Arms<br>Mill Road, West Ashling<br>Chichester, PO18 8EA</address>
+          <div class="address-actions">
+            <a class="button" href="https://tableagent.com/west-sussex/the-richmond-arms/" target="_blank" rel="noopener noreferrer">Book a table</a>
+            <a class="button outline" href="https://www.therichmondarms.co.uk/contact" target="_blank" rel="noopener noreferrer">Contact & directions</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section proof">
+      <div class="wrap proof-inner">
+        <img src="assets/site-compare.webp" width="480" height="320" alt="Small comparison of The Richmond Arms current online presentation and the focused concept Demo" loading="lazy">
+        <div>
+          <small>A small presentation study</small>
+          <h3>Same country welcome. A clearer first choice.</h3>
+          <p>Food, rooms and celebrations now share one calm mobile path without changing the pub’s real identity.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <span>Demo preview using verified public information from The Richmond Arms.</span>
+      <div class="footer-links">
+        <a href="https://www.therichmondarms.co.uk/" target="_blank" rel="noopener noreferrer">Official website</a>
+        <a href="https://www.instagram.com/therichmondarms.westashling/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/therichmondarms.westashling/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </div>
+    </div>
+  </footer>
+  <a class="mobile-book" href="https://tableagent.com/west-sussex/the-richmond-arms/" target="_blank" rel="noopener noreferrer">Book a table</a>
+<script src="/restaurant-demo-previews/tracker.js" defer></script>
+</body>
+</html>
