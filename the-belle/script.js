@@ -1,0 +1,15 @@
+const header = document.querySelector('[data-header]');
+const toggle = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.primary-nav');
+if (toggle && nav) {
+  toggle.addEventListener('click', () => {
+    const open = toggle.getAttribute('aria-expanded') === 'true';
+    toggle.setAttribute('aria-expanded', String(!open));
+    nav.classList.toggle('open', !open);
+  });
+}
+addEventListener('scroll', () => header?.classList.toggle('scrolled', scrollY > 24), { passive: true });
+const observer = new IntersectionObserver((entries) => entries.forEach((entry) => {
+  if (entry.isIntersecting) { entry.target.classList.add('seen'); observer.unobserve(entry.target); }
+}), { threshold: .14 });
+document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
