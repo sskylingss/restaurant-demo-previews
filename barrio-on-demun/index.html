@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10130f">
+    <meta
+      name="description"
+      content="Barrio on DeMun serves smash burgers, street tacos, sandwiches and cocktails in Clayton, Missouri."
+    >
+    <title>Barrio on DeMun | Burgers, Tacos & Good Times</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header" data-header>
+      <a class="wordmark" href="./index.html" aria-label="Barrio on DeMun home">
+        <span class="wordmark-main">barrio</span>
+        <span class="wordmark-sub">BURGERS &amp; TACOS</span>
+      </a>
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        data-menu-toggle
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="primary-nav" id="primary-navigation" aria-label="Primary navigation" data-menu>
+        <a class="is-current" href="./index.html" aria-current="page">Home</a>
+        <a href="./menu.html">Menu</a>
+        <a href="./visit.html">Visit</a>
+        <a
+          class="nav-social"
+          href="https://www.instagram.com/barrioburgersandtacos/"
+          target="_blank"
+          rel="noopener"
+          aria-label="Barrio on DeMun on Instagram"
+        >Instagram <span aria-hidden="true">↗</span></a>
+        <a
+          class="nav-order"
+          href="https://order.toasttab.com/online/barrio-740-demun-ave"
+          target="_blank"
+          rel="noopener"
+        >Order online</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section
+        class="hero hero-full"
+        id="hero"
+        data-composition="cinematic-split"
+        data-transition="lime-slice"
+        data-motion="hero-drift"
+      >
+        <img
+          class="hero-media"
+          src="./images/barrio-hero-ai-expanded.webp"
+          width="1536"
+          height="960"
+          alt="A plate of Barrio street tacos on a warm wooden bar"
+          fetchpriority="high"
+        >
+        <div class="hero-scrim" aria-hidden="true"></div>
+        <div class="hero-content shell">
+          <p class="eyebrow hero-kicker" data-reveal>DeMun · Clayton, Missouri</p>
+          <h1 data-reveal>Smash.<br>Stack.<br><em>Stay awhile.</em></h1>
+          <p class="hero-copy" data-reveal>
+            Street tacos, smash burgers and cocktails made for the whole neighborhood.
+          </p>
+          <div class="hero-actions" data-reveal>
+            <a class="button button-primary" href="./menu.html">Explore the menu</a>
+            <a
+              class="button button-ghost"
+              href="https://order.toasttab.com/online/barrio-740-demun-ave"
+              target="_blank"
+              rel="noopener"
+            >Order online <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-note" data-reveal>Kid-friendly dining · Dog-friendly patio</p>
+        </div>
+        <a class="scroll-cue" href="#story">
+          <span>Come on in</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+      </section>
+
+      <section
+        class="story section"
+        id="story"
+        data-composition="offset-interior"
+        data-transition="angled-ink"
+        data-motion="image-parallax"
+      >
+        <div class="story-grid shell">
+          <figure class="story-visual" data-reveal>
+            <img
+              data-content-image
+              src="./images/barrio-interior.webp"
+              width="1200"
+              height="900"
+              alt="The real bar interior at Barrio on DeMun"
+              loading="lazy"
+            >
+            <figcaption>740 DeMun Ave · Your neighborhood seat is waiting.</figcaption>
+          </figure>
+          <div class="story-copy" data-reveal>
+            <p class="eyebrow">The neighborhood’s living room</p>
+            <h2>Easygoing by day.<br><em>Electric after dark.</em></h2>
+            <p>
+              Barrio is built for the everyday reasons people gather: lunch with the family,
+              game night with friends, a patio stop with your pup, or a round that turns into
+              one more.
+            </p>
+            <div class="story-stats" aria-label="Barrio highlights">
+              <div><strong>7</strong><span>days a week</span></div>
+              <div><strong>11am</strong><span>doors open</span></div>
+              <div><strong>DeMun</strong><span>in the heart of Clayton</span></div>
+            </div>
+            <a class="text-link" href="./visit.html">Plan your visit <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="featured-menu section"
+        id="featured-menu"
+        data-composition="ticker-menu"
+        data-transition="marquee-band"
+        data-motion="card-stagger"
+      >
+        <div class="menu-marquee" aria-hidden="true">
+          <span>BURGERS · STREET TACOS · COCKTAILS · BURGERS · STREET TACOS · COCKTAILS ·</span>
+        </div>
+        <div class="shell featured-heading" data-reveal>
+          <div>
+            <p class="eyebrow">Start here</p>
+            <h2>Big flavor.<br><em>No dress code.</em></h2>
+          </div>
+          <p>
+            A quick look at the Barrio favorites. The full, easy-to-read menu is one tap away.
+          </p>
+        </div>
+        <div class="featured-grid shell">
+          <article class="menu-card" data-reveal>
+            <p class="menu-number">01</p>
+            <div>
+              <h3>Outlaw Burger</h3>
+              <p>Pepper Jack, bacon, pickles, fried jalapeños, onion rings and house BBQ.</p>
+            </div>
+            <strong>$11.99</strong>
+          </article>
+          <article class="menu-card menu-card-accent" data-reveal>
+            <p class="menu-number">02</p>
+            <div>
+              <h3>Fish Tacos</h3>
+              <p>Three crispy or grilled cod tacos with cilantro slaw, pico and chipotle ranch.</p>
+            </div>
+            <strong>$15.99</strong>
+          </article>
+          <article class="menu-card" data-reveal>
+            <p class="menu-number">03</p>
+            <div>
+              <h3>Smoked BBQ Brisket</h3>
+              <p>House-smoked brisket, pickled jalapeños, pickles, onions and BBQ on a brioche bun.</p>
+            </div>
+            <strong>$17.99</strong>
+          </article>
+          <article class="menu-card" data-reveal>
+            <p class="menu-number">04</p>
+            <div>
+              <h3>Sangre 75</h3>
+              <p>Blanco tequila, blood orange, lime and bubbles.</p>
+            </div>
+            <strong>$12</strong>
+          </article>
+        </div>
+        <div class="section-action shell">
+          <a class="button button-dark" href="./menu.html">See the full menu</a>
+        </div>
+      </section>
+
+      <section
+        class="gallery section"
+        id="gallery"
+        data-composition="six-beat-collage"
+        data-motion="gallery-lift"
+      >
+        <div class="gallery-heading shell" data-reveal>
+          <div>
+            <p class="eyebrow">More than a meal</p>
+            <h2>DeMun has a pulse.<br><em>Barrio turns it up.</em></h2>
+          </div>
+          <a
+            class="text-link"
+            href="https://www.instagram.com/barrioburgersandtacos/"
+            target="_blank"
+            rel="noopener"
+          >Follow the latest <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="gallery-grid shell">
+          <figure class="gallery-card gallery-card-tall" data-reveal>
+            <img
+              data-content-image
+              src="./images/gallery-dog-friendly.webp"
+              width="481"
+              height="640"
+              alt="A puppy shared by Barrio for a dog-friendly community event"
+              loading="lazy"
+            >
+            <figcaption><strong>Dog-friendly</strong><span>Patio pals welcome</span></figcaption>
+          </figure>
+          <figure class="gallery-card" data-reveal>
+            <img
+              data-content-image
+              src="./images/gallery-karaoke.webp"
+              width="627"
+              height="640"
+              alt="Barrio Karaoke Night artwork"
+              loading="lazy"
+            >
+            <figcaption><strong>Karaoke</strong><span>First Fridays · 8–11pm</span></figcaption>
+          </figure>
+          <figure class="gallery-card" data-reveal>
+            <img
+              data-content-image
+              src="./images/gallery-year-round.webp"
+              width="640"
+              height="640"
+              alt="Barrio year-round drinks and dining artwork"
+              loading="lazy"
+            >
+            <figcaption><strong>All year</strong><span>Local beer and cocktails</span></figcaption>
+          </figure>
+          <figure class="gallery-card" data-reveal>
+            <img
+              data-content-image
+              src="./images/gallery-game-day.webp"
+              width="480"
+              height="640"
+              alt="Barrio game day character artwork"
+              loading="lazy"
+            >
+            <figcaption><strong>Game day</strong><span>A neighborhood watch spot</span></figcaption>
+          </figure>
+          <figure class="gallery-card" data-reveal>
+            <img
+              data-content-image
+              src="./images/gallery-merch.webp"
+              width="607"
+              height="640"
+              alt="Barrio neighborhood merchandise"
+              loading="lazy"
+            >
+            <figcaption><strong>Neighborhood gear</strong><span>Wear the Barrio</span></figcaption>
+          </figure>
+          <figure class="gallery-card" data-reveal>
+            <img
+              data-content-image
+              src="./images/gallery-doodles.webp"
+              width="488"
+              height="640"
+              alt="Barrio Doodles community event artwork"
+              loading="lazy"
+            >
+            <figcaption><strong>Community</strong><span>Doodles, drinks and DeMun</span></figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section
+        class="hours section"
+        id="hours"
+        data-composition="hours-signal"
+        data-transition="acid-wave"
+        data-motion="clock-pulse"
+      >
+        <div class="hours-grid shell">
+          <div class="hours-intro" data-reveal>
+            <p class="eyebrow">Open every day</p>
+            <h2>Lunch now.<br><em>One more later.</em></h2>
+            <p>Walk in from 11am, settle into the patio, or order ahead for an easy pickup.</p>
+          </div>
+          <div class="hours-board" data-reveal>
+            <div class="hours-row">
+              <span>Sunday–Thursday</span>
+              <strong>11am–10pm</strong>
+            </div>
+            <div class="hours-row">
+              <span>Friday &amp; Saturday</span>
+              <strong>11am–11pm</strong>
+            </div>
+            <p class="hours-note">Kitchen and event details may change on holidays. Check official channels for the latest.</p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="visit section"
+        id="visit"
+        data-composition="split-action-map"
+        data-motion="cta-rise"
+      >
+        <div class="visit-panel visit-panel-order" data-reveal>
+          <p class="eyebrow">Your favorites, to go</p>
+          <h2>Skip the wait.<br><em>Order ahead.</em></h2>
+          <a
+            class="button button-primary"
+            href="https://order.toasttab.com/online/barrio-740-demun-ave"
+            target="_blank"
+            rel="noopener"
+          >Start an order <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="visit-panel visit-panel-map" data-reveal>
+          <div class="map-lines" aria-hidden="true"></div>
+          <p class="eyebrow">Find us on DeMun</p>
+          <h2>740 DeMun Ave<br>Clayton, MO 63105</h2>
+          <a
+            class="button button-cream"
+            href="https://www.google.com/maps/search/?api=1&amp;query=740+DeMun+Ave+Clayton+MO+63105"
+            target="_blank"
+            rel="noopener"
+          >Get directions <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <a class="wordmark footer-wordmark" href="./index.html">
+          <span class="wordmark-main">barrio</span>
+          <span class="wordmark-sub">BURGERS &amp; TACOS</span>
+        </a>
+        <div>
+          <p>740 DeMun Ave, Clayton, MO 63105</p>
+          <a href="tel:+13147250322">314.725.0322</a>
+        </div>
+        <div class="footer-links">
+          <a href="./menu.html">Menu</a>
+          <a href="./visit.html">Visit</a>
+          <a
+            href="https://www.instagram.com/barrioburgersandtacos/"
+            target="_blank"
+            rel="noopener"
+          >Instagram ↗</a>
+        </div>
+      </div>
+      <p class="footer-note shell">Menu prices and hours shown from Barrio’s current official information. Please confirm seasonal changes with the restaurant.</p>
+    </footer>
+  </body>
+</html>
