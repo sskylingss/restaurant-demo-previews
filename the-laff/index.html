@@ -3,870 +3,142 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="The Laff — Ottawa's oldest tavern, serving ByWard Market since 1849 with live music every day, classic pub food and no cover.">
-  <meta name="theme-color" content="#241012">
+  <meta name="description" content="The Laff — Ottawa's oldest tavern, established in 1849, with live music every day, classic pub food and no cover.">
+  <meta name="theme-color" content="#241015">
   <title>The Laff — Ottawa's Oldest Tavern</title>
-  <style>
-    :root {
-      --ink: #201415;
-      --ink-soft: #4d3f3e;
-      --wine: #661b28;
-      --wine-dark: #2b1015;
-      --brass: #d5aa58;
-      --paper: #f4eddf;
-      --cream: #fff8eb;
-      --line: rgba(87, 45, 35, .2);
-      --shadow: 0 26px 70px rgba(37, 15, 14, .18);
-    }
-
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      color: var(--ink);
-      background: var(--paper);
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
-      overflow-x: hidden;
-    }
-
-    img { display: block; max-width: 100%; }
-    a { color: inherit; }
-    button, a { -webkit-tap-highlight-color: transparent; }
-    .skip {
-      position: absolute;
-      left: 16px;
-      top: -60px;
-      z-index: 20;
-      padding: 12px 18px;
-      background: var(--cream);
-      color: var(--ink);
-    }
-    .skip:focus { top: 16px; }
-
-    .site-header {
-      position: absolute;
-      inset: 0 0 auto;
-      z-index: 10;
-      min-height: 88px;
-      color: #fff7e8;
-      border-bottom: 1px solid rgba(255, 255, 255, .16);
-      background: linear-gradient(180deg, rgba(29, 8, 12, .78), rgba(29, 8, 12, .12));
-    }
-    .nav-wrap {
-      width: min(1320px, calc(100% - 56px));
-      min-height: 88px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 34px;
-    }
-    .brand {
-      display: inline-flex;
-      flex-direction: column;
-      flex: 0 0 auto;
-      text-decoration: none;
-      line-height: 1;
-      letter-spacing: .02em;
-    }
-    .brand strong {
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 28px;
-      letter-spacing: .07em;
-    }
-    .brand span {
-      margin-top: 5px;
-      color: var(--brass);
-      font-size: 9px;
-      font-weight: 800;
-      letter-spacing: .23em;
-      text-transform: uppercase;
-    }
-    .primary-nav {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      margin-left: auto;
-    }
-    .primary-nav > a {
-      position: relative;
-      color: #fff9ed;
-      font-size: 13px;
-      font-weight: 760;
-      letter-spacing: .04em;
-      text-decoration: none;
-    }
-    .primary-nav > a::after {
-      content: "";
-      position: absolute;
-      inset: auto 0 -8px;
-      height: 2px;
-      background: var(--brass);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform .22s ease;
-    }
-    .primary-nav > a:hover::after,
-    .primary-nav > a:focus-visible::after { transform: scaleX(1); }
-    .socials {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding-left: 8px;
-    }
-    .social-link {
-      width: 42px;
-      height: 42px;
-      display: inline-grid;
-      place-items: center;
-      border: 1px solid rgba(255, 255, 255, .4);
-      border-radius: 50%;
-      color: #fff9ed;
-      background: rgba(19, 6, 8, .28);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 15px;
-      font-weight: 800;
-      text-decoration: none;
-      transition: color .2s ease, border-color .2s ease, background .2s ease;
-    }
-    .social-link:hover,
-    .social-link:focus-visible {
-      color: #281014;
-      border-color: var(--brass);
-      background: var(--brass);
-    }
-    .menu-toggle {
-      display: none;
-      width: 46px;
-      height: 46px;
-      margin-left: auto;
-      border: 1px solid rgba(255,255,255,.45);
-      border-radius: 50%;
-      color: #fff;
-      background: rgba(20,6,9,.3);
-      font: inherit;
-      font-weight: 800;
-    }
-
-    .hero {
-      position: relative;
-      min-height: 780px;
-      display: grid;
-      grid-template-columns: minmax(0, 47%) minmax(0, 53%);
-      color: #fff8e9;
-      background: var(--wine-dark);
-      overflow: hidden;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      z-index: 2;
-      inset: 0;
-      pointer-events: none;
-      background: linear-gradient(90deg, rgba(34, 9, 14, .15) 41%, rgba(34, 9, 14, .02) 68%);
-    }
-    .hero-copy {
-      position: relative;
-      z-index: 3;
-      min-width: 0;
-      padding: 176px clamp(44px, 6vw, 96px) 92px max(56px, calc((100vw - 1320px) / 2));
-      background:
-        radial-gradient(circle at 16% 72%, rgba(152, 50, 61, .25), transparent 31%),
-        linear-gradient(135deg, #2d1015, #521623 77%, #681c2b);
-    }
-    .hero-copy::after {
-      content: "1849";
-      position: absolute;
-      right: 18px;
-      bottom: -48px;
-      color: rgba(255, 241, 214, .045);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(180px, 20vw, 310px);
-      font-weight: 700;
-      line-height: 1;
-      pointer-events: none;
-    }
-    .eyebrow {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      margin: 0 0 22px;
-      color: var(--brass);
-      font-size: 12px;
-      font-weight: 850;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-    .eyebrow::before {
-      content: "";
-      width: 42px;
-      height: 1px;
-      background: currentColor;
-    }
-    h1, h2, h3, p { margin-top: 0; }
-    h1, h2, h3 {
-      font-family: Georgia, "Times New Roman", serif;
-      font-weight: 700;
-      line-height: .98;
-    }
-    h1 {
-      max-width: 720px;
-      margin-bottom: 26px;
-      font-size: clamp(54px, 5.7vw, 88px);
-      letter-spacing: -.045em;
-    }
-    .hero-lead {
-      max-width: 600px;
-      margin-bottom: 32px;
-      color: rgba(255, 248, 235, .82);
-      font-size: clamp(17px, 1.4vw, 21px);
-    }
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-    }
-    .btn {
-      min-height: 50px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0 22px;
-      border: 1px solid var(--brass);
-      border-radius: 2px;
-      color: #271012;
-      background: var(--brass);
-      font-size: 13px;
-      font-weight: 850;
-      letter-spacing: .03em;
-      text-decoration: none;
-      transition: transform .2s ease, background .2s ease, color .2s ease;
-    }
-    .btn:hover, .btn:focus-visible { transform: translateY(-2px); }
-    .btn-outline {
-      color: #fff8e9;
-      border-color: rgba(255, 248, 233, .55);
-      background: transparent;
-    }
-    .btn-outline:hover, .btn-outline:focus-visible {
-      color: var(--ink);
-      background: #fff8e9;
-    }
-    .hero-image {
-      position: relative;
-      min-width: 0;
-      min-height: 780px;
-      background: #4a211d;
-    }
-    .hero-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: 51% 50%;
-    }
-    .hero-image::before {
-      content: "";
-      position: absolute;
-      z-index: 1;
-      inset: 0;
-      background:
-        linear-gradient(90deg, rgba(73, 20, 31, .56), transparent 30%),
-        linear-gradient(0deg, rgba(29, 8, 12, .34), transparent 45%);
-      pointer-events: none;
-    }
-    .hero-note {
-      position: absolute;
-      z-index: 2;
-      right: 30px;
-      bottom: 30px;
-      width: min(270px, calc(100% - 60px));
-      padding: 20px 22px;
-      border: 1px solid rgba(255, 255, 255, .25);
-      color: #fff8e9;
-      background: rgba(35, 12, 15, .76);
-      backdrop-filter: blur(8px);
-    }
-    .hero-note strong {
-      display: block;
-      color: var(--brass);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 20px;
-    }
-    .hero-note span {
-      display: block;
-      margin-top: 4px;
-      font-size: 12px;
-      letter-spacing: .04em;
-    }
-
-    .proof-strip {
-      position: relative;
-      z-index: 4;
-      width: min(1110px, calc(100% - 40px));
-      margin: -42px auto 0;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      color: var(--ink);
-      background: var(--cream);
-      box-shadow: var(--shadow);
-    }
-    .proof-item {
-      min-height: 118px;
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 24px 34px;
-      border-right: 1px solid var(--line);
-    }
-    .proof-item:last-child { border-right: 0; }
-    .proof-item strong {
-      flex: 0 0 auto;
-      color: var(--wine);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 37px;
-      line-height: 1;
-    }
-    .proof-item span {
-      color: var(--ink-soft);
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: .06em;
-      text-transform: uppercase;
-    }
-
-    .section {
-      width: min(1180px, calc(100% - 48px));
-      margin: 0 auto;
-      padding: 122px 0;
-    }
-    .section-heading {
-      max-width: 720px;
-      margin-bottom: 54px;
-    }
-    .section-heading h2 {
-      margin-bottom: 18px;
-      font-size: clamp(44px, 5.2vw, 72px);
-      letter-spacing: -.04em;
-    }
-    .section-heading p {
-      max-width: 630px;
-      color: var(--ink-soft);
-      font-size: 18px;
-    }
-    .dark-section {
-      color: #fff8e9;
-      background:
-        linear-gradient(rgba(33, 11, 14, .96), rgba(33, 11, 14, .96)),
-        repeating-linear-gradient(90deg, transparent 0 64px, rgba(255,255,255,.025) 64px 65px);
-    }
-    .dark-section .section-heading p { color: rgba(255, 248, 233, .66); }
-
-    .music-grid {
-      display: grid;
-      grid-template-columns: 1.02fr .98fr;
-      gap: 48px;
-      align-items: stretch;
-    }
-    .photo-frame {
-      position: relative;
-      overflow: hidden;
-      background: #4a2b27;
-      box-shadow: var(--shadow);
-    }
-    .photo-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .music-photo { min-height: 560px; }
-    .music-photo::after {
-      content: "LIVE · DAILY";
-      position: absolute;
-      left: 22px;
-      bottom: 22px;
-      padding: 10px 13px;
-      color: #281013;
-      background: var(--brass);
-      font-size: 11px;
-      font-weight: 900;
-      letter-spacing: .16em;
-    }
-    .schedule {
-      display: grid;
-      align-content: center;
-      border-top: 1px solid rgba(255,255,255,.16);
-    }
-    .schedule-row {
-      display: grid;
-      grid-template-columns: 96px 1fr auto;
-      gap: 18px;
-      align-items: center;
-      min-height: 63px;
-      border-bottom: 1px solid rgba(255,255,255,.16);
-      color: rgba(255,248,233,.74);
-      font-size: 13px;
-    }
-    .schedule-row strong {
-      color: var(--brass);
-      font-size: 11px;
-      letter-spacing: .11em;
-      text-transform: uppercase;
-    }
-    .schedule-row b {
-      color: #fff8e9;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 17px;
-    }
-    .schedule-cta { margin-top: 28px; }
-
-    .food-layout {
-      display: grid;
-      grid-template-columns: .78fr 1.22fr;
-      gap: 56px;
-      align-items: center;
-    }
-    .food-copy h2 {
-      margin-bottom: 22px;
-      font-size: clamp(46px, 5.4vw, 74px);
-      letter-spacing: -.045em;
-    }
-    .food-copy p {
-      margin-bottom: 28px;
-      color: var(--ink-soft);
-      font-size: 18px;
-    }
-    .dish-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0,1fr));
-      gap: 18px;
-    }
-    .dish-card {
-      position: relative;
-      min-width: 0;
-      overflow: hidden;
-      background: #3b1b18;
-      box-shadow: 0 20px 45px rgba(50,21,17,.16);
-    }
-    .dish-card img {
-      width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-    }
-    .dish-card:nth-child(2) { margin-top: 44px; }
-    .dish-label {
-      position: absolute;
-      inset: auto 16px 16px;
-      padding: 14px 16px;
-      color: #fff8e9;
-      background: rgba(36, 13, 14, .84);
-      backdrop-filter: blur(7px);
-    }
-    .dish-label strong {
-      display: block;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 19px;
-    }
-    .dish-label span {
-      color: rgba(255,248,233,.7);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-    }
-
-    .history {
-      display: grid;
-      grid-template-columns: 1.18fr .82fr;
-      min-height: 680px;
-      color: #fff8e9;
-      background: #36151a;
-    }
-    .history-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    .history-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(60px, 8vw, 120px);
-      background:
-        radial-gradient(circle at 100% 0, rgba(187, 99, 72, .23), transparent 40%),
-        #4d1822;
-    }
-    .history-copy h2 {
-      margin-bottom: 24px;
-      font-size: clamp(52px, 6vw, 86px);
-      letter-spacing: -.05em;
-    }
-    .history-copy p {
-      color: rgba(255,248,233,.74);
-      font-size: 18px;
-    }
-    .text-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      width: max-content;
-      margin-top: 16px;
-      color: var(--brass);
-      font-weight: 850;
-      text-decoration: none;
-    }
-    .text-link::after { content: "→"; transition: transform .2s ease; }
-    .text-link:hover::after, .text-link:focus-visible::after { transform: translateX(5px); }
-
-    .visit {
-      display: grid;
-      grid-template-columns: .95fr 1.05fr;
-      gap: 0;
-      color: var(--ink);
-      background: var(--cream);
-      box-shadow: var(--shadow);
-    }
-    .visit-copy {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(48px, 7vw, 86px);
-    }
-    .visit-copy h2 {
-      margin-bottom: 26px;
-      font-size: clamp(48px, 5vw, 72px);
-      letter-spacing: -.045em;
-    }
-    .visit-list {
-      display: grid;
-      gap: 20px;
-      margin: 4px 0 30px;
-    }
-    .visit-list div {
-      padding-bottom: 18px;
-      border-bottom: 1px solid var(--line);
-    }
-    .visit-list strong {
-      display: block;
-      margin-bottom: 4px;
-      color: var(--wine);
-      font-size: 11px;
-      letter-spacing: .13em;
-      text-transform: uppercase;
-    }
-    .visit-list span { color: var(--ink-soft); }
-    .visit-photo { min-height: 600px; }
-    .visit-photo img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .site-footer {
-      color: rgba(255,248,233,.7);
-      background: #1e0d10;
-    }
-    .footer-inner {
-      width: min(1180px, calc(100% - 48px));
-      min-height: 190px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 36px;
-    }
-    .footer-brand {
-      color: #fff8e9;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 28px;
-      font-weight: 700;
-    }
-    .footer-note {
-      max-width: 420px;
-      margin: 0;
-      font-size: 13px;
-    }
-    .footer-links {
-      display: flex;
-      gap: 12px;
-      margin-left: auto;
-    }
-    .mobile-bar { display: none; }
-
-    @media (max-width: 1020px) {
-      .primary-nav > a { display: none; }
-      .hero { grid-template-columns: 1fr 1fr; }
-      .hero-copy { padding-left: 42px; padding-right: 34px; }
-      .proof-item { padding: 22px; }
-      .music-grid, .food-layout { gap: 34px; }
-      .schedule-row { grid-template-columns: 78px 1fr; }
-      .schedule-row span { grid-column: 2; margin-top: -14px; }
-    }
-
-    @media (max-width: 760px) {
-      .site-header {
-        position: absolute;
-        min-height: 74px;
-        background: rgba(31, 10, 13, .92);
-      }
-      .nav-wrap {
-        width: calc(100% - 28px);
-        min-height: 74px;
-        gap: 12px;
-      }
-      .brand strong { font-size: 23px; }
-      .brand span { font-size: 8px; }
-      .primary-nav { display: none; }
-      .socials {
-        margin-left: auto;
-        padding-left: 0;
-      }
-      .social-link {
-        width: 44px;
-        height: 44px;
-        color: #fff9ed;
-        border-color: rgba(255,255,255,.5);
-      }
-      .menu-toggle { display: none; }
-
-      .hero {
-        min-height: auto;
-        display: flex;
-        flex-direction: column;
-      }
-      .hero-copy {
-        min-height: 650px;
-        padding: 132px 24px 68px;
-      }
-      .hero-copy::after {
-        right: -10px;
-        bottom: -8px;
-        font-size: 132px;
-      }
-      .eyebrow {
-        gap: 9px;
-        margin-bottom: 18px;
-        font-size: 10px;
-      }
-      .eyebrow::before { width: 28px; }
-      h1 { font-size: clamp(48px, 14vw, 66px); }
-      .hero-lead { font-size: 17px; }
-      .hero-actions { position: relative; z-index: 2; }
-      .btn {
-        min-height: 52px;
-        padding: 0 18px;
-      }
-      .hero-image { min-height: 420px; }
-      .hero-note {
-        right: 18px;
-        bottom: 18px;
-        width: calc(100% - 36px);
-      }
-      .proof-strip {
-        width: calc(100% - 28px);
-        margin-top: -20px;
-        grid-template-columns: 1fr;
-      }
-      .proof-item {
-        min-height: 86px;
-        border-right: 0;
-        border-bottom: 1px solid var(--line);
-      }
-      .proof-item:last-child { border-bottom: 0; }
-      .proof-item strong { font-size: 31px; }
-
-      .section {
-        width: calc(100% - 36px);
-        padding: 86px 0;
-      }
-      .section-heading { margin-bottom: 38px; }
-      .section-heading h2 { font-size: 46px; }
-      .section-heading p { font-size: 16px; }
-      .music-grid, .food-layout, .history, .visit {
-        grid-template-columns: 1fr;
-      }
-      .music-photo { min-height: 390px; }
-      .schedule-row {
-        grid-template-columns: 72px 1fr;
-        gap: 12px;
-      }
-      .schedule-row span { grid-column: 2; }
-      .food-copy h2 { font-size: 48px; }
-      .dish-grid { gap: 10px; }
-      .dish-card:nth-child(2) { margin-top: 24px; }
-      .dish-label { inset: auto 8px 8px; padding: 11px; }
-      .dish-label strong { font-size: 16px; }
-      .history { min-height: auto; }
-      .history-photo { min-height: 430px; }
-      .history-copy { padding: 70px 24px; }
-      .history-copy h2 { font-size: 55px; }
-      .visit-copy { padding: 62px 24px; }
-      .visit-photo { min-height: 430px; grid-row: 1; }
-
-      .footer-inner {
-        width: calc(100% - 36px);
-        min-height: 260px;
-        padding: 42px 0 102px;
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 18px;
-      }
-      .footer-links { margin-left: 0; }
-      .mobile-bar {
-        position: fixed;
-        z-index: 15;
-        inset: auto 10px 10px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 8px;
-        padding: 8px;
-        border: 1px solid rgba(255,255,255,.15);
-        background: rgba(31, 10, 14, .95);
-        box-shadow: 0 12px 40px rgba(0,0,0,.32);
-        backdrop-filter: blur(10px);
-      }
-      .mobile-bar a {
-        min-height: 50px;
-        display: grid;
-        place-items: center;
-        color: #251013;
-        background: var(--brass);
-        font-size: 12px;
-        font-weight: 900;
-        text-decoration: none;
-      }
-      .mobile-bar a:last-child {
-        color: #fff8e9;
-        border: 1px solid rgba(255,255,255,.45);
-        background: transparent;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { transition-duration: .01ms !important; }
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-
   <header class="site-header">
     <div class="nav-wrap">
-      <a class="brand" href="#top" aria-label="The Laff home">
-        <strong>The Laff</strong>
-        <span>Château Lafayette · Est. 1849</span>
-      </a>
-      <nav class="primary-nav" aria-label="Main navigation">
-        <a href="https://www.thelaff.ca/events" target="_blank" rel="noopener">What's on</a>
-        <a href="https://www.thelaff.ca/menu" target="_blank" rel="noopener">Menu</a>
-        <a href="https://www.thelaff.ca/about" target="_blank" rel="noopener">Our story</a>
-        <a href="#visit">Visit</a>
-      </nav>
-      <div class="socials" aria-label="Official social media">
-        <a class="social-link" href="https://www.instagram.com/thelaffottawa" target="_blank" rel="noopener" aria-label="The Laff on Instagram">IG</a>
-        <a class="social-link" href="https://www.facebook.com/thelaffottawa" target="_blank" rel="noopener" aria-label="The Laff on Facebook">f</a>
+      <a class="brand" href="index.html" aria-label="The Laff home"><strong>The Laff</strong><span>Château Lafayette · Est. 1849</span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">Menu</button>
+      <div class="nav-panel" id="nav-panel">
+        <nav class="primary-nav" aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="visit.html">Visit</a>
+          <a href="https://www.thelaff.ca/events" target="_blank" rel="noopener">Live music</a>
+        </nav>
+        <div class="socials" aria-label="Official social media">
+          <a class="social-link" href="https://www.instagram.com/thelaffottawa" target="_blank" rel="noopener" aria-label="The Laff on Instagram">IG</a>
+          <a class="social-link" href="https://www.facebook.com/thelaffottawa" target="_blank" rel="noopener" aria-label="The Laff on Facebook">FB</a>
+        </div>
       </div>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero" id="top">
-      <div class="hero-copy">
-        <p class="eyebrow">ByWard Market · Ottawa · Est. 1849</p>
-        <h1>Ottawa's oldest tavern. Still making a proper night of it.</h1>
-        <p class="hero-lead">Cold pints, honest pub food and live music every day. No cover. No reservations. Just show up and settle in.</p>
-        <div class="hero-actions">
-          <a class="btn" href="https://www.thelaff.ca/events" target="_blank" rel="noopener">See what's on</a>
-          <a class="btn btn-outline" href="https://www.thelaff.ca/menu" target="_blank" rel="noopener">View the menu</a>
-        </div>
+    <section class="hero" data-section="hero">
+      <div class="hero-media">
+        <img src="assets/laff-hero.webp" width="1600" height="900" alt="The Laff's historic tavern bar in Ottawa" fetchpriority="high">
       </div>
-      <div class="hero-image">
-        <img src="assets/laff-hero.webp" width="1600" height="900" alt="A pint and club sandwich inside The Laff's historic tavern" fetchpriority="high">
-        <div class="hero-note">
-          <strong>Open daily, 11AM–2AM</strong>
-          <span>Kitchen open daily from 11AM · 42 York Street</span>
+      <div class="hero-content">
+        <div class="hero-copy">
+          <p class="eyebrow">Ottawa’s oldest tavern · Est. 1849</p>
+          <h1>Two centuries of stories. Music every night.</h1>
+          <p class="hero-lead">Step into a ByWard Market original for cold drinks, classic pub food and live music every day — always with no cover.</p>
+          <div class="actions">
+            <a class="btn" href="https://www.thelaff.ca/events" target="_blank" rel="noopener">See today’s music</a>
+            <a class="btn btn-outline" href="menu.html">Explore the menu</a>
+          </div>
+          <div class="hero-proof" aria-label="The Laff highlights">
+            <div><strong>1849</strong><span>Established in Ottawa</span></div>
+            <div><strong>Daily</strong><span>Live music · no cover</span></div>
+            <div><strong>11AM–2AM</strong><span>Open every day</span></div>
+          </div>
         </div>
       </div>
     </section>
 
-    <aside class="proof-strip" aria-label="The Laff highlights">
-      <div class="proof-item"><strong>1849</strong><span>Ottawa history<br>still pouring</span></div>
-      <div class="proof-item"><strong>10</strong><span>Live shows<br>every week</span></div>
-      <div class="proof-item"><strong>$0</strong><span>Cover charge<br>every day</span></div>
-    </aside>
+    <section class="section" data-section="intro">
+      <div class="intro-grid">
+        <div class="image-card">
+          <img src="assets/live-music.webp" width="800" height="600" alt="A musician performing live at The Laff" loading="lazy">
+        </div>
+        <div class="intro-copy">
+          <p class="eyebrow">The ByWard Market living room</p>
+          <h2>Historic walls. Very much alive.</h2>
+          <p>The Laff has welcomed neighbours, visitors and generations of musicians since 1849. Come for the history; stay because the room still feels easy, warm and unmistakably Ottawa.</p>
+          <p>There is live music every day and no cover. The official events calendar has the current lineup.</p>
+          <a class="text-link" href="https://www.thelaff.ca/about" target="_blank" rel="noopener">Read the official story</a>
+        </div>
+      </div>
+    </section>
 
-    <section class="dark-section" id="music">
+    <section class="menu-preview" data-section="featured-menu">
       <div class="section">
         <div class="section-heading">
-          <p class="eyebrow">The weekly rhythm</p>
-          <h2>Live music every day. No cover.</h2>
-          <p>From open mic Tuesday and John Carroll Wednesday to Lucky Ron's legendary Saturday afternoon, this room has a soundtrack every day of the week.</p>
+          <p class="eyebrow">Classic tavern favourites</p>
+          <h2>Proper pub food, built for a night out.</h2>
+          <p>Prices below include applicable taxes. The full April 2026 food menu is available on its own easy-to-read page.</p>
         </div>
-        <div class="music-grid">
-          <div class="photo-frame music-photo">
-            <img src="assets/live-music.webp" width="800" height="600" alt="A pint in the foreground during a live performance at The Laff" loading="lazy">
-          </div>
-          <div>
-            <div class="schedule" aria-label="Regular weekly music schedule">
-              <div class="schedule-row"><strong>Monday</strong><b>5-Star Monday Band</b><span>8PM</span></div>
-              <div class="schedule-row"><strong>Tuesday</strong><b>Open Mic</b><span>8PM</span></div>
-              <div class="schedule-row"><strong>Wednesday</strong><b>John Carroll</b><span>8PM</span></div>
-              <div class="schedule-row"><strong>Thursday</strong><b>Thursday Night Live</b><span>9PM</span></div>
-              <div class="schedule-row"><strong>Friday</strong><b>DJ Poundkey · Fire'd Up</b><span>5PM + 9PM</span></div>
-              <div class="schedule-row"><strong>Saturday</strong><b>Lucky Ron · VinylTap</b><span>4PM + 10PM</span></div>
-              <div class="schedule-row"><strong>Sunday</strong><b>Sunday Afternooner + more</b><span>3PM + 8PM</span></div>
-            </div>
-            <a class="btn schedule-cta" href="https://www.thelaff.ca/events" target="_blank" rel="noopener">Check current events</a>
-          </div>
+        <div class="featured-grid">
+          <article class="featured-item" data-featured-item="poutine"><h3>Poutine</h3><p>Fries, cheese curds and gravy, with add-ons available.</p><span class="price">$8 / $12</span></article>
+          <article class="featured-item" data-featured-item="wings"><h3>Chicken or Cauliflower Wings</h3><p>Choose two sauces, from Honey Garlic to Scotch Bonnet Extra Hot.</p><span class="price">$20</span></article>
+          <article class="featured-item" data-featured-item="burger"><h3>Cheeseburger Deluxe</h3><p>Local beef, local bun, cheese, tomato, lettuce, onions, ketchup and mayo.</p><span class="price">$15</span></article>
+          <article class="featured-item" data-featured-item="chicken"><h3>Fried Chicken Sandwich</h3><p>Buttermilk-brined chicken with mild or Nashville medium/hot options.</p><span class="price">$17</span></article>
+        </div>
+        <div class="center-action"><a class="btn" href="menu.html">Read the full food menu</a></div>
+      </div>
+    </section>
+
+    <section class="section" data-section="gallery">
+      <div class="section-heading">
+        <p class="eyebrow">Inside The Laff</p>
+        <h2>A tavern that wears its history well.</h2>
+        <p>Official photography from the bar, stage, kitchen and York Street home.</p>
+      </div>
+      <div class="gallery-grid">
+        <figure class="gallery-item wide" data-gallery-item="bar"><img src="assets/historic-bar.webp" width="800" height="600" alt="The Laff's historic wooden bar" loading="lazy"><span>The historic bar</span></figure>
+        <figure class="gallery-item" data-gallery-item="music"><img src="assets/live-music.webp" width="800" height="600" alt="Live music inside The Laff" loading="lazy"><span>Live every day</span></figure>
+        <figure class="gallery-item" data-gallery-item="poutine"><img src="assets/poutine.webp" width="800" height="600" alt="Poutine served at The Laff" loading="lazy"><span>Poutine</span></figure>
+        <figure class="gallery-item" data-gallery-item="wings"><img src="assets/wings.webp" width="800" height="600" alt="Wings served at The Laff" loading="lazy"><span>Wings</span></figure>
+        <figure class="gallery-item wide" data-gallery-item="stage"><img src="assets/beers-stage.webp" width="800" height="600" alt="Beers beside The Laff's live music stage" loading="lazy"><span>Cold beer, warm stage</span></figure>
+        <figure class="gallery-item" data-gallery-item="food"><img src="assets/pub-food.webp" width="800" height="600" alt="Classic pub food at The Laff" loading="lazy"><span>Pub favourites</span></figure>
+        <figure class="gallery-item" data-gallery-item="street"><img src="assets/york-street.webp" width="800" height="600" alt="The Laff at 42 York Street in Ottawa" loading="lazy"><span>42 York Street</span></figure>
+      </div>
+    </section>
+
+    <section class="hours-section" data-section="hours">
+      <div class="section hours-grid">
+        <div class="hours-copy">
+          <p class="eyebrow">Open daily</p>
+          <h2>There when the Market wakes up — and long after dinner.</h2>
+          <p>Tavern hours are 11AM–2AM every day. Kitchen: Sun–Wed 11AM–10PM; Thu–Sat 11AM–11PM.</p>
+        </div>
+        <div class="hours-list" aria-label="Opening hours">
+          <div class="hours-row" data-day="monday"><strong>Monday</strong><span>11AM–2AM · Kitchen to 10PM</span></div>
+          <div class="hours-row" data-day="tuesday"><strong>Tuesday</strong><span>11AM–2AM · Kitchen to 10PM</span></div>
+          <div class="hours-row" data-day="wednesday"><strong>Wednesday</strong><span>11AM–2AM · Kitchen to 10PM</span></div>
+          <div class="hours-row" data-day="thursday"><strong>Thursday</strong><span>11AM–2AM · Kitchen to 11PM</span></div>
+          <div class="hours-row" data-day="friday"><strong>Friday</strong><span>11AM–2AM · Kitchen to 11PM</span></div>
+          <div class="hours-row" data-day="saturday"><strong>Saturday</strong><span>11AM–2AM · Kitchen to 11PM</span></div>
+          <div class="hours-row" data-day="sunday"><strong>Sunday</strong><span>11AM–2AM · Kitchen to 10PM</span></div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="food">
-      <div class="food-layout">
-        <div class="food-copy">
-          <p class="eyebrow">From the kitchen</p>
-          <h2>Pub food that earns another round.</h2>
-          <p>Poutine piled properly. Wings with the essentials. Plus smoked meat, burgers and fried chicken when the night calls for something serious.</p>
-          <a class="btn" href="https://www.thelaff.ca/menu" target="_blank" rel="noopener">Explore the food &amp; drinks menu</a>
-        </div>
-        <div class="dish-grid">
-          <article class="dish-card">
-            <img src="assets/poutine.webp" width="800" height="600" alt="The Laff poutine with fries, cheese curds and gravy" loading="lazy">
-            <div class="dish-label"><strong>Classic Poutine</strong><span>A late-night essential</span></div>
-          </article>
-          <article class="dish-card">
-            <img src="assets/wings.webp" width="800" height="600" alt="Chicken wings with dip, slaw and a pint at The Laff" loading="lazy">
-            <div class="dish-label"><strong>Chicken Wings</strong><span>Made for the table</span></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="history" id="story">
-      <div class="history-photo">
-        <img src="assets/historic-bar.webp" width="800" height="600" alt="The wood bar and historic interior of The Laff" loading="lazy">
-      </div>
-      <div class="history-copy">
-        <p class="eyebrow">A ByWard Market original</p>
-        <h2>177 years of stories in the walls.</h2>
-        <p>Château Lafayette has stood on York Street since 1849. It remains what a tavern should be: welcoming, unpolished in all the right ways, and full of Ottawa character.</p>
-        <a class="text-link" href="https://www.thelaff.ca/about" target="_blank" rel="noopener">Read The Laff's story</a>
-      </div>
-    </section>
-
-    <section class="section" id="visit">
-      <div class="visit">
+    <section class="section" data-section="visit">
+      <div class="visit-card">
         <div class="visit-copy">
-          <p class="eyebrow">Come find your seat</p>
-          <h2>Right in the Market.</h2>
-          <div class="visit-list">
-            <div><strong>Address</strong><span>42 York Street, Ottawa, ON K1N 5S6</span></div>
-            <div><strong>Hours</strong><span>Open daily 11AM–2AM · Kitchen open daily at 11AM</span></div>
-            <div><strong>Good to know</strong><span>No reservations · No cover for live music</span></div>
+          <p class="eyebrow">Come as you are</p>
+          <h2>Find The Laff in ByWard Market.</h2>
+          <p>No reservations — just come by. For the current music lineup, check the official events calendar before you head over.</p>
+          <div class="detail-list">
+            <div><strong>Address</strong><span>42 York Street, Ottawa, Ontario</span></div>
+            <div><strong>Phone</strong><span>613-241-4747</span></div>
+            <div><strong>Reservations</strong><span>No reservations</span></div>
           </div>
-          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=Chateau+Lafayette+42+York+Street+Ottawa" target="_blank" rel="noopener">Get directions</a>
+          <div class="actions">
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=42+York+Street+Ottawa" target="_blank" rel="noopener">Get directions</a>
+            <a class="btn btn-outline" href="visit.html">Visit details</a>
+          </div>
         </div>
-        <div class="visit-photo">
-          <img src="assets/york-street.webp" width="800" height="600" alt="The Laff storefront and neon sign on York Street at dusk" loading="lazy">
+        <div class="map-wrap">
+          <iframe title="Map to The Laff at 42 York Street" src="https://www.google.com/maps?q=42+York+Street+Ottawa&amp;output=embed" loading="lazy"></iframe>
         </div>
       </div>
     </section>
@@ -875,17 +147,9 @@
   <footer class="site-footer">
     <div class="footer-inner">
       <div class="footer-brand">The Laff</div>
-      <p class="footer-note">Ottawa's oldest tavern · Est. 1849 · Live music every day · 42 York Street</p>
-      <div class="footer-links">
-        <a class="social-link" href="https://www.instagram.com/thelaffottawa" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
-        <a class="social-link" href="https://www.facebook.com/thelaffottawa" target="_blank" rel="noopener" aria-label="Facebook">f</a>
-      </div>
+      <p>Ottawa’s oldest tavern · Est. 1849 · Live music every day · No cover</p>
+      <div class="footer-links"><a href="menu.html">Menu</a><a href="visit.html">Visit</a><a href="https://www.thelaff.ca/events" target="_blank" rel="noopener">Events</a></div>
     </div>
   </footer>
-
-  <nav class="mobile-bar" aria-label="Quick actions">
-    <a href="https://www.thelaff.ca/events" target="_blank" rel="noopener">What's on</a>
-    <a href="https://www.thelaff.ca/menu" target="_blank" rel="noopener">Menu</a>
-  </nav>
 </body>
 </html>
