@@ -8,6 +8,12 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2311100d'/%3E%3Cpath d='M16 40c7 7 25 7 32-8-12-8-26-5-32 8Z' fill='%23f4d000'/%3E%3Cpath d='M23 39c6-4 13-7 22-7' fill='none' stroke='%2311100d' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E">
   <title>Sulla Terra Bistro &amp; Bakery</title>
   <link rel="stylesheet" href="styles.css">
+  <noscript>
+    <style>
+      html:not(.js), html:not(.js) body { overflow-y: auto; }
+      html:not(.js) .menu-scene { position: relative; visibility: visible; opacity: 1; transform: none; }
+    </style>
+  </noscript>
   <script src="script.js" defer></script>
 </head>
 <body>
@@ -34,7 +40,7 @@
     </section>
   </main>
 
-  <section class="menu-scene" data-menu-scene role="dialog" aria-modal="true" aria-labelledby="menu-title" aria-hidden="true">
+  <section class="menu-scene" data-menu-scene role="dialog" aria-modal="false" aria-labelledby="menu-title" aria-hidden="false">
     <img class="menu-photo menu-photo--left" src="assets/menu-croissant.webp" width="420" height="560" alt="Fresh croissants from Sulla Terra" loading="lazy">
     <img class="menu-photo menu-photo--right-top" src="assets/menu-cupcakes.webp" width="420" height="560" alt="Cupcakes from Sulla Terra" loading="lazy">
     <img class="menu-photo menu-photo--right-bottom" src="assets/menu-sandwich.webp" width="420" height="560" alt="A Sulla Terra sandwich with chips" loading="lazy">
@@ -56,17 +62,17 @@
           <article><h3>Original Avocado Toast</h3><strong>$5.50</strong></article>
           <article><h3>Brie &amp; Blackberry Jam Stuffed Brioche French Toast</h3><strong>$7.50</strong></article>
         </section>
-        <section id="panel-lunch" role="tabpanel" aria-labelledby="tab-lunch" data-menu-panel="lunch" hidden>
+        <section id="panel-lunch" role="tabpanel" aria-labelledby="tab-lunch" data-menu-panel="lunch">
           <article><h3>Chicken Caesar Wrap</h3><strong>$7.75</strong></article>
           <article><h3>Italian Panini</h3><strong>$10.75</strong></article>
           <article><h3>Cuban Panini</h3><strong>$10.25</strong></article>
         </section>
-        <section id="panel-bakery" role="tabpanel" aria-labelledby="tab-bakery" data-menu-panel="bakery" hidden>
+        <section id="panel-bakery" role="tabpanel" aria-labelledby="tab-bakery" data-menu-panel="bakery">
           <article><h3>Muffin Tops</h3><strong>$1.25</strong></article>
           <article><h3>Scones</h3><strong>$2.75</strong></article>
           <article><h3>Stuffed Croissant</h3><strong>$4</strong></article>
         </section>
-        <section id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks" data-menu-panel="drinks" hidden>
+        <section id="panel-drinks" role="tabpanel" aria-labelledby="tab-drinks" data-menu-panel="drinks">
           <article><h3>Coffee</h3><strong>$2</strong></article>
           <article><h3>Cappuccino</h3><strong>$3.75</strong></article>
           <article><h3>Mocha Latte</h3><strong>$4</strong></article>

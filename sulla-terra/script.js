@@ -1,3 +1,5 @@
+document.documentElement.classList.add('js');
+
 const homeScene = document.querySelector('[data-home-scene]');
 const menuScene = document.querySelector('[data-menu-scene]');
 const openButtons = [...document.querySelectorAll('[data-open-menu]')];
@@ -12,6 +14,7 @@ let lastFocused = null;
 function setMenuOpen(open) {
   menuScene.classList.toggle('is-open', open);
   menuScene.setAttribute('aria-hidden', String(!open));
+  menuScene.setAttribute('aria-modal', String(open));
   homeScene.inert = open;
   document.body.classList.toggle('menu-open', open);
   openButtons.forEach((button) => button.setAttribute('aria-expanded', String(open)));

@@ -205,20 +205,23 @@ a { -webkit-tap-highlight-color: transparent; }
 .menu-trigger:hover { transform: translateY(-2px); background: var(--paper); }
 
 .menu-scene {
+  color: var(--paper);
+  background: radial-gradient(circle at 18% 18%, rgba(244, 208, 0, .2), transparent 28%), linear-gradient(135deg, var(--ink) 0%, #000 100%);
+}
+
+.js .menu-scene {
   position: fixed;
   z-index: 20;
   inset: 0;
   overflow: hidden;
-  color: var(--paper);
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
-  background: radial-gradient(circle at 18% 18%, rgba(244, 208, 0, .2), transparent 28%), linear-gradient(135deg, var(--ink) 0%, #000 100%);
   transform: scale(1.015);
   transition: opacity .28s ease, transform .28s ease, visibility .28s;
 }
 
-.menu-scene.is-open {
+.js .menu-scene.is-open {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
@@ -348,6 +351,53 @@ a { -webkit-tap-highlight-color: transparent; }
 .menu-photo--left { top: 22%; left: 1.5vw; transform: rotate(-2deg); }
 .menu-photo--right-top { top: 7%; right: 1.5vw; transform: rotate(2deg); }
 .menu-photo--right-bottom { right: 2.5vw; bottom: 5%; transform: rotate(-1deg); }
+
+html:not(.js),
+html:not(.js) body {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+html:not(.js) .menu-scene {
+  position: relative;
+  inset: auto;
+  min-height: 100svh;
+  overflow: visible;
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+}
+
+html:not(.js) .menu-scene__scroll {
+  height: auto;
+  overflow: visible;
+}
+
+html:not(.js) [data-menu-panel] {
+  display: grid !important;
+  margin-top: 34px;
+}
+
+html:not(.js) [data-menu-panel]::before {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: var(--body-size);
+  font-weight: 900;
+  letter-spacing: .1em;
+}
+
+html:not(.js) [data-menu-panel="breakfast"]::before { content: "BREAKFAST"; }
+html:not(.js) [data-menu-panel="lunch"]::before { content: "LUNCH"; }
+html:not(.js) [data-menu-panel="bakery"]::before { content: "BAKERY"; }
+html:not(.js) [data-menu-panel="drinks"]::before { content: "DRINKS"; }
+
+html:not(.js) .menu-tabs,
+html:not(.js) [data-close-menu] {
+  display: none;
+}
+
+html:not(.js) .menu-photo { display: none; }
 
 @supports (height: 100dvh) {
   .home-scene {
