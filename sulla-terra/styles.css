@@ -89,10 +89,68 @@ a { -webkit-tap-highlight-color: transparent; }
   transform: translate(-50%, -50%);
 }
 
-.home-title {
-  margin: 0 0 20px;
+.brand-mark-stack {
+  display: grid;
+  justify-items: center;
+}
+
+.brand-emblem {
+  width: clamp(72px, 6.4vw, 94px);
+  height: auto;
+  color: var(--paper);
+}
+
+.brand-emblem__outer,
+.brand-emblem__inner,
+.brand-emblem__wheat {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.brand-emblem__outer { stroke-width: 1.3; }
+.brand-emblem__inner { stroke-width: 2.1; opacity: .84; }
+.brand-emblem__wheat { stroke-width: 1.4; opacity: .58; }
+
+.brand-emblem__letters {
+  fill: var(--paper);
   font-family: var(--display);
-  font-size: clamp(72px, 11vw, 164px);
+  font-size: 38px;
+  font-style: italic;
+  letter-spacing: -3px;
+}
+
+.brand-emblem__label {
+  fill: var(--accent);
+  font-family: var(--sans);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+}
+
+.line-rule {
+  display: block;
+  width: min(78vw, 920px);
+  height: 1px;
+  margin: 0 auto;
+  background: rgba(255, 253, 244, .72);
+}
+
+.line-connector {
+  display: block;
+  width: 1px;
+  height: clamp(24px, 3.5vh, 38px);
+  background: rgba(255, 253, 244, .72);
+}
+
+.line-connector--lower { margin: 0 auto; }
+.brand-copy { padding: clamp(24px, 3.4vh, 34px) 0; }
+
+.home-title {
+  margin: 0 0 12px;
+  font-family: var(--display);
+  font-size: clamp(54px, 6.8vw, 98px);
   font-weight: 500;
   line-height: .78;
   letter-spacing: -.055em;
@@ -107,9 +165,9 @@ a { -webkit-tap-highlight-color: transparent; }
 }
 
 .home-scene__offering {
-  margin: 0 0 20px;
+  margin: 0;
   color: var(--accent);
-  font-size: clamp(18px, 1.65vw, 25px);
+  font-size: clamp(14px, 1.1vw, 17px);
   font-weight: 600;
   letter-spacing: .14em;
 }
@@ -119,24 +177,34 @@ a { -webkit-tap-highlight-color: transparent; }
   align-items: center;
   justify-content: center;
   flex-wrap: nowrap;
-  gap: clamp(12px, 2.6vw, 40px);
-  width: 100%;
+  gap: 0;
+  width: min(70vw, 760px);
+  margin: 0 auto;
+  border: 1px solid rgba(255, 253, 244, .72);
+  border-radius: 6px;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .home-actions button,
 .home-actions span {
-  padding: 0;
+  display: grid;
+  place-items: center;
+  flex: 1 1 25%;
+  min-height: 58px;
+  padding: 12px 10px;
   border: 0;
   color: var(--paper);
   background: none;
   cursor: pointer;
   font-family: var(--sans);
-  font-size: clamp(16px, 1.35vw, 19px);
-  font-weight: 600;
+  font-size: clamp(13px, 1vw, 16px);
+  font-weight: 500;
   line-height: 1.25;
-  letter-spacing: .025em;
+  letter-spacing: .12em;
 }
+
+.home-actions > * + * { border-left: 1px solid rgba(255, 253, 244, .72); }
 
 .home-actions button:hover,
 .home-actions span:hover { color: var(--accent); }
@@ -350,12 +418,16 @@ html:not(.js) .menu-photo { display: none; }
   body,
   .home-scene { overflow: hidden; }
 
-  .home-scene__content { top: 50%; left: 50%; width: calc(100% - 24px); }
-  .home-title { margin-bottom: 16px; font-size: clamp(64px, 23vw, 94px); }
-  .home-scene__offering { line-height: 1.45; }
-  .home-actions { gap: clamp(7px, 2vw, 12px); }
+  .home-scene__content { top: 50%; left: 50%; width: calc(100% - 20px); }
+  .brand-emblem { width: 68px; }
+  .line-rule { width: calc(100% - 18px); }
+  .line-connector { height: 22px; }
+  .brand-copy { padding: 22px 0; }
+  .home-title { margin-bottom: 10px; font-size: clamp(48px, 15vw, 64px); }
+  .home-scene__offering { font-size: 13px; line-height: 1.4; letter-spacing: .08em; }
+  .home-actions { width: calc(100% - 28px); }
   .home-actions button,
-  .home-actions span { font-size: clamp(13px, 3.45vw, 16px); letter-spacing: 0; }
+  .home-actions span { min-height: 48px; padding: 8px 4px; font-size: clamp(9px, 2.65vw, 11px); letter-spacing: .02em; }
   .menu-scene,
   .menu-scene__scroll { max-width: 100vw; overflow-x: hidden; }
   .menu-scene__scroll { width: 100%; padding: 22px 20px 50px; }
@@ -371,9 +443,12 @@ html:not(.js) .menu-photo { display: none; }
 }
 
 @media (max-height: 680px) {
-  .home-title { margin-bottom: 12px; font-size: clamp(58px, 15vh, 96px); }
-  .home-scene__offering { margin-bottom: 16px; }
-  .home-actions { gap: 12px; }
+  .brand-emblem { width: 62px; }
+  .line-connector { height: 18px; }
+  .brand-copy { padding: 16px 0; }
+  .home-title { margin-bottom: 8px; font-size: clamp(46px, 12vh, 72px); }
+  .home-actions button,
+  .home-actions span { min-height: 46px; }
 }
 
 @media (prefers-contrast: more) {
