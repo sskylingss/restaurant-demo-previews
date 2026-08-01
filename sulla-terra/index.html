@@ -26,17 +26,15 @@
       <a class="wordmark" href="./" aria-label="Sulla Terra home">
         <strong>SULLA TERRA</strong><span>BISTRO &amp; BAKERY</span>
       </a>
-      <nav aria-label="Quick actions">
-        <details class="hours-popover" data-hours-popover>
-          <summary>HOURS</summary>
-          <div><strong>Tuesday–Friday</strong><span>8 AM–2 PM</span><small>Breakfast until 10:30 AM</small></div>
-        </details>
-        <a href="https://maps.google.com/?cid=15548468756834163858" target="_blank" rel="noreferrer"><span>DIRECTIONS</span> <span aria-hidden="true">↗</span></a>
-      </nav>
     </header>
     <section class="home-scene__content" aria-label="Sulla Terra">
       <p class="home-scene__offering">COFFEE · BREAKFAST · LUNCH · BAKERY</p>
-      <button class="menu-trigger" type="button" data-open-menu aria-expanded="false">MENU <span aria-hidden="true">→</span></button>
+      <nav class="home-actions" aria-label="Homepage actions">
+        <button type="button" data-open-menu aria-expanded="false">MENU</button>
+        <span role="link" aria-disabled="true" data-template-action="book">BOOK A TABLE</span>
+        <span role="link" aria-disabled="true" data-template-action="order">ORDER ONLINE</span>
+        <span role="link" aria-disabled="true" data-template-action="directions">DIRECTIONS</span>
+      </nav>
     </section>
   </main>
 
