@@ -1,0 +1,59 @@
+:root { color-scheme: dark; font-family: Montserrat, Arial, sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; min-height: 100%; background: #171310; }
+body { overflow: hidden; }
+.home-scene { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; }
+.home-scene__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -3; }
+.home-scene__shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(180deg, rgba(16,12,9,.58), rgba(17,12,9,.78)); }
+.home-scene__shade::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 46%, transparent 0 22%, rgba(7,5,4,.26) 72%); }
+.home-scene__content { min-height: 100svh; width: min(980px, 92vw); margin: auto; display: grid; place-content: center; justify-items: center; gap: clamp(20px, 3vh, 34px); padding: 34px 0 22px; text-align: center; }
+
+.culinary-mark { position: relative; width: min(760px, 80vw); height: 180px; color: rgba(255,255,255,.9); }
+.pan-mark { position: absolute; left: 50%; top: 5px; width: 142px; height: 112px; transform: translateX(-50%); border: 1.3px solid currentColor; border-radius: 50%; display: grid; align-content: center; justify-items: center; line-height: 1; }
+.pan-mark::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(255,255,255,.68); border-radius: 50%; }
+.pan-mark::after { content: ''; position: absolute; top: 100%; left: 50%; width: 1.3px; height: 61px; background: currentColor; transform: translateX(-50%); }
+.pan-mark__monogram { position: relative; z-index: 1; font: italic 600 39px/1 'Cormorant Garamond', Georgia, serif; letter-spacing: -6px; transform: translateX(-3px) rotate(-4deg); }
+.pan-mark__label { position: relative; z-index: 1; margin-top: 8px; font-size: 10px; letter-spacing: .22em; }
+.utensil { position: absolute; height: 1px; width: calc(50% - 82px); background: currentColor; opacity: .86; }
+.utensil--top-left { top: 63px; left: 0; }
+.utensil--top-right { top: 63px; right: 0; }
+.utensil--bottom-left { top: 156px; left: 0; }
+.utensil--bottom-right { top: 156px; right: 0; }
+.utensil--fork::after { content: '≡'; position: absolute; top: -8px; font: 16px/1 Georgia, serif; transform: rotate(90deg); }
+.utensil--top-left::after, .utensil--bottom-left::after { left: -2px; }
+.utensil--top-right::after, .utensil--bottom-right::after { right: -2px; }
+.utensil--knife::after { content: ''; position: absolute; top: -4px; width: 34px; height: 8px; border: 1px solid currentColor; border-radius: 80% 15% 15% 80%; background: rgba(10,8,7,.15); }
+.utensil--top-right::after, .utensil--bottom-right::after { right: -1px; }
+.utensil--top-left::after, .utensil--bottom-left::after { left: -1px; transform: rotate(180deg); }
+
+.brand-copy { width: 100%; min-width: 0; }
+.brand-copy h1 { width: 100%; margin: 0; color: #fff; font: 500 clamp(44px, 6vw, 78px)/.95 'Cormorant Garamond', Georgia, serif; letter-spacing: .08em; overflow-wrap: anywhere; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,.45); }
+.brand-copy p { margin: 16px 0 0; color: var(--accent); font-size: clamp(13px, 1.25vw, 17px); letter-spacing: .28em; line-height: 1.6; }
+.home-actions { width: min(760px, 88vw); display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(255,255,255,.72); border-radius: 7px; overflow: hidden; }
+.home-action { min-height: 62px; display: grid; place-items: center; padding: 12px 10px; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: .14em; border-left: 1px solid rgba(255,255,255,.55); transition: background .2s ease, color .2s ease; }
+.home-action:first-child { border-left: 0; }
+.home-action:hover, .home-action:focus-visible { background: rgba(255,255,255,.92); color: #171310; outline: none; }
+.concept-note { margin: -12px 0 0; color: rgba(255,255,255,.76); font-size: 12px; letter-spacing: .04em; }
+.social-links { position: absolute; right: 24px; top: 22px; display: flex; gap: 10px; z-index: 2; }
+.social-links a { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.66); border-radius: 50%; color: #fff; text-decoration: none; font-size: 11px; }
+
+@media (max-width: 720px) {
+  .home-scene__content { width: 94vw; gap: 18px; padding: 48px 0 18px; }
+  .culinary-mark { width: 88vw; height: 144px; }
+  .pan-mark { width: 112px; height: 88px; }
+  .pan-mark::after { height: 46px; }
+  .pan-mark__monogram { font-size: 31px; }
+  .pan-mark__label { font-size: 8px; }
+  .utensil { width: calc(50% - 66px); }
+  .utensil--top-left, .utensil--top-right { top: 48px; }
+  .utensil--bottom-left, .utensil--bottom-right { top: 125px; }
+  .brand-copy h1 { font-size: clamp(36px, 12vw, 52px); letter-spacing: .045em; }
+  .brand-copy p { font-size: 12px; letter-spacing: .16em; }
+  .home-actions { grid-template-columns: 1fr 1fr; width: 88vw; }
+  .home-action { min-height: 52px; font-size: 11px; }
+  .home-action:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255,255,255,.55); }
+  .home-action:nth-child(4) { border-top: 1px solid rgba(255,255,255,.55); }
+  .social-links { right: 12px; top: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
