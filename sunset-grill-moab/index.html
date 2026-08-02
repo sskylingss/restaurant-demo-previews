@@ -3,34 +3,24 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="A homepage concept for Sunset Grill">
+  <meta name="description" content="Sunset Grill — steaks, seafood and sunset views above Moab, Utah.">
   <meta name="theme-color" content="#171310">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='29' fill='%23171310' stroke='%23f0d39a' stroke-width='2'/%3E%3Cpath d='M20 19v26M16 19v11c0 4 8 4 8 0V19M44 19c-6 7-6 18 0 20v6' fill='none' stroke='%23f6f0e7' stroke-width='2.5' stroke-linecap='round'/%3E%3C/svg%3E">
-  <title>Sunset Grill — Homepage Concept</title>
+  <title>Sunset Grill | Moab, Utah</title>
   <link rel="stylesheet" href="styles.css">
 </head>
-<body style="--accent:#f6c36c">
+<body class="home-page">
   <main class="home-scene">
-    <img class="home-scene__image" src="assets/hero.webp" width="1600" height="1000" alt="Concept image of a steak dinner overlooking a Moab desert sunset" fetchpriority="high">
+    <img class="home-scene__image" src="assets/hero.webp" width="1536" height="1024" alt="Concept image of a steak dinner overlooking a Moab desert sunset" fetchpriority="high">
     <div class="home-scene__shade" aria-hidden="true"></div>
 
     <section class="home-scene__content" aria-label="Sunset Grill">
-      <div class="culinary-mark" aria-label="Sunset Grill concept logo">
-        <span class="utensil utensil--fork utensil--left utensil--top-left" aria-hidden="true">
-          <svg class="utensil__icon" viewBox="0 0 52 20" focusable="false"><path d="M1 10h31c4 0 7-3 7-7v7m0 0v7m0-7h4V3m0 7h4V3m0 7h4V3"/></svg>
-        </span>
-        <span class="utensil utensil--knife utensil--right utensil--top-right" aria-hidden="true">
-          <svg class="utensil__icon" viewBox="0 0 52 20" focusable="false"><path d="M1 10h31C39 10 46 5 51 3v10H32c-4 0-7-1-10-3"/></svg>
-        </span>
-        <span class="pan-mark">
-          <img class="pan-mark__graphic" src="assets/logo-mark.svg" alt="A setting sun framed by a desert arch">
-        </span>
-        <span class="utensil utensil--knife utensil--left utensil--bottom-left" aria-hidden="true">
-          <svg class="utensil__icon" viewBox="0 0 52 20" focusable="false"><path d="M1 10h31C39 10 46 5 51 3v10H32c-4 0-7-1-10-3"/></svg>
-        </span>
-        <span class="utensil utensil--fork utensil--right utensil--bottom-right" aria-hidden="true">
-          <svg class="utensil__icon" viewBox="0 0 52 20" focusable="false"><path d="M1 10h31c4 0 7-3 7-7v7m0 0v7m0-7h4V3m0 7h4V3m0 7h4V3"/></svg>
-        </span>
+      <a class="pan-mark" href="index.html" aria-label="Sunset Grill home">
+        <img class="pan-mark__graphic" src="assets/logo-mark.svg" alt="Sunset Grill concept logo featuring a setting sun and desert arch">
+      </a>
+
+      <div class="utensil-row utensil-row--top" aria-hidden="true">
+        <span class="line line--left"><svg viewBox="0 0 28 18"><path d="M2 2v5m4-5v5m4-5v5M2 7c0 5 8 5 8 0M6 12v4"/></svg></span>
+        <span class="line line--right"><svg viewBox="0 0 34 18"><path d="M3 15V3c8 1 13 6 13 10H3m13 0h15"/></svg></span>
       </div>
 
       <div class="brand-copy">
@@ -38,13 +28,17 @@
         <p>STEAKS · SEAFOOD · SUNSET VIEWS</p>
       </div>
 
-      <nav class="home-actions" aria-label="Homepage actions">
-        <a class="home-action" href="https://moabsunsetgrill.com/food-menu/" target="_blank" rel="noopener noreferrer">MENU</a>
-          <a class="home-action" href="https://moabsunsetgrill.com/" target="_blank" rel="noopener noreferrer">HOURS &amp; VISIT</a>
-          <a class="home-action" href="https://moabsunsetgrill.com/wedding-photo-gallery/" target="_blank" rel="noopener noreferrer">WEDDINGS &amp; EVENTS</a>
-          <a class="home-action" href="https://moabsunsetgrill.com/map-directions/" target="_blank" rel="noopener noreferrer">DIRECTIONS</a>
+      <div class="utensil-row utensil-row--bottom" aria-hidden="true">
+        <span class="line line--left"><svg viewBox="0 0 28 18"><path d="M2 2v5m4-5v5m4-5v5M2 7c0 5 8 5 8 0M6 12v4"/></svg></span>
+        <span class="line line--right"><svg viewBox="0 0 34 18"><path d="M3 15V3c8 1 13 6 13 10H3m13 0h15"/></svg></span>
+      </div>
+
+      <nav class="home-actions" aria-label="Main navigation">
+        <a href="menu.html">MENU</a>
+        <a href="visit.html">HOURS &amp; VISIT</a>
+        <a href="events.html">WEDDINGS &amp; EVENTS</a>
+        <a href="directions.html">DIRECTIONS</a>
       </nav>
-      <p class="concept-note">Homepage concept · Final details can be adjusted to your preference</p>
     </section>
   </main>
 </body>
