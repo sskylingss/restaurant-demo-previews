@@ -13,3 +13,21 @@
 .brand-copy::after{content:'';position:absolute;right:18%;bottom:-8px;width:11px;height:11px;background:var(--vermilion);box-shadow:inset 0 0 0 2px rgba(255,255,255,.18);transform:rotate(3deg);opacity:.9}
 .page-content{background-color:var(--paper);background-image:radial-gradient(circle at 18% 8%,rgba(109,74,30,.035),transparent 28%),linear-gradient(90deg,rgba(255,255,255,.28),transparent 24%,rgba(255,255,255,.18) 72%,transparent)}
 @media(max-width:760px){.brand-copy::after{right:4%}}
+
+/* The horizontal rules are the utensil handles; only the functional heads sit at the inner ends. */
+.line{height:1.4px;border-radius:99px}
+.line svg{width:42px;height:24px;stroke-width:1.45;background:transparent}
+.pan-mark::before{display:none}
+.pan-mark__graphic{width:132px;height:132px;filter:drop-shadow(0 2px 5px rgba(0,0,0,.28))}
+.site-brand img{filter:drop-shadow(0 1px 2px rgba(0,0,0,.28))}
+.contact-page{max-width:1240px;display:grid;grid-template-columns:.8fr 1.2fr;gap:36px}
+.contact-intro{padding:clamp(32px,4vw,58px);border:1px solid #c9bda9;background:#fbf7f0}
+.contact-intro h2{margin:0;font:600 clamp(40px,5vw,60px)/1 'Cormorant Garamond',Georgia,serif;color:#241c16}
+.contact-intro p{font-size:18px;line-height:1.7}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #c9bda9;border-left:1px solid #c9bda9}
+.contact-card{padding:30px;border-right:1px solid #c9bda9;border-bottom:1px solid #c9bda9;background:rgba(255,255,255,.34)}
+.contact-card span{color:var(--vermilion);font-size:13px;letter-spacing:.16em}
+.contact-card h3{margin:8px 0 10px;font:600 30px/1.1 'Cormorant Garamond',Georgia,serif}
+.contact-card p{min-height:76px;margin:0 0 18px;font-size:16px;line-height:1.6;color:#5d5145}
+.contact-card a{color:#75501f;font-weight:600;overflow-wrap:anywhere}
+@media(max-width:760px){.pan-mark__graphic{width:100px;height:100px}.contact-page,.contact-grid{grid-template-columns:1fr}.contact-card p{min-height:0}}
