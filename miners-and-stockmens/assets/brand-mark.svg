@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Miners and Stockmen’s concept mark</title>
+  <desc id="desc">A Western cattle horn and miner’s pick symbol inside a weathered circular brand.</desc>
+  <g fill="none" stroke="#fff4e3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M153 47c18 28 14 67-9 91-25 27-68 33-99 12-31-22-42-63-25-96 17-35 60-51 96-36 13 5 24 14 32 25" stroke-width="5.7"/>
+    <path d="M150 44c15 24 15 57 1 80M35 143c-20-22-26-53-15-80" stroke-width="1.7" opacity=".75"/>
+    <path d="M48 83c10 3 18 9 24 18 5-11 11-18 18-22 7 4 13 11 18 22 6-9 14-15 24-18-3 13-11 22-24 28-7 3-12 8-18 15-6-7-11-12-18-15-13-6-21-15-24-28Z" stroke-width="2.2"/>
+    <path d="M54 55c28 3 50 15 72 37M116 48c-14 2-25 8-34 18M125 43l10 10-15 5" stroke="#e6a35f" stroke-width="3"/>
+    <circle cx="90" cy="113" r="4" fill="#e6a35f" stroke="none"/>
+  </g>
+</svg>
