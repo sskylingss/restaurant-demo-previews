@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" role="img" aria-labelledby="title desc">
+  <title id="title">Yankee Rebel Tavern concept mark</title>
+  <desc id="desc">A tricorn hat, star and crossed fork and knife within a colonial-style crest.</desc>
+  <g fill="none" stroke="#fff8ea" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M90 12 153 44v54c0 33-25 57-63 70-38-13-63-37-63-70V44Z" stroke-width="3"/>
+    <path d="M90 20 145 48v49c0 28-21 49-55 62-34-13-55-34-55-62V48Z" stroke-width="1.2" opacity=".75"/>
+    <path d="m90 44 5 11 12 1-9 8 3 12-11-6-11 6 3-12-9-8 12-1Z" fill="#e8b85f" stroke="none"/>
+    <path d="M58 97c14-5 24-13 32-25 8 12 18 20 32 25-7 8-18 12-32 12s-25-4-32-12Z" stroke-width="2.5"/>
+    <path d="M59 126 111 79M65 132l52-47M111 78l12 1-2 12" stroke="#e8b85f" stroke-width="2.2"/>
+    <path d="M121 127 69 79M127 121 75 73M69 78l-12 1m15 5-12 1" stroke-width="2.2"/>
+  </g>
+</svg>
