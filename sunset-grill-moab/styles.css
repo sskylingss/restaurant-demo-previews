@@ -31,3 +31,14 @@
 .contact-card p{min-height:76px;margin:0 0 18px;font-size:16px;line-height:1.6;color:#5d5145}
 .contact-card a{color:#75501f;font-weight:600;overflow-wrap:anywhere}
 @media(max-width:760px){.pan-mark__graphic{width:100px;height:100px}.contact-page,.contact-grid{grid-template-columns:1fr}.contact-card p{min-height:0}}
+
+/* Readable offering line, continuous utensils, and the refined editorial hero. */
+.brand-copy p{font-size:clamp(20px,1.8vw,24px);font-weight:600;letter-spacing:.18em;color:#f2c97d;text-shadow:0 2px 12px rgba(0,0,0,.68)}
+.line{height:30px;top:0;background:none}
+.line svg{position:static;top:auto;left:auto;right:auto;width:100%;height:30px;overflow:visible;stroke-width:1.35;stroke-linecap:round;stroke-linejoin:round}
+.line--left svg{transform:none}
+.line--right svg{transform:rotate(180deg)}
+.line .knife-blade{fill:rgba(255,255,255,.18)}
+.pan-mark__graphic{filter:drop-shadow(0 2px 7px rgba(0,0,0,.38))}
+.page-hero{background-image:linear-gradient(180deg,rgba(10,7,5,.35),rgba(10,7,5,.74)),url('assets/hero-photo-v2.webp')}
+@media(max-width:760px){.brand-copy p{font-size:17px;line-height:1.5;letter-spacing:.10em}.line svg{height:24px}}
