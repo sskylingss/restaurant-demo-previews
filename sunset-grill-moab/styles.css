@@ -1,0 +1,80 @@
+:root { color-scheme: dark; font-family: Montserrat, Arial, sans-serif; }
+* { box-sizing: border-box; }
+html, body { margin: 0; min-width: 320px; min-height: 100%; background: #171310; }
+body { overflow: hidden; }
+.home-scene { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; }
+.home-scene__image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; z-index: -3; filter: brightness(1) saturate(.96) contrast(1.02); animation: heroBreathe 18s ease-in-out both; }
+.home-scene__shade { position: absolute; inset: 0; z-index: -2; background: linear-gradient(180deg, rgba(14,10,8,.16), rgba(14,10,8,.28)); }
+.home-scene__shade::after { content: ''; position: absolute; inset: 0; background: radial-gradient(circle at 50% 54%, transparent 0 34%, rgba(5,4,3,.08) 84%); }
+.home-scene__content { position: relative; min-height: 100svh; width: 100%; margin: auto; text-align: center; }
+
+.culinary-mark { position: absolute; inset: 0; width: 100%; height: 100svh; color: rgba(255,255,255,.9); pointer-events: none; }
+.pan-mark { position: absolute; left: 50%; top: 12svh; width: 142px; height: 142px; transform: translateX(-50%); border: 1.3px solid currentColor; border-radius: 50%; display: grid; align-content: center; justify-items: center; line-height: 1; animation: markReveal .8s cubic-bezier(.2,.7,.2,1) both; }
+.pan-mark::before { content: ''; position: absolute; inset: 8px; border: 1px solid rgba(255,255,255,.68); border-radius: 50%; }
+.pan-mark::after { content: ''; position: absolute; top: 100%; left: 50%; width: 1.3px; height: 70px; background: currentColor; transform: translateX(-50%); }
+.pan-mark__monogram { position: relative; z-index: 1; font: italic 600 39px/1 'Cormorant Garamond', Georgia, serif; letter-spacing: -6px; transform: translateX(-3px) rotate(-4deg); }
+.pan-mark__label { position: relative; z-index: 1; margin-top: 8px; font-size: 10px; letter-spacing: .22em; }
+.pan-mark__graphic { position: relative; z-index: 1; width: 96px; height: 96px; object-fit: contain; }
+
+.utensil { position: absolute; left: 50%; height: 1px; width: min(300px, calc(50vw - 110px)); background: currentColor; opacity: .86; animation: utensilReveal .75s .25s cubic-bezier(.2,.7,.2,1) both; }
+.utensil--left { transform: translateX(calc(-100% - 80px)); transform-origin: right center; }
+.utensil--right { transform: translateX(80px); transform-origin: left center; }
+.utensil--top-left, .utensil--top-right { top: 46svh; }
+.utensil--bottom-left, .utensil--bottom-right { top: 68svh; }
+.utensil__icon { position: absolute; top: 50%; width: 52px; height: 20px; overflow: visible; fill: none; stroke: currentColor; stroke-width: 1.15; stroke-linecap: round; stroke-linejoin: round; }
+.utensil--left .utensil__icon { right: -1px; transform: translateY(-50%); }
+.utensil--right .utensil__icon { left: -1px; transform: translateY(-50%) rotate(180deg); }
+
+.brand-copy { position: absolute; left: 50%; top: 56svh; width: min(980px, 92vw); min-width: 0; transform: translate(-50%, -50%); animation: brandReveal .75s .45s ease-out both; }
+.brand-copy h1 { width: 100%; margin: 0; color: #fff; font: 500 clamp(42px, 5.4vw, 76px)/.92 'Cormorant Garamond', Georgia, serif; letter-spacing: .07em; overflow-wrap: anywhere; text-transform: uppercase; text-shadow: 0 4px 24px rgba(0,0,0,.45); }
+.brand-copy p { margin: 16px 0 0; color: var(--accent); font-size: clamp(13px, 1.25vw, 17px); letter-spacing: .28em; line-height: 1.6; }
+.home-actions { position: absolute; left: 50%; top: 73svh; width: min(840px, 88vw); transform: translateX(-50%); display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid rgba(255,255,255,.72); border-radius: 7px; overflow: hidden; animation: brandReveal .7s .7s ease-out both; }
+.home-action { min-height: 62px; display: grid; place-items: center; padding: 12px 10px; color: #fff; text-decoration: none; font-size: 13px; letter-spacing: .14em; border-left: 1px solid rgba(255,255,255,.55); transition: background .2s ease, color .2s ease; }
+.home-action:first-child { border-left: 0; }
+.home-action:hover, .home-action:focus-visible { background: rgba(255,255,255,.92); color: #171310; outline: none; }
+.concept-note { position: absolute; left: 50%; top: calc(73svh + 76px); width: min(760px, 88vw); margin: 0; transform: translateX(-50%); color: rgba(255,255,255,.76); font-size: 12px; letter-spacing: .04em; animation: brandReveal .7s .85s ease-out both; }
+.social-links { position: absolute; right: 24px; top: 22px; display: flex; gap: 10px; z-index: 2; }
+.social-links a { width: 38px; height: 38px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.66); border-radius: 50%; color: #fff; text-decoration: none; font-size: 11px; }
+
+@keyframes utensilReveal {
+  from { scale: .96 1; }
+  to { scale: 1 1; }
+}
+@keyframes brandReveal {
+  from { translate: 0 10px; }
+  to { translate: 0 0; }
+}
+@keyframes markReveal {
+  from { scale: .94; }
+  to { scale: 1; }
+}
+@keyframes heroBreathe {
+  from { scale: 1; }
+  to { scale: 1.025; }
+}
+
+@media (max-width: 720px) {
+  .pan-mark { top: 8svh; width: 108px; height: 108px; }
+  .pan-mark::after { height: 48px; }
+  .pan-mark__monogram { font-size: 31px; }
+  .pan-mark__label { font-size: 8px; }
+  .pan-mark__graphic { width: 74px; height: 74px; }
+  .utensil { width: calc(50vw - 72px); }
+  .utensil--left { transform: translateX(calc(-100% - 56px)); }
+  .utensil--right { transform: translateX(56px); }
+  .utensil--top-left, .utensil--top-right { top: 35svh; }
+  .utensil--bottom-left, .utensil--bottom-right { top: 59svh; }
+  .brand-copy { top: 47svh; width: 94vw; }
+  .brand-copy h1 { font-size: clamp(34px, 11vw, 50px); letter-spacing: .04em; }
+  .brand-copy p { font-size: 12px; letter-spacing: .16em; }
+  .home-actions { top: 65svh; grid-template-columns: 1fr 1fr; width: 88vw; }
+  .home-action { min-height: 52px; font-size: 11px; }
+  .home-action:nth-child(3) { border-left: 0; border-top: 1px solid rgba(255,255,255,.55); }
+  .home-action:nth-child(4) { border-top: 1px solid rgba(255,255,255,.55); }
+  .concept-note { top: calc(65svh + 116px); }
+  .social-links { right: 12px; top: 12px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
