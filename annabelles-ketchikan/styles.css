@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap');
+
+:root{
+  color:#fff8ed;
+  background:#15343a;
+  font-family:Montserrat,Arial,sans-serif;
+  --copper:#e4b86a;
+  --cream:#fff8ea;
+  --line:rgba(255,244,227,.82);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;min-width:320px;min-height:100%;background:#15343a}
+body{overflow:hidden}
+.hero{position:relative;min-height:100svh;overflow:hidden;isolation:isolate}
+.hero__photo{position:absolute;inset:0;z-index:-3;width:100%;height:100%;object-fit:cover;object-position:center 58%;filter:saturate(.92) contrast(1.04) brightness(.88);animation:slowPush 18s ease-out both}
+.hero__veil{position:absolute;inset:0;z-index:-2;background:linear-gradient(180deg,rgba(7,23,27,.34),rgba(7,23,27,.07) 29%,rgba(7,23,27,.11) 61%,rgba(7,23,27,.46)),radial-gradient(circle at center,rgba(5,15,18,.04),rgba(5,15,18,.35))}
+.hero__content{position:relative;min-height:100svh;text-align:center;text-shadow:0 3px 20px rgba(10,5,2,.72)}
+.brand-mark{position:absolute;top:8svh;left:50%;width:154px;height:154px;transform:translateX(-50%);display:grid;place-items:center;text-decoration:none}
+.brand-mark img{position:absolute;inset:0;margin:auto;filter:drop-shadow(0 3px 12px rgba(0,0,0,.55))}
+.brand-mark__brush{width:100%;height:100%}
+.brand-mark__official{width:76%;height:76%;object-fit:contain}
+.reveal-rule{position:absolute;left:50%;top:34svh;width:min(720px,70vw);height:88px;transform:translate(-50%,-50%);display:grid;place-items:center;color:var(--line)}
+.reveal-rule::before{content:'';position:absolute;left:0;right:0;top:50%;height:1px;background:currentColor;transform:scaleX(0);transform-origin:center;animation:ruleOpen .75s .14s cubic-bezier(.2,.75,.2,1) forwards}
+.reveal-rule svg{position:relative;width:102px;height:86px;padding:7px;color:var(--cream);fill:none;stroke:currentColor;stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round;opacity:0;filter:drop-shadow(0 2px 6px rgba(0,0,0,.6));animation:toolReveal .42s .55s ease-out forwards}
+.reveal-rule .knife{fill:rgba(255,244,227,.12)}
+.identity{position:absolute;left:50%;top:49svh;width:min(1050px,94vw);transform:translate(-50%,-50%)}
+.eyebrow{margin:0 0 12px;color:#f2b56f;font-size:clamp(20px,1.65vw,25px);font-weight:600;letter-spacing:.18em;opacity:0;animation:fadeUp .5s .88s ease-out forwards}
+.identity h1{margin:0;font:600 clamp(48px,6.2vw,88px)/.9 'Cormorant Garamond',Georgia,serif;letter-spacing:.025em;text-transform:uppercase;opacity:0;clip-path:inset(0 50%);animation:nameOpen .72s .78s cubic-bezier(.2,.75,.2,1) forwards}
+.identity h1 em{display:block;margin-top:.10em;color:var(--copper);font-size:.38em;font-family:Montserrat,Arial,sans-serif;font-style:normal;font-weight:600;letter-spacing:.14em}
+.offering{margin:15px 0 0;color:var(--cream);font-size:clamp(16px,1.35vw,19px);font-weight:600;letter-spacing:.18em;opacity:0;animation:fadeUp .5s 1.18s ease-out forwards}
+.actions{position:absolute;left:50%;top:63svh;width:min(820px,82vw);transform:translateX(-50%);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);opacity:0;animation:fadeUp .5s 1.38s ease-out forwards}
+.actions a{min-height:62px;display:grid;place-items:center;padding:12px 10px;color:inherit;text-decoration:none;font-size:14px;font-weight:500;letter-spacing:.15em;border-left:1px solid rgba(255,244,227,.48);transition:background .2s,color .2s}
+.actions a:first-child{border-left:0}
+.actions a:hover,.actions a:focus-visible{background:var(--cream);color:#29160d;outline:0;text-shadow:none}
+.legacy{position:absolute;left:50%;bottom:5.5svh;width:90vw;transform:translateX(-50%);margin:0;color:rgba(255,244,227,.9);font:500 16px/1.4 'Cormorant Garamond',Georgia,serif;letter-spacing:.22em;opacity:0;animation:fadeUp .5s 1.52s ease-out forwards}
+
+@keyframes slowPush{from{scale:1}to{scale:1.018}}
+@keyframes ruleOpen{to{transform:scaleX(1)}}
+@keyframes toolReveal{from{opacity:0;scale:.84;rotate:-8deg}to{opacity:1;scale:1;rotate:0deg}}
+@keyframes nameOpen{to{opacity:1;clip-path:inset(0 0)}}
+@keyframes fadeUp{from{opacity:0;translate:0 8px}to{opacity:1;translate:0 0}}
+
+@media(max-width:760px){
+  .hero__photo{object-position:52% center}
+  .brand-mark{top:5svh;width:122px;height:122px}
+  .reveal-rule{top:27svh;width:86vw;height:70px}
+  .reveal-rule svg{width:80px;height:68px}
+  .identity{top:42svh;width:96vw}
+  .eyebrow{font-size:17px;line-height:1.4;letter-spacing:.10em}
+  .identity h1{font-size:clamp(43px,12vw,56px);line-height:.86}
+  .identity h1 span{display:block}
+  .identity h1 em{display:block;margin:.08em 0;font-size:.52em}
+  .offering{margin-top:14px;font-size:16px;line-height:1.5;letter-spacing:.09em}
+  .actions{top:59svh;width:88vw;grid-template-columns:1fr 1fr}
+  .actions a{min-height:54px;font-size:12px}
+  .actions a:nth-child(3){border-left:0;border-top:1px solid rgba(255,244,227,.48)}
+  .actions a:nth-child(4){border-top:1px solid rgba(255,244,227,.48)}
+  .legacy{bottom:4svh;font-size:14px;letter-spacing:.13em}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .reveal-rule::before{transform:none}
+  .reveal-rule svg,.eyebrow,.identity h1,.offering,.actions,.legacy{opacity:1;clip-path:none;translate:none}
+}
